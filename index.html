@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{
+  if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
+  if(sessionStorage.getItem('dg-desktop'))return;
+  if(Math.min(screen.width,screen.height)>760)return;
+  var h=location.hash||''; if(h==='#work-panel'||h==='#home')h=(h==='#home'?'':'#work');
+  location.replace('m/'+h);
+}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/img/demo-01-978f71.png">
