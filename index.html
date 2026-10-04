@@ -8,9 +8,15 @@
 <title>Diana Gordon · Product Designer &amp; Builder</title>
 <meta name="description" content="Diana Gordon, product designer and builder. I design the human control layer of agentic AI in clinical software, and build it in code. Healthcare UX, AI product design and design systems. Remote, US Eastern time.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://dianaglozman.com/">
+<meta property="og:image" content="https://dianaglozman.com/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Diana Gordon, Product Designer and Builder: I design the human control layer of agentic AI in clinical software.">
 <meta property="og:title" content="Diana Gordon · Product Designer &amp; Builder">
 <meta property="og:description" content="Diana Gordon, product designer and builder. I design the human control layer of agentic AI in clinical software, and build it in code. Healthcare UX, AI product design and design systems. Remote, US Eastern time.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dianaglozman.com/assets/img/og-image.jpg">
 <meta name="twitter:title" content="Diana Gordon · Product Designer &amp; Builder">
 <meta name="twitter:description" content="Diana Gordon, product designer and builder. I design the human control layer of agentic AI in clinical software, and build it in code. Healthcare UX, AI product design and design systems. Remote, US Eastern time.">
 <style>
@@ -2765,11 +2771,6 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
 .dgc-ghost{display:inline-flex;align-items:center;height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--t-ink,var(--ink));font:500 15px/1 var(--sans);text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s}
 .dgc-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ---- mock controls (only when no endpoint is configured) ---- */
-.dgc-mock{position:fixed;left:16px;bottom:16px;z-index:10060;display:none;gap:8px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--card);border:1px dashed var(--line);font:500 11.5px/1 var(--mono);letter-spacing:.04em;color:var(--t-mute,var(--muted))}
-.dgc.on ~ .dgc-mock.show{display:flex}
-@media (max-width:640px){.dgc-mock{left:auto;right:12px;bottom:auto;top:12px;z-index:10060}}
-.dgc-mock label{display:inline-flex;gap:6px;align-items:center;cursor:pointer;color:var(--t-ink,var(--ink))}
 </style>
 
 <div class="dgc" id="dgContact" role="dialog" aria-modal="true" aria-labelledby="dgcTitle" aria-describedby="dgcLede" aria-hidden="true">
@@ -2829,16 +2830,14 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
     </div>
   </div>
 </div>
-<div class="dgc-mock" id="dgcMock"><span>MOCK</span><label><input type="radio" name="dgcMockMode" value="ok" checked> succeed</label><label><input type="radio" name="dgcMockMode" value="fail"> fail</label></div>
 
 <script id="dg-contact-js">
 (function(){
-  // Set this to your Basin endpoint, e.g. 'https://usebasin.com/f/xxxxxxxx'. Empty = mock mode (no network).
+  // Basin form endpoint for the contact form.
   var ENDPOINT = 'https://usebasin.com/f/4af5954990da';
 
   var root=document.getElementById('dgContact'), form=document.getElementById('dgcForm'), ok=document.getElementById('dgcOk');
   var send=document.getElementById('dgcSend'), body=document.getElementById('dgcBody'), count=document.getElementById('dgcCount');
-  var mock=document.getElementById('dgcMock'); if(!ENDPOINT) mock.classList.add('show');
   var last=null, reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function focusables(){ return [].filter.call(root.querySelectorAll('a[href],button,input,textarea,[tabindex]:not([tabindex="-1"])'),function(el){ return !el.disabled && el.offsetParent!==null; }); }
@@ -2881,7 +2880,6 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
   }
 
   function deliver(data){
-    if(!ENDPOINT){ var fail=mock.querySelector('input[value="fail"]').checked; return new Promise(function(res,rej){ setTimeout(function(){ fail?rej(new Error('mock')):res(); }, 1300); }); }
     return fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:data}).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json().catch(function(){ return {}; }); }).then(function(j){ if(j && j.success===false) throw new Error(j.error||'rejected'); });
   }
 
