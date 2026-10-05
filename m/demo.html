@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="../assets/img/mark-light.svg">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Human Control Layer, Live · Diana Gordon</title>
-<link rel="icon" type="image/png" href="img/978f71856c.png">
 <style>
   :root { --paper:#F9FAFE; --ink:#1E2029; --muted:#666B7A; --line:#E4E7F1; --accent:#2771F5; --peri:#5B6FE4;
     --ui-surface:#FFFFFF; --ui-surface-2:#F7F8FC; --ui-border:#E7E9F2; --ui-border-strong:#DBDFEE; --ui-text:#242735; --ui-text-2:#6B7080;
@@ -977,6 +979,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 .case-back-top{display:none!important}
 @media(min-width:720px){.mbar{left:50%;right:auto;width:420px;transform:translateX(-50%)}}
 </style>
+<style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .dg-mark,.case-home-mark .dg-mark{height:17px;vertical-align:0}</style>
 </head>
 <body>
 <script id="m-theme">(function(){function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark')document.body.classList.add('dark');else if(t==='light')document.body.classList.remove('dark');}catch(e){}}
@@ -986,7 +989,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
 
 <canvas id="demoWeave" aria-hidden="true"></canvas>
 <header class="case-topbar" id="caseTopbar" aria-label="Prototype navigation">
-  <a href="index.html" class="nav-logo case-home-link" id="demoHomeLogo" aria-label="Back to home">D<em>.</em></a>
+  <a href="index.html" class="nav-logo case-home-link" id="demoHomeLogo" aria-label="Back to home"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></a>
   <div class="case-top-actions">
     <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle light or dark">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
