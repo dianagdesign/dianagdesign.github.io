@@ -562,9 +562,12 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 <style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .dg-mark,.case-home-mark .dg-mark{height:17px;vertical-align:0}</style>
 </head>
 <body>
-<script id="m-theme">(function(){function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark')document.body.classList.add('dark');else if(t==='light')document.body.classList.remove('dark');}catch(e){}}
-apply();addEventListener('DOMContentLoaded',apply);addEventListener('load',function(){apply();setTimeout(apply,50);});
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#themeToggle');if(!b)return;setTimeout(function(){try{localStorage.setItem('dg-theme',document.body.classList.contains('dark')?'dark':'light')}catch(e){}},0);},true);})();</script>
+<script id="m-theme">(function(){
+function set(d){document.documentElement.setAttribute('data-theme',d?'dark':'light');document.body.classList.toggle('dark',d);}
+function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light')set(t==='dark');}catch(e){}}
+apply();addEventListener('DOMContentLoaded',apply);
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#themeToggle,#articleThemeToggle');if(!b)return;
+setTimeout(function(){try{var d=document.documentElement.getAttribute('data-theme')==='dark'||(!document.documentElement.getAttribute('data-theme')&&document.body.classList.contains('dark'));document.body.classList.toggle('dark',d);localStorage.setItem('dg-theme',d?'dark':'light');}catch(e){}},0);},true);})();</script>
 <header class="case-topbar" id="articleTopbar" aria-label="Article navigation">
   <a href="index.html" class="case-home-mark" id="articleHomeLogo" aria-label="Return to home"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></a>
   <div class="case-top-actions">
