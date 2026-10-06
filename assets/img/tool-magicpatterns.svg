@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" role="img" aria-label="Magic Patterns">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 65C0 29.1015 29.1015 0 65 0V65H0Z" fill="#8DA4EF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 130C0 94.1015 29.1015 65 65 65V130H0Z" fill="#E592A2"/>
+<path d="M97.5 65C115.449 65 130 50.4493 130 32.5C130 14.5507 115.449 0 97.5 0C79.5507 0 65 14.5507 65 32.5C65 50.4493 79.5507 65 97.5 65Z" fill="#ED8A5C"/>
+<path d="M97.5 97.5L65 65H130V130L97.5 97.5Z" fill="#56BA9F"/>
+</svg>

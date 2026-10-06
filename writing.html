@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Writing · Diana Gordon</title>
+<meta name="description" content="Writing by Diana Gordon, 2016 to 2026: human oversight of AI, research methods, journey mapping, and the UX career.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="assets/img/mark-light.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://dianagordon.design/writing.html">
+<style>
+@font-face{font-family:'Funnel Display';font-weight:400;font-display:swap;src:url(assets/fonts/funnel-display-400.woff2) format('woff2')}
+@font-face{font-family:'Funnel Display';font-weight:500;font-display:swap;src:url(assets/fonts/funnel-display-500.woff2) format('woff2')}
+@font-face{font-family:'Funnel Sans';font-weight:400;font-display:swap;src:url(assets/fonts/funnel-sans-400.woff2) format('woff2')}
+@font-face{font-family:'Funnel Sans';font-weight:500;font-display:swap;src:url(assets/fonts/funnel-sans-500.woff2) format('woff2')}
+@font-face{font-family:'Funnel Sans';font-weight:600;font-display:swap;src:url(assets/fonts/funnel-sans-600.woff2) format('woff2')}
+@font-face{font-family:'Geist Mono';font-weight:400;font-display:swap;src:url(assets/fonts/geist-mono-400.woff2) format('woff2')}
+@font-face{font-family:'Geist Mono';font-weight:500;font-display:swap;src:url(assets/fonts/geist-mono-500.woff2) format('woff2')}
+:root{--paper:#FBFAF8;--card:#FFFFFF;--ink:#1E2029;--ink2:#4A4F5E;--muted:#666B7A;--label:#2456D6;--peri:#5B6FE4;--rule:#E6E8EF;--tint:#EEF1FB;
+  --display:'Funnel Display',system-ui,sans-serif;--sans:'Funnel Sans',system-ui,sans-serif;--mono:'Geist Mono',ui-monospace,monospace}
+body.dark{--paper:#080D1E;--card:#10172E;--ink:#EEF1FA;--ink2:rgba(231,234,246,.78);--muted:#A5ADC4;--label:#7FA1FF;--peri:#8EA2FF;--rule:rgba(122,151,225,.18);--tint:#141D3A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;pointer-events:none}
+.top>*{pointer-events:auto}
+.tile{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;text-decoration:none;font:italic 500 22px/1 var(--display);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 24px rgba(98,125,224,.14);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);color:var(--ink)}
+.tile .dg-mark{height:18px;width:auto;display:block}
+body.dark .tile{background:rgba(16,22,48,.66);border-color:rgba(255,255,255,.18)}
+.acts{display:flex;gap:8px;align-items:center}
+.back{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px;border:1px solid var(--rule);border-radius:999px;background:rgba(255,255,255,.72);color:var(--ink);font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body.dark .back{background:rgba(16,22,48,.66);border-color:rgba(255,255,255,.18)}
+.theme{width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:rgba(255,255,255,.72);display:grid;place-items:center;color:var(--ink);cursor:pointer}
+body.dark .theme{background:rgba(16,22,48,.66);border-color:rgba(255,255,255,.18)}
+.theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme .sun{display:none} body.dark .theme .sun{display:block} body.dark .theme .moon{display:none}
+.wrap{max-width:860px;margin:0 auto;padding:40px 24px 120px}
+.eyebrow,.lbl{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--label);margin:0 0 14px}
+h1{font:400 clamp(36px,6vw,58px)/1.05 var(--display);letter-spacing:-.02em;margin:0 0 18px}
+.lede{font-size:19px;color:var(--ink2);max-width:40ch;margin:0 0 56px}
+.feat{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;padding:32px;border:1px solid rgba(145,164,255,.48);border-radius:4px;background:radial-gradient(circle at 18% 18%,rgba(98,125,224,.18),transparent 34%),linear-gradient(180deg,rgba(255,255,255,.68),rgba(241,244,255,.40));text-decoration:none;margin:0 0 64px}
+body.dark .feat{background:radial-gradient(circle at 22% 18%,rgba(98,125,224,.2),rgba(98,125,224,0) 40%),linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));border-color:rgba(255,255,255,.15)}
+.feat h2{font:400 30px/1.15 var(--display);letter-spacing:-.015em;margin:0 0 10px}
+.feat p{margin:0 0 18px;color:var(--ink2);font-size:16px}
+.feat .go{font-weight:500;color:var(--label);font-size:14px}
+.tri{list-style:none;margin:0;padding:0;display:grid;gap:12px;align-self:center}
+.tri li{display:grid;grid-template-columns:28px 1fr;gap:6px;font-size:14px;color:var(--ink2)}
+.tri i{font:500 11px/1.9 var(--mono);color:var(--label)}.tri b{display:block;font-weight:500;color:var(--ink)}
+.note{font-size:14px;color:var(--muted);margin:0 0 28px}
+.group{margin:0 0 44px}
+.group .lbl{margin-bottom:6px}
+.item{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:22px 0;border-top:1px solid var(--rule)}
+.item:last-child{border-bottom:1px solid var(--rule)}
+.when{font:500 12px/1.9 var(--mono);color:var(--muted);letter-spacing:.04em}
+.item h3{font:500 17px/1.35 var(--sans);margin:0 0 4px}
+.item h3 a{text-decoration:none;border-bottom:1px solid rgba(98,125,224,.35)}
+.item h3 a:hover{border-bottom-color:var(--label);color:var(--label)}
+.item .where{font-size:13px;color:var(--muted);margin:0 0 6px}
+.item p{margin:0;font-size:15px;color:var(--ink2)}
+.item .ja{display:inline-block;margin-top:8px;font-size:13px;color:var(--muted)}
+.item .ja a{color:var(--label)}
+.ext{white-space:nowrap}
+@media(max-width:760px){.feat{grid-template-columns:1fr;padding:24px}.item{grid-template-columns:1fr;gap:6px;padding:18px 0}.lede{margin-bottom:40px}}
+</style>
+</head>
+<body>
+<script>(function(){try{var t=window.parent&&window.parent!==window?window.parent.__dgTheme:null;if(t==='dark')document.body.classList.add('dark');else if(!t&&localStorage.getItem('dg-theme')==='dark')document.body.classList.add('dark');}catch(e){}
+window.addEventListener('message',function(e){if(e.data&&e.data.type==='dg-theme'){document.body.classList.toggle('dark',e.data.theme==='dark');}});
+document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a||window.parent===window)return;var h=a.getAttribute('href')||'';
+ if(h.indexOf('index.html#article')===0){e.preventDefault();parent.postMessage({type:'open-article'},'*');}
+ else if(h.indexOf('index.html')===0){e.preventDefault();parent.postMessage({type:'close-writing'},'*');}},true);
+try{if(window.parent!==window)parent.postMessage({type:'dg-theme-ready'},'*');}catch(e){}})();</script>
+<div class="top">
+  <a href="index.html" class="tile" aria-label="Diana Gordon, home"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--peri)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></a>
+  <div class="acts">
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <a href="index.html#work-panel" class="back"><span aria-hidden="true">&larr;</span> Back to work</a>
+  </div>
+</div>
+
+<main class="wrap">
+  <p class="eyebrow">Writing &middot; 2016 to 2026</p>
+  <h1>Writing</h1>
+  <p class="lede">I&rsquo;ve been writing about design since before my first UX role, from research methods to how people stay in charge of AI.</p>
+
+  <a class="feat" href="index.html#article">
+    <div>
+      <p class="lbl">Featured &middot; 2026</p>
+      <h2>Control That Means Something</h2>
+      <p>A framework for human oversight of AI that acts on its own.</p>
+      <span class="go">Read the article &rarr;</span>
+    </div>
+    <ol class="tri">
+      <li><i>01</i><div><b>Boundary</b>Where the AI must stop and a person must act.</div></li>
+      <li><i>02</i><div><b>Control</b>What a person can do about it: confirm, edit, pause, override.</div></li>
+      <li><i>03</i><div><b>Legibility</b>Making the AI&rsquo;s reasoning something a person can check.</div></li>
+    </ol>
+  </a>
+
+  <p class="note">Earlier writing was published as Diana Glozman. Links open on the original sites.</p>
+
+  <section class="group" aria-labelledby="g1">
+    <p class="lbl" id="g1">Research and methods</p>
+    <article class="item">
+      <div class="when">2020 &ndash; 2021</div>
+      <div>
+        <h3><a href="https://uxbooth.com/author/dglozman/" target="_blank" rel="noopener">Journey Mapping During the &ldquo;New Normal&rdquo;</a> <span class="ext">&middot; three-part series</span></h3>
+        <p class="where">UX Booth</p>
+        <p>Mapping an entire company&rsquo;s customer and business operations journey remotely, from stakeholder research through service blueprints.</p>
+        <span class="ja">Part 1 was translated into Japanese and republished by UX MILK. <a href="https://uxmilk.jp/91591" target="_blank" rel="noopener">Japanese edition &rarr;</a></span>
+      </div>
+    </article>
+    <article class="item">
+      <div class="when">2021</div>
+      <div>
+        <h3><a href="https://medium.com/design-bootcamp/leveraging-mobile-ethnography-technology-for-field-visits-71368987434c" target="_blank" rel="noopener">Leveraging mobile ethnography technology for field visits</a></h3>
+        <p class="where">Bootcamp, on Medium</p>
+        <p>How mobile ethnography tools can stand in for, or extend, in-person field research.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" aria-labelledby="g2">
+    <p class="lbl" id="g2">Career and community</p>
+    <article class="item">
+      <div class="when">2024</div>
+      <div>
+        <h3><a href="https://uxpamagazine.org/reflections-on-the-2024-uxpa-international-conference/" target="_blank" rel="noopener">Reflections on the 2024 UXPA International Conference</a></h3>
+        <p class="where">UXPA Magazine</p>
+        <p>Takeaways from the conference and why staying connected to the UX community matters.</p>
+      </div>
+    </article>
+    <article class="item">
+      <div class="when">2020</div>
+      <div>
+        <h3><a href="https://www.uxbooth.com/articles/how-to-climb-the-ux-career-ladder/" target="_blank" rel="noopener">How to Climb the UX Career Ladder</a></h3>
+        <p class="where">UX Booth</p>
+        <p>Practical steps for moving from an associate role toward senior work.</p>
+      </div>
+    </article>
+    <article class="item">
+      <div class="when">2016</div>
+      <div>
+        <h3><a href="https://medium.com/@diana_diana/making-the-leap-from-esl-to-ux-c7ba893e2a0d" target="_blank" rel="noopener">Making the leap from ESL to UX</a></h3>
+        <p class="where">Medium</p>
+        <p>Five skills that carry from teaching English abroad into UX design, written while making that transition.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" aria-labelledby="g3">
+    <p class="lbl" id="g3">Editorial</p>
+    <article class="item">
+      <div class="when">2017</div>
+      <div>
+        <h3>Technical editor, <em>The Non-Designer&rsquo;s Guide to Design Thinking</em></h3>
+        <p class="where">English edition of the book by Kunitake Saso</p>
+        <p>Reviewed the English edition for accuracy and clarity of the design thinking methods.</p>
+      </div>
+    </article>
+    <article class="item">
+      <div class="when">&nbsp;</div>
+      <div>
+        <h3>Research methods writing for Indeemo</h3>
+        <p class="where">Indeemo blog</p>
+        <p>Articles on mobile ethnography and remote UX research methods.</p>
+      </div>
+    </article>
+  </section>
+</main>
+
+<script>
+(function(){ var b=document.getElementById('theme');
+  function sync(){ var d=document.body.classList.contains('dark'); b.setAttribute('aria-pressed',d?'true':'false'); b.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode'); }
+  b.addEventListener('click',function(){ document.body.classList.toggle('dark'); try{localStorage.setItem('dg-theme',document.body.classList.contains('dark')?'dark':'light')}catch(e){} try{if(window.parent!==window)parent.postMessage({type:'dg-theme-change',theme:document.body.classList.contains('dark')?'dark':'light'},'*');}catch(e){} sync(); }); sync(); })();
+</script>
+<script id="esc-up">(function(){if(parent===window)return;addEventListener('keydown',function(e){
+if(e.key!=='Escape')return;setTimeout(function(){if(e.defaultPrevented)return;try{parent.postMessage({type:'esc-overlay'},'*');}catch(_){}} ,0);});})();</script>
+</body>
+</html>

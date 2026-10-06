@@ -954,6 +954,10 @@
     display:none; background:#F6F7F8;
   }
   #articleOverlay.open { display:block; }
+  #writingOverlay { position:fixed; inset:0; z-index:10001; display:none; background:#FBFAF8; }
+  #writingOverlay.open { display:block; }
+  #writingFrame { display:block; width:100%; height:100%; border:0; background:#FBFAF8; }
+  body.dark #writingOverlay, body.dark #writingFrame { background:#080D1E; }
   #articleFrame { display:block; width:100%; height:100%; border:0; background:#F6F7F8; }
 
   #caseOverlay { position:fixed; inset:0; z-index:10002; display:none; background:#F9FAFE; }
@@ -1433,6 +1437,8 @@ html:root body .wk-reel.ready .wk-ph{transition:none!important}
 html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(255,255,255,.12);--card:#10172E;--tint:#141D3A;--accent:#7FA1FF;--peri:#8EA2FF;background:#080D1E;color:#EEF1FA}
 </style>
 <style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .logo-mono .dg-mark{height:16px;vertical-align:0}</style>
+<style id="wr-more-css">.card-foot .wr-more{margin-left:auto;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:1px solid transparent}.card-foot .wr-more:hover{color:var(--ink);border-bottom-color:currentColor}@media(max-width:760px){.card-foot{flex-wrap:wrap}.card-foot .wr-more{margin-left:0}}</style>
+<style id="tool-chatgpt-dark">body.dark .tool-item[aria-label="ChatGPT"] .tool-icon img{filter:invert(1) brightness(1.7)}</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -1559,7 +1565,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
       <p class="wk-meta">2026 &middot; Mayo Clinic &middot; Research data</p>
       <h3 class="wk-title" id="wk-t-adcm">Getting decades of research data back within <em>reach</em></h3>
       <p class="wk-lede">I built a working prototype of the MVP, and leadership approved the build after seeing it run. Now four developers build from my prototype, which will connect research teams and 25 core labs to one catalog.</p>
-      <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Build approved after the prototype demo, release 1 in development. AI mapping designed, not yet shipped</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>4 developers building from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>Conflict flow cut from four options to one&nbsp;question</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>Held the line: nothing reaches the catalog without&nbsp;validation</span></li></ul>
+      <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Build approved after the prototype demo, release 1 in development</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>4 developers building from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>Conflict flow cut from four options to one&nbsp;question</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>Held the line: nothing reaches the catalog without&nbsp;validation</span></li></ul>
       <div class="wk-row">
         <a href="#case-adcm" class="wk-cta js-open-case" data-case="adcm" data-glyph="pipette">Full case study <span aria-hidden="true">&rarr;</span></a>
         <div class="wk-nav" aria-label="Animated screens">
@@ -1617,6 +1623,11 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
         <h3>More work, with outcomes</h3>
         <div class="also-card-list">
           <div class="sh-row">
+            <div class="sh-num"><b>1 mo</b><span>to build</span></div>
+            <div class="sh-what"><strong>Research support tool</strong><span class="sh-org">Mayo Clinic</span></div>
+            <p class="sh-desc">I designed a tool for the research support team that helps researchers find reusable patient data across the data catalog, prototyped in code so the developers could build it quickly. Idea to daily use in a month. The team calls it by my name.</p>
+          </div>
+          <div class="sh-row">
             <div class="sh-num"><b>92.9</b><span>SUS, 6 SMEs</span></div>
             <div class="sh-what"><strong>Research pharmacy platform</strong><span class="sh-org">Mayo Clinic</span></div>
             <p class="sh-desc">The developers came from legacy clinical systems with no design-system habits, so I kept research-backed documentation visible instead of arguing each decision. UAT validated the patterns they had doubted, and they became the team’s default. Shipped two months early and used by the whole pharmacy team (34 of 34).</p>
@@ -1661,7 +1672,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
           <div class="card-eyebrow">Writing</div>
           <h3>Control That Means Something</h3>
           <p>A framework for human oversight of AI that acts on its own.</p>
-          <div class="card-foot"><span class="card-status" style="color:var(--accent);">Read the article &rarr;</span></div>
+          <div class="card-foot"><span class="card-status" style="color:var(--accent);">Read the article &rarr;</span><span class="wr-more" role="link" tabindex="0" data-href="writing.html">More writing, 2016 to 2026 &rarr;</span></div>
         </div>
         <ol class="wr-tri">
           <li><i>01</i><b>Boundary</b><span>Where the AI must stop and a person must act.</span></li>
@@ -1686,10 +1697,22 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
         </div><span class="tool-name">Figma</span>
       </div>
 
+      <div class="tool-item" role="listitem" aria-label="Magic Patterns">
+        <div class="tool-icon" aria-hidden="true">
+          <img class="brand-logo" src="assets/img/tool-magicpatterns.svg" alt="" width="64" height="64" decoding="async">
+        </div><span class="tool-name">Magic Patterns</span>
+      </div>
+
       <div class="tool-item" role="listitem" aria-label="Claude Code">
         <div class="tool-icon" aria-hidden="true">
           <svg class="brand-logo " aria-hidden="true" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Claude</title><path fill="#D97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>
         </div><span class="tool-name">Claude Code</span>
+      </div>
+
+      <div class="tool-item" role="listitem" aria-label="ChatGPT">
+        <div class="tool-icon" aria-hidden="true">
+          <img class="brand-logo" src="assets/img/tool-chatgpt.svg" alt="" width="64" height="64" decoding="async">
+        </div><span class="tool-name">ChatGPT</span>
       </div>
 
       <div class="tool-item" role="listitem" aria-label="GitHub">
@@ -2328,6 +2351,10 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   <iframe id="articleFrame" title="Control That Means Something, field analysis"></iframe>
 </div>
 
+<div id="writingOverlay" aria-hidden="true">
+  <iframe id="writingFrame" title="Writing, 2016 to 2026"></iframe>
+</div>
+
 <div id="caseOverlay" aria-hidden="true">
   <iframe id="caseFrame" title="Selected portfolio case study"></iframe>
 </div>
@@ -2340,6 +2367,8 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   var articleOverlay=document.getElementById('articleOverlay');
   var articleFrame=document.getElementById('articleFrame');
   var caseOverlay=document.getElementById('caseOverlay');
+  var writingOverlay=document.getElementById('writingOverlay'), writingFrame=document.getElementById('writingFrame'), writingLoaded=false;
+  function ensureWriting(){ if(!writingLoaded){ writingFrame.src='writing.html'; writingLoaded=true; } }
   var caseFrame=document.getElementById('caseFrame');
   if(!demoOverlay||!demoFrame||!articleOverlay||!articleFrame||!caseOverlay||!caseFrame) return;
 
@@ -2351,7 +2380,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
     mips:'case-mips.html',
     qd:'case-qd.html'
   };
-  var BASE_TITLE=document.title, TITLES={'#full-prototype':'The Human Control Layer, Live','#article':'Control That Means Something','#case-rsm':'Agentic Study Startup','#case-adcm':'Research Catalog Intake','#case-mips':'Medicare Quality Reporting','#case-qd':'Retina Market Analytics'};
+  var BASE_TITLE=document.title, TITLES={'#full-prototype':'The Human Control Layer, Live','#article':'Control That Means Something','#writing':'Writing','#case-rsm':'Agentic Study Startup','#case-adcm':'Research Catalog Intake','#case-mips':'Medicare Quality Reporting','#case-qd':'Retina Market Analytics'};
   function fromOurFrame(src){ return !!src && [].some.call(document.querySelectorAll('iframe'),function(f){ return f.contentWindow===src; }); }
   var demoLoaded=false, articleLoaded=false, currentCase=null;
   /* ===== Selected Works reel: load each case's animated screens into its carousel ===== */
@@ -2406,11 +2435,13 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
     demoOverlay.classList.remove('open'); demoOverlay.setAttribute('aria-hidden','true');
     articleOverlay.classList.remove('open'); articleOverlay.setAttribute('aria-hidden','true');
     caseOverlay.classList.remove('open'); caseOverlay.setAttribute('aria-hidden','true');
+    writingOverlay.classList.remove('open'); writingOverlay.setAttribute('aria-hidden','true');
   }
   function showView(hash, historyMode){
     closeVisuals();
     if(hash==='#full-prototype'){ ensureDemo(); demoOverlay.classList.add('open'); demoOverlay.setAttribute('aria-hidden','false'); document.body.classList.add('prototype-open'); }
     else if(hash==='#article'){ ensureArticle(); articleOverlay.classList.add('open'); articleOverlay.setAttribute('aria-hidden','false'); document.body.classList.add('prototype-open'); }
+    else if(hash==='#writing'){ ensureWriting(); writingOverlay.classList.add('open'); writingOverlay.setAttribute('aria-hidden','false'); document.body.classList.add('prototype-open'); }
     else if(/^#case-(rsm|adcm|mips|qd)$/.test(hash)){ var caseId=hash.replace('#case-',''); if(ensureCase(caseId)){ caseOverlay.classList.add('open'); caseOverlay.setAttribute('aria-hidden','false'); document.body.classList.add('prototype-open'); } }
     else { document.body.classList.remove('prototype-open'); return; }
     if(TITLES[hash]) document.title=TITLES[hash]+' \u00b7 Diana Gordon';
@@ -2419,12 +2450,14 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   }
   function closeView(fromHistory){
     closeVisuals(); document.body.classList.remove('prototype-open');
-    if(!fromHistory && (location.hash==='#full-prototype'||location.hash==='#article'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash))){ if(history.state && history.state.view) history.back(); else history.replaceState({},'',location.pathname+location.search+'#home'); }
+    if(!fromHistory && (location.hash==='#full-prototype'||location.hash==='#article'||location.hash==='#writing'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash))){ if(history.state && history.state.view) history.back(); else history.replaceState({},'',location.pathname+location.search+'#home'); }
   }
 
   document.addEventListener('click',function(e){
     var demoLink=e.target.closest('a.js-open-full-prototype, a[href="#full-prototype"]');
     if(demoLink){ e.preventDefault(); showView('#full-prototype','push'); return; }
+    var writingLink=e.target.closest('a[href="#writing"], .wr-more');
+    if(writingLink){ e.preventDefault(); e.stopPropagation(); showView('#writing','push'); return; }
     var articleLink=e.target.closest('a.js-open-article, a[href="#article"]');
     if(articleLink){ e.preventDefault(); showView('#article','push'); }
     var caseLink=e.target.closest('a.js-open-case, a[href^="#case-"]');
@@ -2433,7 +2466,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
 
   window.addEventListener('message',function(e){
     if(!e.data || !fromOurFrame(e.source)) return;
-    if(e.data.type==='close-full-prototype'||e.data.type==='close-article'||e.data.type==='close-case') closeView(false);
+    if(e.data.type==='close-full-prototype'||e.data.type==='close-article'||e.data.type==='close-case'||e.data.type==='close-writing') closeView(false);
     else if(e.data.type==='go-home'){
       closeVisuals(); document.body.classList.remove('prototype-open');
       history.replaceState({},'', '#home');
@@ -2445,13 +2478,13 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
     else if(e.data.type==='open-case' && caseB64[e.data.caseId]) showView('#case-'+e.data.caseId,'replace');
   });
   window.addEventListener('popstate',function(){
-    if(location.hash==='#full-prototype'||location.hash==='#article'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash)) showView(location.hash);
+    if(location.hash==='#full-prototype'||location.hash==='#article'||location.hash==='#writing'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash)) showView(location.hash);
     else closeView(true);
   });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape' && (demoOverlay.classList.contains('open')||articleOverlay.classList.contains('open')||caseOverlay.classList.contains('open'))) closeView(false);
+    if(e.key==='Escape' && (writingOverlay.classList.contains('open')||demoOverlay.classList.contains('open')||articleOverlay.classList.contains('open')||caseOverlay.classList.contains('open'))) closeView(false);
   });
-  if(location.hash==='#full-prototype'||location.hash==='#article'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash)) showView(location.hash);
+  if(location.hash==='#full-prototype'||location.hash==='#article'||location.hash==='#writing'||/^#case-(rsm|adcm|mips|qd)$/.test(location.hash)) showView(location.hash);
 })();
 </script>
 
@@ -2614,7 +2647,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   requestAnimationFrame(loop);
 })();
 </script><script id="also-simple-js">(function(){var cs=document.querySelectorAll(".work-grid.cards-scroll .card.reveal,.work-grid .card.reveal");if(!("IntersectionObserver" in window)){[].forEach.call(cs,function(c){c.classList.add("seen")});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("seen");io.unobserve(e.target);}})},{threshold:.08});[].forEach.call(cs,function(c){io.observe(c)});var sb=function(){var o=document.querySelector(".sb-overlay");if(o){if(o.classList.contains("on"))o.removeAttribute("inert");else o.setAttribute("inert","");}};new MutationObserver(sb).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class"]});})();</script><script id="overlay-a11y">(function(){
-  var sel='#fullPrototypeOverlay.open,#articleOverlay.open,#caseOverlay.open,.sb-overlay.on', back=null, was=null;
+  var sel='#fullPrototypeOverlay.open,#articleOverlay.open,#writingOverlay.open,#caseOverlay.open,.sb-overlay.on', back=null, was=null;
   function sync(){ var ov=document.querySelector(sel);
     [].forEach.call(document.body.children,function(el){ if(el.tagName==='SCRIPT'||el.tagName==='STYLE') return;
       var keep=ov&&(el===ov||el.contains(ov)); if(ov&&!keep){ if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el.__inA=1; } } else if(el.__inA){ el.removeAttribute('inert'); el.__inA=0; } });
@@ -2638,7 +2671,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   /* keyboard focus reveals its panel */
   document.addEventListener('focusin',function(e){ var p=e.target.closest&&e.target.closest('.panel'); if(p) p.classList.add('in'); });
   /* overlays get names */
-  function name(){ [['#caseOverlay','Case study'],['#articleOverlay','Article'],['#fullPrototypeOverlay','Live prototype'],['.sb-overlay','Sandbox']].forEach(function(x){ var o=document.querySelector(x[0]); if(o && !o.getAttribute('aria-label')) o.setAttribute('aria-label',x[1]); }); }
+  function name(){ [['#caseOverlay','Case study'],['#articleOverlay','Article'],['#writingOverlay','Writing'],['#fullPrototypeOverlay','Live prototype'],['.sb-overlay','Sandbox']].forEach(function(x){ var o=document.querySelector(x[0]); if(o && !o.getAttribute('aria-label')) o.setAttribute('aria-label',x[1]); }); }
   name(); setTimeout(name,1500);
 })();</script><script id="dg-theme-js">(function(){
   var btn=document.getElementById('dgTheme'), tmr;

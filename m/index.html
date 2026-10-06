@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="../favicon.ico" sizes="48x48">
-<link rel="icon" type="image/svg+xml" href="../assets/img/mark-light.svg">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Diana Gordon &middot; Product Designer &amp; Builder</title>
 <meta name="description" content="Product designer working on the human control layer of agentic AI in clinical software. Nine years at Mayo Clinic, Verana Health and Modernizing Medicine.">
 <meta name="theme-color" content="#FBFAF8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#080D1E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="../assets/img/mark-light.svg">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="canonical" href="https://dianagordon.design/">
 <link rel="preload" href="fonts/e44e9e02d8.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ffd4fad4a6.woff2" as="font" type="font/woff2" crossorigin>
@@ -31,20 +31,20 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
 a{color:inherit}
 img{max-width:100%;display:block}
-.wrap{padding-left:20px;padding-right:20px}
+.wrap{padding:0 20px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--card);padding:8px 12px;border-radius:8px}.skip:focus{left:8px;z-index:99}
 /* top bar: logo tile + theme */
 .top{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;pointer-events:none}
 .top>*{pointer-events:auto}
-.tile{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;text-decoration:none;font:italic 500 22px/1 var(--display);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 24px rgba(98,125,224,.14);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);color:var(--ink)}
-.tile em{color:var(--peri);font-style:italic}
+.tile{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;text-decoration:none;font:italic 500 22px/1 var(--display);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 24px rgba(98,125,224,.14);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);color:var(--ink)}
+.tile .dg-mark{height:18px;width:auto;display:block}
 html.dark .tile{background:rgba(16,22,48,.66);border-color:rgba(255,255,255,.18)}
 .theme{width:46px;height:46px;border-radius:15px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.55);display:grid;place-items:center;color:var(--ink);cursor:pointer;-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 8px 24px rgba(98,125,224,.14)}
 html.dark .theme{background:rgba(16,22,48,.66);border-color:rgba(255,255,255,.18)}
 .theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .theme .sun{display:none} html.dark .theme .sun{display:block} html.dark .theme .moon{display:none}
 /* hero */
-.hero{padding-top:48px;padding-bottom:56px;position:relative;overflow:hidden}
+.hero{padding:48px 20px 56px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:-20% -30% auto;height:70%;background:radial-gradient(60% 60% at 70% 20%,rgba(91,111,228,.16),transparent 70%),radial-gradient(50% 50% at 10% 80%,rgba(255,180,162,.14),transparent 70%);pointer-events:none}
 html.dark .hero::before{background:radial-gradient(60% 60% at 70% 20%,rgba(91,111,228,.30),transparent 70%),radial-gradient(50% 50% at 10% 80%,rgba(255,180,162,.10),transparent 70%)}
 .eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--label);margin:0 0 18px}
@@ -60,7 +60,7 @@ h1 em,h2 em,h3 em{font-style:normal;color:var(--peri)}
 /* sections */
 .label{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--label);margin:0 0 14px}
 h2{font:400 clamp(30px,8vw,38px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 14px}
-section{padding:56px 0 8px;scroll-margin-top:20px}
+section.wrap{padding:56px 20px 8px;scroll-margin-top:20px}
 /* demo teaser */
 .demo{background:linear-gradient(180deg,#0B1230,#141C3F);color:#EEF1FA;border-radius:4px;padding:28px 22px 26px;margin:0 -4px}
 .demo .eyebrow{color:#9FB4FF}
@@ -74,6 +74,7 @@ section{padding:56px 0 8px;scroll-margin-top:20px}
 .case:first-of-type{border-top:0;padding-top:10px}
 .still{display:block;border-radius:4px;overflow:hidden;background:var(--tint);margin:0 0 20px;aspect-ratio:16/10}
 .still img{width:100%;height:100%;object-fit:cover;object-position:top}
+.still img.dark{display:none} html.dark .still img.dark{display:block} html.dark .still img.light:has(+ img.dark){display:none}
 .meta{font:500 11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--label);margin:0 0 10px}
 .case h3{font:400 clamp(26px,7vw,32px)/1.12 var(--display);letter-spacing:-.015em;margin:0 0 12px}
 .lede{color:var(--ink2);margin:0 0 16px;font-size:16px}
@@ -93,7 +94,7 @@ section{padding:56px 0 8px;scroll-margin-top:20px}
 .tri{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
 .tri li{display:grid;grid-template-columns:28px 1fr;gap:6px;font-size:14px;color:var(--ink2)}
 .tri i{font:500 11px/1.8 var(--mono);color:var(--label)}.tri b{display:block;font-weight:500;color:var(--ink)}
-.tools{margin-top:48px}
+.tools{margin-top:48px;padding-bottom:24px}
 .tools p{color:var(--ink2);margin:0 0 16px;font-size:15px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
 .chips li{font:500 13px/1 var(--sans);padding:10px 12px;border-radius:999px;background:var(--tint);color:var(--ink2)}
@@ -102,27 +103,24 @@ section{padding:56px 0 8px;scroll-margin-top:20px}
 .about p{color:var(--ink2);margin:0 0 14px}
 .about .note{font-size:14px;color:var(--muted)}
 /* contact */
-footer{padding:56px 0 24px;scroll-margin-top:20px}
+footer.wrap{padding:56px 20px 24px;scroll-margin-top:20px}
 .cta-big{font:400 clamp(32px,8.6vw,40px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 20px}
 .cta-big em{font-style:normal;color:var(--peri)}
-.li{display:block;font-weight:500;text-decoration:none;color:var(--label);margin:0 0 22px;font-size:16px}
+.li{display:inline-flex;align-items:center;gap:6px;font-weight:500;text-decoration:none;color:var(--label);margin:0 0 22px;font-size:16px}
+.li .ext{flex:none;opacity:.75}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .foot-note{font-size:14px;color:var(--muted);margin:0 0 24px}
 form{display:grid;gap:14px}
 label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
 input,textarea{font:400 16px/1.4 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;width:100%}
 textarea{min-height:120px;resize:vertical}
 button.send{justify-self:start;border:0;cursor:pointer}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.status{margin:0;font-size:15px;color:var(--ink2);min-height:0}.status:empty{display:none}.status.ok{color:#1E8A55}.status.err{color:#C2412D}
-html.dark .status.ok{color:#5FD39A}html.dark .status.err{color:#FF9A85}
-button.send[disabled]{opacity:.6;cursor:default}
-label.bad input,label.bad textarea{border-color:#C2412D}
 form small{font-size:13px;color:var(--muted)}
+form .hp{position:absolute;left:-9999px}
+.fmsg{margin:0;font-size:14px;color:var(--label);min-height:1em}
+.fmsg.bad{color:#B4232C}
 .colophon{font:400 12px/1.6 var(--mono);color:var(--muted);margin:28px 0 0}
 .switch{font-size:13px;color:var(--muted);margin:18px 0 0}.switch a{color:inherit}
-.cta,.li,.switch a{position:relative}
-.cta::before,.li::before,.switch a::before{content:"";position:absolute;inset:-10px -6px}
-.li{display:inline-block}
 /* bottom bar */
 .mnav{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;height:64px;padding:0 6px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-b);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 12px 32px rgba(30,32,41,.12),inset 0 1px 0 rgba(255,255,255,.5)}
 html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08)}
@@ -134,12 +132,11 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
 @media(prefers-reduced-motion:reduce){.mnav a,.mnav a::after{transition:none}}
 @media(min-width:720px){.wrap{max-width:640px;margin:0 auto}.mnav{left:50%;right:auto;width:420px;transform:translateX(-50%)}}
 </style>
-<style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.tile .dg-mark{height:18px;vertical-align:0}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="top">
-  <a href="#home" class="tile" aria-label="Diana Gordon, home"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></a>
+  <a href="#home" class="tile" aria-label="Diana Gordon, home"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--peri)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></a>
   <button class="theme" id="theme" type="button" aria-pressed="false" aria-label="Switch to dark mode">
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -151,7 +148,7 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
   <p class="eyebrow">Diana Gordon &middot; Product Designer &amp; Builder</p>
   <h1>I design the human control layer of agentic AI in <em>clinical software.</em></h1>
   <p class="sub">Nine years designing for clinicians and researchers at <b>Mayo Clinic</b>, <b>Verana Health</b> and <b>Modernizing Medicine</b>. I work in design and code, moving between them as the problem needs.</p>
-  <ul class="proof"><li>Ran research with 45+ clinical research staff across three role-based panels</li><li>Proposed how AI agents fit into the process of opening new clinical studies, and leadership approved it</li><li>My design repo is used by two Mayo builds</li></ul>
+  <ul class="proof"><li>Ran research with 45+ clinical research staff across three role-based panels</li><li>Proposed how AI agents fit into the process of opening new clinical studies, and leadership approved it</li><li>Two Mayo builds, a research data catalog and an agentic study startup tool, are in development from my prototypes</li></ul>
   <span class="avail"><i></i> Open to senior, lead, and staff roles &middot; Remote, US Eastern time</span>
 </header>
 
@@ -170,42 +167,42 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
   <h2>Work where people stay <em>in charge</em></h2>
   
 <article class="case" id="case-rsm">
-  <a class="still" href="rsm.html" aria-hidden="true" tabindex="-1"><img src="img/still-rsm.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
+  <a class="still" href="rsm.html" aria-hidden="true" tabindex="-1"><img class="light" src="img/still-rsm.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
   <p class="meta">2025 &ndash; Present &middot; Mayo Clinic &middot; Human oversight of AI</p>
   <h3>Let the agents do the work. Keep people in <em>charge.</em></h3>
   <p class="lede">AI agents are planned to handle study startup paperwork across 10+ systems. I ran the research, proposed how the agents fit in, and designed how coordinators direct and check their work. Leadership approved the direction.</p>
-  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Direction approved by leadership</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>In build from my prototype</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>4.8/5 for the study overview, the top-rated concept among 11 specialists</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Requirements written from my prototype</span></li></ul>
+  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Direction approved by leadership</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>In build from my prototype</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>4.8/5 concept score for the study overview, the top-rated among 11 specialists</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Requirements written from my prototype</span></li></ul>
   <a class="cta" href="rsm.html">Full case study <span aria-hidden="true">&rarr;</span></a>
 </article>
 <article class="case" id="case-adcm">
-  <a class="still" href="adcm.html" aria-hidden="true" tabindex="-1"><img src="img/still-adcm.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
+  <a class="still" href="adcm.html" aria-hidden="true" tabindex="-1"><img class="light" src="img/still-adcm.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"><img class="dark" src="img/still-adcm-dark.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
   <p class="meta">2026 &middot; Mayo Clinic &middot; Research data</p>
   <h3>Getting decades of research data back within <em>reach</em></h3>
   <p class="lede">I built a working prototype of the MVP, and leadership approved the build after seeing it run. Now four developers build from my prototype, which will connect research teams and 25 core labs to one catalog.</p>
-  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Build approved after the prototype demo, release 1 in development</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>4 developers building from my prototype</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Design repo used by two Mayo builds</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Held the line: nothing reaches the catalog without validation</span></li></ul>
+  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Build approved after the prototype demo, release 1 in development</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>4 developers building from my prototype</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Conflict flow cut from four options to one question</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Held the line: nothing reaches the catalog without validation</span></li></ul>
   <a class="cta" href="adcm.html">Full case study <span aria-hidden="true">&rarr;</span></a>
 </article>
 <article class="case" id="case-mips">
-  <a class="still" href="mips.html" aria-hidden="true" tabindex="-1"><img src="img/still-mips.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
+  <a class="still" href="mips.html" aria-hidden="true" tabindex="-1"><img class="light" src="img/still-mips.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
   <p class="meta">2022 &ndash; 2024 &middot; Verana Health &middot; Medicare quality</p>
   <h3>A Medicare quality platform clinicians would <em>recommend</em></h3>
   <p class="lede">Reporting software that made a dense compliance workflow clear and trustworthy. Each rule sits next to the decision it affects, so clinicians stay in control of their own score.</p>
-  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Scored 9 out of 10 on likelihood to recommend after launch</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Used by nearly 3,000 clinicians across two specialty registries</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Shipped on time for a Medicare deadline</span></li></ul>
+  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>NPS of 90 from about 200 users surveyed after launch</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Used by nearly 3,000 clinicians across two specialty registries</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Shipped on time for a Medicare deadline</span></li></ul>
   <a class="cta" href="mips.html">Full case study <span aria-hidden="true">&rarr;</span></a>
 </article>
 <article class="case" id="case-qd">
-  <a class="still" href="qd.html" aria-hidden="true" tabindex="-1"><img src="img/still-qd.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
+  <a class="still" href="qd.html" aria-hidden="true" tabindex="-1"><img class="light" src="img/still-qd.webp" alt="" loading="lazy" decoding="async" width="1280" height="800"></a>
   <p class="meta">2022 &ndash; 2024 &middot; Verana Health &middot; Market analytics</p>
   <h3>A crowded drug market, <em>readable at a glance</em></h3>
   <p class="lede">A 0-to-1 analytics product that shows pharmaceutical brand teams how retina drugs are being used, and how that is changing, month over month. Every number carries its comparison, so the people reading it make the call.</p>
-  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Sold at $1M+ per customer each year</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2.7M+ patients and 7,300+ clinicians in the data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Designed 0 to 1, through alpha and beta</span></li></ul>
+  <ul class="out"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>A product sold at $1M+ per customer each year</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2.7M+ patients and 7,300+ clinicians in the data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Designed 0 to 1, through alpha and beta</span></li></ul>
   <a class="cta" href="qd.html">Full case study <span aria-hidden="true">&rarr;</span></a>
 </article>
 
   <div class="also">
     <p class="label">Also shipped</p>
     <h3>More work, with outcomes</h3>
-    <div class="sh"><div class="num"><b>92.9</b><span>SUS, 6 SMEs</span></div><div><strong>Research pharmacy platform</strong><span class="org">Mayo Clinic</span><p>Tested with the key subject matter experts, shipped two months early, and used by the whole pharmacy team (34 of 34).</p></div></div><div class="sh"><div class="num"><b>3 mo</b><span>to launch</span></div><div><strong>Study status tracker</strong><span class="org">Mayo Clinic</span><p>Reframed an initiative stalled for two years around the people using it, then launched it in three months.</p></div></div><div class="sh"><div class="num"><b>$2M+</b><span>annual revenue</span></div><div><strong>Integrations marketplace</strong><span class="org">Modernizing Medicine</span><p>Owned 0-to-1 design and research for a marketplace connecting the EHR to third-party integrations.</p></div></div><div class="sh"><div class="num"><b>$1.5M</b><span>patient savings a month</span></div><div><strong>E-prescribing</strong><span class="org">Modernizing Medicine</span><p>Designed e-prescription workflows with a GoodRx integration for 9M monthly users.</p></div></div>
+    <div class="sh"><div class="num"><b>1 mo</b><span>to build</span></div><div><strong>Research support tool</strong><span class="org">Mayo Clinic</span><p>I designed a tool for the research support team that helps researchers find reusable patient data across the data catalog, prototyped in code so the developers could build it quickly. Idea to daily use in a month. The team calls it by my name.</p></div></div><div class="sh"><div class="num"><b>92.9</b><span>SUS, 6 SMEs</span></div><div><strong>Research pharmacy platform</strong><span class="org">Mayo Clinic</span><p>The developers came from legacy clinical systems with no design-system habits, so I kept research-backed documentation visible instead of arguing each decision. UAT validated the patterns they had doubted, and they became the team&rsquo;s default. Shipped two months early and used by the whole pharmacy team (34 of 34).</p></div></div><div class="sh"><div class="num"><b>3 mo</b><span>to launch</span></div><div><strong>Study status tracker</strong><span class="org">Mayo Clinic</span><p>Reframed an initiative stalled for two years around the people using it, then launched it in three months.</p></div></div><div class="sh"><div class="num"><b>$2M+</b><span>annual revenue</span></div><div><strong>Integrations marketplace</strong><span class="org">Modernizing Medicine</span><p>I led research and design from 0 to 1 for a marketplace connecting the EHR to third-party integrations. The revenue is the product&rsquo;s annual figure.</p></div></div><div class="sh"><div class="num"><b>$1.5M</b><span>patient savings a month</span></div><div><strong>E-prescribing</strong><span class="org">Modernizing Medicine</span><p>I led research and design for the e-prescription module used by 9M monthly users, including the GoodRx and real-time benefits features. The savings figure is the product team&rsquo;s estimate.</p></div></div><div class="sh"><div class="num"><b>All</b><span>applications</span></div><div><strong>Alerts and notifications taskforce</strong><span class="org">Modernizing Medicine</span><p>Co-led with the Director of UX and the Director of Patient Safety. We set the notification hierarchy used across every application and system.</p></div></div>
   </div>
 
   <a class="card" href="article.html">
@@ -213,13 +210,13 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
     <h3>Control That Means Something</h3>
     <p>A framework for human oversight of AI that acts on its own.</p>
     <ol class="tri"><li><i>01</i><div><b>Boundary</b>Where the AI must stop and a person must act.</div></li><li><i>02</i><div><b>Control</b>What a person can do about it: confirm, edit, pause, override.</div></li><li><i>03</i><div><b>Legibility</b>Making the AI&rsquo;s reasoning something a person can check.</div></li></ol>
-    <span class="cta">Read the article <span aria-hidden="true">&rarr;</span></span>
+    <span class="cta">Read the article <span aria-hidden="true">&rarr;</span></span><span class="cta wr-more" role="link" tabindex="0" data-href="../writing.html" style="margin-left:14px;color:var(--muted);border-color:transparent">More writing &rarr;</span>
   </a>
 
   <div class="tools">
     <p class="label">The tools behind the work</p>
     <p>What I use to design, prototype, build, and ship.</p>
-    <ul class="chips"><li>Figma</li><li>Claude Code</li><li>GitHub</li><li>Storybook</li><li>Azure DevOps</li><li>React</li><li>Angular</li><li>PrimeNG</li></ul>
+    <ul class="chips"><li>Figma</li><li>Magic Patterns</li><li>Claude Code</li><li>ChatGPT</li><li>GitHub</li><li>Storybook</li><li>Azure DevOps</li><li>React</li><li>Angular</li><li>PrimeNG</li></ul>
   </div>
 </section>
 
@@ -228,7 +225,7 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
   <img class="portrait" src="img/portrait.jpeg" alt="Diana Gordon" loading="lazy" width="336" height="336">
   <h2>Trained in human factors. Working in design and code.</h2>
   <p>I&rsquo;m a product designer with nine years in regulated healthcare. At Mayo Clinic I design AI tools for clinical research, deciding what the AI does on its own and what stays with a person.</p>
-  <p>Before that I designed Medicare quality reporting, market analytics and trial recruitment tools at Verana Health, and EHR workflows at Modernizing Medicine. I prototype in code and test with the people who use the tools.</p>
+  <p>Before that I designed Medicare quality reporting, market analytics and trial recruitment tools at Verana Health, and EHR workflows at Modernizing Medicine, where I co-led the alerts and notification taskforce with the Director of UX and the Director of Patient Safety. It set the notification hierarchy used across every application. I prototype in code and test with the people who use the tools.</p>
   <p class="note">MS, Human Factors in Information Design, Bentley University. Based in Florida, working remotely on US Eastern time.</p>
   <p class="note">I contributed research, design critique and mockups to Modernizing Medicine teams that won two 2020 SaaS Awards (Best Healthcare SaaS, Best UX/UI) and the 2017 UX Awards People&rsquo;s Choice.</p>
 </section>
@@ -236,15 +233,15 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
 
 <footer id="contact" class="wrap" data-nav="contact">
   <p class="cta-big">Let&rsquo;s talk about <em>designing AI people can&nbsp;trust.</em></p>
-  <a class="li" href="https://linkedin.com/in/dianagdesign" target="_blank" rel="noopener">linkedin.com/in/dianagdesign</a>
-  <form id="askForm" action="https://usebasin.com/f/4af5954990da" method="POST" novalidate>
-    <input type="hidden" name="_source" value="mobile">
+  <a class="li" href="https://linkedin.com/in/dianagdesign" target="_blank" rel="noopener">linkedin.com/in/dianagdesign<svg class="ext" viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7"/></svg><span class="sr">(opens in a new tab)</span></a>
+  <form id="mForm" novalidate>
+    <label>Your name<input type="text" name="name" required autocomplete="name" maxlength="120"></label>
+    <label>Your email<input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="200"></label>
+    <label>Company or role <small>(optional)</small><input type="text" name="company" autocomplete="organization" maxlength="160"></label>
+    <label>Message<textarea name="message" rows="5" required maxlength="1000"></textarea></label>
     <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
-    <label>Your name<input type="text" name="name" required autocomplete="name"></label>
-    <label>Your email<input type="email" name="email" required autocomplete="email"></label>
-    <label>Message<textarea name="message" rows="5" required></textarea></label>
-    <button type="submit" class="btn send">Send</button>
-    <p class="status" id="askStatus" role="status" aria-live="polite"></p>
+    <p class="fmsg" id="mFormMsg" role="status"></p>
+    <button type="submit" class="btn send" id="mSend">Send</button>
   </form>
   <p class="colophon">Set in Funnel Display, Funnel Sans and Geist Mono. Built in code.</p>
   <p class="switch"><a href="../?desktop=1">View the full desktop site</a></p>
@@ -259,28 +256,24 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
 
 <script>
 (function(){
-
-  // contact form: posts to Basin, stays on the page
-  (function(){
-    var f=document.getElementById('askForm'); if(!f||!window.fetch) return;
-    var st=document.getElementById('askStatus'), btn=f.querySelector('.send');
-    function say(t,c){ st.textContent=t; st.className='status'+(c?' '+c:''); }
-    f.addEventListener('submit',function(e){
-      e.preventDefault();
-      if(f._gotcha.value){ say('Thanks, your message is on its way.','ok'); f.reset(); return; }
-      var bad=null; [].forEach.call(f.querySelectorAll('input[required],textarea[required]'),function(el){ var ok=el.checkValidity()&&el.value.trim(); el.closest('label').classList.toggle('bad',!ok); el.setAttribute('aria-invalid',ok?'false':'true'); if(!ok&&!bad) bad=el; });
-      if(bad){ say('Please fill in your name, a valid email, and a message.','err'); bad.focus(); return; }
-      btn.disabled=true; btn.textContent='Sending\u2026'; say('');
-      fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
-        .then(function(r){ if(!r.ok) throw 0; return r.json().catch(function(){return {};}); })
-        .then(function(j){ if(j&&j.success===false) throw 0; f.reset(); btn.textContent='Sent'; say('Thanks, your message is on its way. I\u2019ll reply by email.','ok'); setTimeout(function(){ btn.disabled=false; btn.textContent='Send'; },4000); })
-        .catch(function(){ btn.disabled=false; btn.textContent='Send'; say('That didn\u2019t go through. Please try again, or reach me on LinkedIn.','err'); });
-    });
-  })();
   // theme
   var b=document.getElementById('theme'), h=document.documentElement;
   function sync(){ var d=h.classList.contains('dark'); b.setAttribute('aria-pressed',d?'true':'false'); b.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode'); }
   b.addEventListener('click',function(){ h.classList.toggle('dark'); try{localStorage.setItem('dg-theme',h.classList.contains('dark')?'dark':'light')}catch(e){} sync(); }); sync();
+  // contact form: same form service as the desktop page
+  var ENDPOINT='https://usebasin.com/f/4af5954990da';
+  var fm=document.getElementById('mForm'), msg=document.getElementById('mFormMsg'), send=document.getElementById('mSend');
+  fm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=fm.name.value.trim(), email=fm.email.value.trim(), body=fm.message.value.trim();
+    if(!name){ msg.textContent='Please add your name.'; msg.className='fmsg bad'; fm.name.focus(); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.textContent='That email doesn’t look complete.'; msg.className='fmsg bad'; fm.email.focus(); return; }
+    if(!body){ msg.textContent='A sentence or two is all it takes.'; msg.className='fmsg bad'; fm.message.focus(); return; }
+    send.disabled=true; send.textContent='Sending…'; msg.textContent=''; msg.className='fmsg';
+    fetch(ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(fm)}).then(function(r){ if(!r.ok) throw 0;
+      fm.reset(); send.textContent='Sent'; msg.textContent='Your message is on its way to my inbox. I usually reply within a couple of days.';
+    }).catch(function(){ send.disabled=false; send.textContent='Send'; msg.className='fmsg bad'; msg.textContent='That didn’t go through. You can try again, or message me on LinkedIn.'; });
+  });
   // scrollspy for the bottom bar
   var links=[].slice.call(document.querySelectorAll('.mnav a')), secs=[].slice.call(document.querySelectorAll('[data-nav]'));
   function upd(){
@@ -294,5 +287,6 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
   addEventListener('scroll',req,{passive:true}); addEventListener('resize',req); upd();
 })();
 </script>
+<script id="wr-more-js">document.addEventListener('click',function(e){var m=e.target.closest('.wr-more');if(!m)return;e.preventDefault();e.stopPropagation();location.href=m.getAttribute('data-href');},true);document.addEventListener('keydown',function(e){var m=e.target.closest&&e.target.closest('.wr-more');if(m&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopPropagation();location.href=m.getAttribute('data-href');}},true);</script>
 </body>
 </html>
