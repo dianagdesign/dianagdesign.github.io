@@ -3032,7 +3032,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
 
   function resize(){
     W=innerWidth; H=innerHeight;
-    var dpr=Math.min(devicePixelRatio||1,1.5);
+    var dpr=Math.min(devicePixelRatio||1,1.25);
     canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
     canvas.style.width=W+'px'; canvas.style.height=H+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -3165,7 +3165,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   }
 
   function loop(now){var dt=Math.min(50,now-last);last=now;acc+=dt;
-    if(!document.hidden&&acc>=42){draw(acc);acc=0;}
+    if(!document.hidden&&!window.__dgStageBusy&&acc>=66){draw(acc);acc=0;}
     raf=requestAnimationFrame(loop);}
   function start(){if(!raf&&!reduce){last=performance.now();raf=requestAnimationFrame(loop);}}
 
@@ -4082,5 +4082,6 @@ function drawOrbLight(cv, pts, t){
 }
 (function(){ var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, t0 = performance.now(); function frame(now){ var t = (now - t0) / 1000; if (!document.hidden) document.querySelectorAll('canvas[data-orb]').forEach(function(c){ drawOrbLight(c, ORB_PTS[c.getAttribute('data-orb')] || ORB_PTS.sm, t); }); if (!reduce) requestAnimationFrame(frame); } requestAnimationFrame(frame); })();
 </script><nav class="mbar" aria-label="Page"><a href="index.html#work"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span>Work</span></a><button type="button" id="mbarTop"><svg viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg><span>Top</span></button><a href="adcm.html"><svg viewBox="0 0 24 24"><path d="M5 12h14M12.5 5.5 19 12l-6.5 6.5"/></svg><span>Next</span></a><a href="index.html#contact"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7.5 12 13.5l8.5-6"/></svg><span>Contact</span></a></nav><script>document.getElementById("mbarTop").addEventListener("click",function(){var r=matchMedia("(prefers-reduced-motion: reduce)").matches;scrollTo({top:0,behavior:r?"auto":"smooth"});});</script>
+<script id="dg-weave-guard">(function(){if(!('IntersectionObserver' in window))return;var v=document.querySelector('.sc-view');if(!v)return;new IntersectionObserver(function(es){es.forEach(function(e){window.__dgStageBusy=e.intersectionRatio>=.45;});},{threshold:[0,.45,.9]}).observe(v);})();</script>
 </body>
 </html>
