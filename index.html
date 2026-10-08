@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>var DG_V="?v=20261008";</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -2369,7 +2370,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   var articleFrame=document.getElementById('articleFrame');
   var caseOverlay=document.getElementById('caseOverlay');
   var writingOverlay=document.getElementById('writingOverlay'), writingFrame=document.getElementById('writingFrame'), writingLoaded=false;
-  function ensureWriting(){ if(!writingLoaded){ writingFrame.src='writing.html'; writingLoaded=true; } }
+  function ensureWriting(){ if(!writingLoaded){ writingFrame.src='writing.html'+DG_V; writingLoaded=true; } }
   var caseFrame=document.getElementById('caseFrame');
   if(!demoOverlay||!demoFrame||!articleOverlay||!articleFrame||!caseOverlay||!caseFrame) return;
 
@@ -2397,7 +2398,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
     }
     function load(sec){
       if(sec.__loaded) return; sec.__loaded=true;
-      var f=sec.querySelector('.wk-frame'); f.src='reel-'+sec.getAttribute('data-case')+'.html';
+      var f=sec.querySelector('.wk-frame'); f.src='reel-'+sec.getAttribute('data-case')+'.html'+DG_V;
     }
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'900px 0px'});
@@ -2428,9 +2429,9 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
     for(var i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
     return new TextDecoder('utf-8').decode(bytes);
   }
-  function ensureDemo(){ if(!demoLoaded){ demoFrame.src=demoB64; demoLoaded=true; } }
-  function ensureArticle(){ if(!articleLoaded){ articleFrame.src=articleB64; articleLoaded=true; } }
-  function ensureCase(caseId){ if(!caseB64[caseId]) return false; if(currentCase!==caseId){ caseFrame.src=caseB64[caseId]; currentCase=caseId; } caseFrame.title=(caseId==='rsm'?'Agentic Study Startup':caseId==='adcm'?'Research Catalog Intake':caseId==='qd'?'Retina Market Analytics':'Medicare Quality Reporting')+' · case study'; return true; }
+  function ensureDemo(){ if(!demoLoaded){ demoFrame.src=demoB64+DG_V; demoLoaded=true; } }
+  function ensureArticle(){ if(!articleLoaded){ articleFrame.src=articleB64+DG_V; articleLoaded=true; } }
+  function ensureCase(caseId){ if(!caseB64[caseId]) return false; if(currentCase!==caseId){ caseFrame.src=caseB64[caseId]+DG_V; currentCase=caseId; } caseFrame.title=(caseId==='rsm'?'Agentic Study Startup':caseId==='adcm'?'Research Catalog Intake':caseId==='qd'?'Retina Market Analytics':'Medicare Quality Reporting')+' · case study'; return true; }
   function closeVisuals(){
     document.title=BASE_TITLE;
     demoOverlay.classList.remove('open'); demoOverlay.setAttribute('aria-hidden','true');
@@ -2563,7 +2564,7 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
   var B64='sandbox.html', ov=null, last=null;
   function dec(b){ return decodeURIComponent(escape(atob(b))); }
   function open(){ last=document.activeElement;
-    if(!ov){ ov=document.createElement('div'); ov.className='sb-overlay'; ov.innerHTML='<iframe title="Sandbox"></iframe>'; document.body.appendChild(ov); ov.firstChild.src=B64; }
+    if(!ov){ ov=document.createElement('div'); ov.className='sb-overlay'; ov.innerHTML='<iframe title="Sandbox"></iframe>'; document.body.appendChild(ov); ov.firstChild.src=B64+DG_V; }
     requestAnimationFrame(function(){ ov.classList.add('on'); }); document.documentElement.style.overflow='hidden';
     if(location.hash!=='#sandbox') history.pushState(null,'','#sandbox'); setTimeout(function(){ try{ ov.firstChild.contentWindow.focus(); }catch(e){} },60); }
   function close(push){ if(!ov) return; ov.classList.remove('on'); document.documentElement.style.overflow='';
