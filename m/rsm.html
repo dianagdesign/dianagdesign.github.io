@@ -2705,6 +2705,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 @media(min-width:720px){.mbar{left:50%;right:auto;width:420px;transform:translateX(-50%)}}
 </style>
 <style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .dg-mark,.case-home-mark .dg-mark{height:17px;vertical-align:0}</style>
+<style id="dg-tab-focus">.sc-steps button:focus:not(:focus-visible){outline:none!important;box-shadow:none!important}</style>
 </head>
 <body>
 <script id="m-theme">(function(){function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark')document.body.classList.add('dark');else if(t==='light')document.body.classList.remove('dark');}catch(e){}}
@@ -2760,7 +2761,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   <section class="article-section">
     <p class="x-kick">Where it started</p>
     <h2>The real cost was typing the same study ten times</h2>
-    <p class="x-lead">Every study ran through 10+ disconnected systems, each with its own login and manual entry. 8 of 11 specialists surveyed named fragmented systems as a top cause of delay, and 9 of 11 said one shared tracking view would meaningfully change their work. Every one of them spent time each week chasing status that did not move a study forward. A status tracker I shipped earlier, nicknamed &ldquo;the pizza tracker,&rdquo; made the delays visible and showed where they started: at intake. That is where the fix had to begin.</p>
+    <p class="x-lead">Every study ran through many disconnected systems, each with its own login and manual entry. 8 of 11 specialists surveyed named fragmented systems as a top cause of delay, and 9 of 11 said one shared tracking view would meaningfully change their work. Every one of them spent time each week chasing status that did not move a study forward. A status tracker I shipped earlier, nicknamed &ldquo;the pizza tracker,&rdquo; made the delays visible and showed where they started: at intake. That is where the fix had to begin.</p>
     <p class="cl-quote">&ldquo;I would really love to not have to enter the same data into multiple places. That is the single biggest thing.&rdquo;<span>Research protocol specialist</span></p>
     
   </section>
@@ -4040,7 +4041,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
     requestAnimationFrame(tick); }
   requestAnimationFrame(tick);
   S.__seek=function(t){ paused=true; T=t; render(T); };
-  var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(function(){ layout(); render(T); },80); });
+  var rz; function relay(){ clearTimeout(rz); rz=setTimeout(function(){ layout(); render(T); },80); } addEventListener('resize',relay); if(window.ResizeObserver&&typeof V!=='undefined'&&V){ var vw0=V.clientWidth, vh0=V.clientHeight; new ResizeObserver(function(){ if(V.clientWidth!==vw0||V.clientHeight!==vh0){ vw0=V.clientWidth; vh0=V.clientHeight; relay(); } }).observe(V); }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ layout(); render(T); });
 })();
 </script>

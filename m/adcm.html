@@ -2787,6 +2787,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 @media(min-width:720px){.mbar{left:50%;right:auto;width:420px;transform:translateX(-50%)}}
 </style>
 <style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .dg-mark,.case-home-mark .dg-mark{height:17px;vertical-align:0}</style>
+<style id="dg-tab-focus">.sc-steps button:focus:not(:focus-visible){outline:none!important;box-shadow:none!important}</style>
 </head>
 <body>
 <script id="m-theme">(function(){function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark')document.body.classList.add('dark');else if(t==='light')document.body.classList.remove('dark');}catch(e){}}
@@ -4093,7 +4094,7 @@ function F2RUN(C){
   requestAnimationFrame(tick);
   S.__t=function(){ return T; };
   S.__seek=function(t){ paused=true; T=t; render(T); };
-  var rz; addEventListener('resize',function(){ clearTimeout(rz); rz=setTimeout(function(){ layout(); render(T); },80); });
+  var rz; function relay(){ clearTimeout(rz); rz=setTimeout(function(){ layout(); render(T); },80); } addEventListener('resize',relay); if(window.ResizeObserver&&typeof V!=='undefined'&&V){ var vw0=V.clientWidth, vh0=V.clientHeight; new ResizeObserver(function(){ if(V.clientWidth!==vw0||V.clientHeight!==vh0){ vw0=V.clientWidth; vh0=V.clientHeight; relay(); } }).observe(V); }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ layout(); render(T); });
 }
 
