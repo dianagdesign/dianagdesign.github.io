@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261013";</script>
+<script>var DG_V="?v=20261013b";</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -1441,6 +1441,17 @@ html:root body.dark{--paper:#080D1E;--ink:#EEF1FA;--muted:#A5ADC4;--line:rgba(25
 <style id="wr-more-css">.card-foot .wr-more{margin-left:auto;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:1px solid transparent}.card-foot .wr-more:hover{color:var(--ink);border-bottom-color:currentColor}@media(max-width:760px){.card-foot{flex-wrap:wrap}.card-foot .wr-more{margin-left:0}}</style>
 <style id="tool-chatgpt-dark">body.dark .tool-item[aria-label="ChatGPT"] .tool-icon img{filter:invert(1) brightness(1.7)}</style>
 <style id="dg-nav-wide">@media (min-width:1700px) and (hover:hover) and (pointer:fine){:root body nav .wrap.nav-inner{max-width:none!important;width:100%!important;padding-left:clamp(48px,5vw,108px)!important;padding-right:clamp(48px,5vw,108px)!important}}</style>
+<style id="dg-cue-dash">
+/* scroll cue: pinned to the bottom of the window while the first screen is in view */
+@media (min-width:761px){
+html:root body .panel-hero .scroll-cue{position:fixed!important;bottom:clamp(16px,3vh,30px)!important;left:50%!important;transform:translateX(-50%)!important;z-index:55!important;transition:opacity .35s ease,color .6s!important}
+html:root body .panel-hero .scroll-cue.gone{opacity:0!important;pointer-events:none!important}
+}
+/* hover fields: dashed underline at rest so they read as interactive; the solid underline still draws in on hover */
+html:root body{--dash:rgba(91,111,228,.55)}
+html:root body.dark,html:root body.hero-night{--dash:rgba(155,174,255,.6)}
+html:root body .hero-sub .co,html:root body .hero-sub .co:hover,html:root body .hero-sub .co:focus-visible,html:root body .hero-sub .co.on{background-image:linear-gradient(90deg,var(--dash) 0 4px,transparent 4px 7px)!important;background-size:7px 1.5px!important;background-repeat:repeat-x!important;background-position:0 100%!important;padding-bottom:2px;cursor:help}
+</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -2939,5 +2950,6 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
   });
 })();
 </script>
+<script id="dg-cue-js">(function(){var c=document.getElementById('scrollCue');if(!c)return;function u(){c.classList.toggle('gone',(window.scrollY||document.documentElement.scrollTop)>60);}addEventListener('scroll',u,{passive:true});u();})();</script>
 </body>
 </html>
