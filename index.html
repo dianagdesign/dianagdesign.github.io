@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261013b";</script>
+<script>var DG_V="?v=20261013c";</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -1452,6 +1452,37 @@ html:root body{--dash:rgba(91,111,228,.55)}
 html:root body.dark,html:root body.hero-night{--dash:rgba(155,174,255,.6)}
 html:root body .hero-sub .co{background-image:linear-gradient(90deg,var(--dash) 0 4px,transparent 4px 7px)!important;background-size:7px 1.5px!important;background-repeat:repeat-x!important;background-position:0 100%!important;padding-bottom:2px;transition:background-size .35s,color .2s}html:root body .hero-sub .co:hover,html:root body .hero-sub .co:focus-visible,html:root body .hero-sub .co.on{background-image:none!important}html:root body .hero-sub .co{cursor:inherit!important}
 </style>
+<style id="dg-sheet-css">
+.hero-more{margin:30px 0 0;font:500 17px/1.4 var(--sans)}
+.hero-more a{color:var(--ink);text-decoration:none;padding-bottom:3px;background-image:linear-gradient(90deg,var(--dash,rgba(91,111,228,.55)) 0 4px,transparent 4px 7px);background-size:7px 1.5px;background-repeat:repeat-x;background-position:0 100%;transition:color .25s}
+.hero-more a span{display:inline-block;margin-left:4px;color:var(--peri);transition:transform .3s cubic-bezier(.19,1,.22,1)}
+.hero-more a:hover,.hero-more a:focus-visible{color:var(--peri);background-image:linear-gradient(currentColor,currentColor);background-size:100% 1.5px}
+.hero-more a:hover span{transform:translateX(4px)}
+body.dark .hero-more a,body.hero-night .hero-more a{color:#EEF1FA}
+:root{--dg-peek:88px;--dg-ease:cubic-bezier(.19,1,.22,1)}
+main#main,footer#contact{transition:transform .9s var(--dg-ease),filter .9s var(--dg-ease),border-radius .9s var(--dg-ease)}
+body.dg-sheet-on main#main,body.dg-sheet-on footer#contact{transform:scale(.94) translateX(-2%);filter:brightness(.82);border-radius:18px}
+body.dg-sheet-on{overflow:hidden}html:has(body.dg-sheet-on),body.dg-sheet-on{background:#0B0F1E!important}body.dg-sheet-on main#main,body.dg-sheet-on footer#contact{background:#FBFAF8}body.dark.dg-sheet-on main#main{background:#080D1E}
+body.dg-sheet-on nav,body.dg-sheet-on .scroll-cue{opacity:0!important;pointer-events:none!important;transition:opacity .4s}
+.dg-scrim{position:fixed;inset:0;z-index:10060;visibility:hidden}
+body.dg-sheet-on .dg-scrim{visibility:visible}
+@media (hover:hover) and (pointer:fine){.dg-scrim{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27104%27%20height%3D%2740%27%20viewBox%3D%270%200%20104%2040%27%3E%3Crect%20x%3D%271.5%27%20y%3D%271.5%27%20width%3D%27101%27%20height%3D%2737%27%20rx%3D%2718.5%27%20fill%3D%27%23627DE0%27%20stroke%3D%27white%27%20stroke-width%3D%272%27/%3E%3Cpath%20d%3D%27M30%2020H18m0%200l5-5m-5%205l5%205%27%20stroke%3D%27%2315142A%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3Ctext%20x%3D%2737%27%20y%3D%2725.5%27%20font-family%3D%27Helvetica%2CArial%2Csans-serif%27%20font-size%3D%2715%27%20font-weight%3D%27600%27%20fill%3D%27%2315142A%27%3EBack%3C/text%3E%3C/svg%3E") 18 20,pointer}}
+.dg-sheet{position:fixed;top:0;right:0;bottom:0;width:calc(100vw - var(--dg-peek));z-index:10061;display:flex;flex-direction:column;background:#F9FAFE;border-radius:18px 0 0 18px;overflow:hidden;box-shadow:-30px 0 80px -30px rgba(11,10,20,.55);transform:translateX(102%);visibility:hidden;transition:transform .95s var(--dg-ease),visibility 0s .95s}
+body.dg-sheet-on .dg-sheet{transform:none;visibility:visible;transition:transform .95s var(--dg-ease),visibility 0s}
+body.dark .dg-sheet{background:#080D1E}
+.dg-sheet:focus{outline:none}
+.dg-s-bar{flex:0 0 56px;display:flex;align-items:center;gap:12px;padding:0 12px 0 22px;border-bottom:1px solid var(--line,#E6E8EF)}
+.dg-s-bar b{flex:1 1 auto;font:500 15px/1 var(--sans);color:var(--ink)}
+.dg-s-bar a,.dg-s-bar button{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line,#E6E8EF);background:transparent;color:var(--ink);padding:0}
+.dg-s-bar svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dg-s-bar .dg-s-close{background:var(--ink);color:var(--paper,#fff);border-color:var(--ink)}
+.dg-s-bar .dg-s-close:hover{background:var(--peri);border-color:var(--peri);color:#fff}
+.dg-s-bar a:hover{border-color:var(--peri)}
+body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,body.dark .dg-s-bar a{color:#EEF1FA}body.dark .dg-s-bar .dg-s-close{background:#EEF1FA;color:#080D1E;border-color:#EEF1FA}
+.dg-sheet iframe{flex:1 1 auto;width:100%;border:0;display:block;background:transparent}
+@media (prefers-reduced-motion:reduce){main#main,footer#contact,.dg-sheet{transition:none!important}}
+@media (max-width:820px){.dg-sheet{width:100vw;border-radius:0}body.dg-sheet-on main#main,body.dg-sheet-on footer#contact{transform:none;filter:none}}
+</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -1509,7 +1540,7 @@ html:root body .hero-sub .co{background-image:linear-gradient(90deg,var(--dash) 
       <span class="line l3"><span>AI in <em class="shimmer">clinical software.</em></span></span>
     </h1>
     <p class="hero-sub rise-in d2">Nine years designing for clinicians and researchers at <span class="co" data-co="mayo" tabindex="0">Mayo Clinic</span>, <span class="co" data-co="verana" tabindex="0">Verana Health</span> and <span class="co" data-co="modmed" tabindex="0">Modernizing Medicine</span>. I work in design and code, moving between them as the problem needs.</p>
-    <ul class="hero-proof rise-in d3"><li>Ran research with 45+ clinical research staff across three role-based panels</li><li>Proposed how AI agents fit into the process of opening new clinical studies, and leadership approved it</li><li>Two Mayo builds are in development from my prototypes</li></ul><span class="hero-avail rise-in d3"><span class="dot"></span> Open to new opportunities · Remote, US Eastern time</span>
+    <p class="hero-more rise-in d3"><a href="shipped.html" class="dg-sheet-open">What I&rsquo;ve been working on <span aria-hidden="true">&rarr;</span></a></p><span class="hero-avail rise-in d3"><span class="dot"></span> Open to new opportunities · Remote, US Eastern time</span>
   </header>
   </div>
   <button class="scroll-cue" id="scrollCue" aria-label="Scroll to the live demo">Scroll<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -1630,44 +1661,7 @@ html:root body .hero-sub .co{background-image:linear-gradient(90deg,var(--dash) 
   </div>
   <div class="work-grid">
 
-    <div class="card reveal also-card" aria-label="Additional shipped work">
-      <div class="card-body">
-        <div class="card-eyebrow">Also shipped</div>
-        <h3>More work, with outcomes</h3>
-        <div class="also-card-list">
-          <div class="sh-row">
-            <div class="sh-num"><b>1 mo</b><span>to build</span></div>
-            <div class="sh-what"><strong>Research support tool</strong><span class="sh-org">Mayo Clinic</span></div>
-            <p class="sh-desc">I designed a tool for the research support team that helps researchers find reusable patient data across the data catalog, prototyped in code so the developers could build it quickly. Idea to daily use in a month. The team calls it by my name.</p>
-          </div>
-          <div class="sh-row">
-            <div class="sh-num"><b>92.4</b><span>SUS, 6 SMEs</span></div>
-            <div class="sh-what"><strong>Research pharmacy platform</strong><span class="sh-org">Mayo Clinic</span></div>
-            <p class="sh-desc">The developers came from legacy clinical systems with no design-system habits, so I kept research-backed documentation visible instead of arguing each decision. UAT validated the patterns they had doubted, and they became the team’s default. Shipped two months early and used by the whole pharmacy team (34 of 34).</p>
-          </div>
-          <div class="sh-row">
-            <div class="sh-num"><b>3 mo</b><span>to launch</span></div>
-            <div class="sh-what"><strong>Study status tracker</strong><span class="sh-org">Mayo Clinic</span></div>
-            <p class="sh-desc">Reframed an initiative stalled for two years around the people using it, then launched it in three months.</p>
-          </div>
-          <div class="sh-row">
-            <div class="sh-num"><b>$2M+</b><span>annual revenue</span></div>
-            <div class="sh-what"><strong>Integrations marketplace</strong><span class="sh-org">Modernizing Medicine</span></div>
-            <p class="sh-desc">I led research and design from 0 to 1 for a marketplace connecting the EHR to third-party integrations. The revenue is the product’s annual figure.</p>
-          </div>
-          <div class="sh-row">
-            <div class="sh-num"><b>$1.5M</b><span>patient savings a month</span></div>
-            <div class="sh-what"><strong>E-prescribing</strong><span class="sh-org">Modernizing Medicine</span></div>
-            <p class="sh-desc">I led research and design for the e-prescription module used by 9M monthly users, including the GoodRx and real-time benefits features. The savings figure is the product team’s estimate.</p>
-          </div>
-          <div class="sh-row">
-            <div class="sh-num"><b>All</b><span>applications</span></div>
-            <div class="sh-what"><strong>Alerts and notifications taskforce</strong><span class="sh-org">Modernizing Medicine</span></div>
-            <p class="sh-desc">Co-led with the Director of UX and the Director of Patient Safety. We set the notification hierarchy used across every application and system.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 
     <a href="#sandbox" class="card reveal sandbox-card js-open-sandbox" aria-label="Open the Sandbox">
@@ -2951,5 +2945,36 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
 })();
 </script>
 <script id="dg-cue-js">(function(){var c=document.getElementById('scrollCue');if(!c)return;function u(){c.classList.toggle('gone',(window.scrollY||document.documentElement.scrollTop)>60);}addEventListener('scroll',u,{passive:true});u();})();</script>
+<div class="dg-scrim" id="dgScrim" aria-hidden="true"></div>
+<aside class="dg-sheet" id="dgSheet" role="dialog" aria-modal="true" aria-labelledby="dgSheetTitle" aria-hidden="true">
+  <div class="dg-s-bar"><b id="dgSheetTitle">What I&rsquo;ve been working on</b>
+    <a href="shipped.html" target="_blank" rel="noopener" aria-label="Open as a full page in a new tab" title="Open as a full page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+    <button type="button" class="dg-s-close" id="dgSheetClose" aria-label="Close and return to the home page" title="Close (Esc)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <iframe id="dgSheetFrame" title="What I&rsquo;ve been working on"></iframe>
+</aside>
+<script id="dg-sheet-js">(function(){
+  var body=document.body,sheet=document.getElementById('dgSheet'),scrim=document.getElementById('dgScrim'),frame=document.getElementById('dgSheetFrame'),last=null;
+  var parts=[document.getElementById('main'),document.getElementById('contact')];
+  function isOn(){return body.classList.contains('dg-sheet-on');}
+  function show(){ if(isOn()) return; last=document.activeElement;
+    var mid=scrollY+innerHeight/2; parts.forEach(function(el){ if(el) el.style.transformOrigin='50% '+(mid-el.offsetTop)+'px'; });
+    if(!frame.getAttribute('src')) frame.src='shipped.html'+(window.DG_V||'');
+    body.classList.add('dg-sheet-on'); sheet.setAttribute('aria-hidden','false');
+    setTimeout(function(){ sheet.setAttribute('tabindex','-1'); sheet.focus({preventScroll:true}); },400); }
+  function hide(){ if(!isOn()) return; body.classList.remove('dg-sheet-on'); sheet.setAttribute('aria-hidden','true');
+    if(last&&last.focus) try{ last.focus({preventScroll:true}); }catch(e){} }
+  function open(){ if(isOn()) return; show(); history.pushState({dgSheet:1},'','#working'); }
+  function close(){ if(!isOn()) return; if(history.state&&history.state.dgSheet) history.back(); else { hide(); history.replaceState(null,'',location.pathname+location.search); } }
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('.dg-sheet-open'); if(!a) return; e.preventDefault(); open(); });
+  scrim.addEventListener('click',close); document.getElementById('dgSheetClose').addEventListener('click',close);
+  addEventListener('popstate',function(e){ if(e.state&&e.state.dgSheet) show(); else hide(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'&&isOn()){ e.preventDefault(); close(); } });
+  sheet.addEventListener('keydown',function(e){ if(e.key!=='Tab') return; var f=[].slice.call(sheet.querySelectorAll('a[href],button,iframe')); var a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){ e.preventDefault(); z.focus(); } else if(!e.shiftKey&&document.activeElement===z){ e.preventDefault(); a.focus(); } });
+  addEventListener('message',function(e){ if(e.source!==frame.contentWindow||!e.data) return;
+    if(e.data.type==='dg-open-case'&&/^(rsm|adcm|mips|qd)$/.test(e.data.id)){ var id=e.data.id; hide(); history.replaceState(null,'',location.pathname+location.search); setTimeout(function(){ location.hash='#case-'+id; },450); } });
+  if(location.hash==='#working'){ history.replaceState(null,'',location.pathname+location.search); setTimeout(open,300); }
+})();</script>
 </body>
 </html>
