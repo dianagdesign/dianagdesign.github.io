@@ -2984,5 +2984,7 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
     if(e.data.type==='dg-open-case'&&/^(rsm|adcm|mips|qd)$/.test(e.data.id)){ var id=e.data.id; hide(); history.replaceState(null,'',location.pathname+location.search); setTimeout(function(){ location.hash='#case-'+id; },450); } });
   if(location.hash==='#working'){ history.replaceState(null,'',location.pathname+location.search); setTimeout(open,300); }
 })();</script>
+<style id="dg-no-ring">html:root body .no-ring:focus-visible,html:root body .no-ring:focus{outline:none!important;box-shadow:none!important}</style>
+<script id="dg-no-ring-js">(function(){/* focus that lands in the menu without a Tab press (for example, returning from a case study) gets no ring */var tab=false;addEventListener("keydown",function(e){tab=e.key==="Tab";},true);addEventListener("pointerdown",function(){tab=false;},true);document.addEventListener("focusin",function(e){var t=e.target;if(!t.closest||!t.closest("nav,.nav-links,.navlink"))return;if(!tab){t.classList.add("no-ring");t.addEventListener("blur",function b(){t.classList.remove("no-ring");t.removeEventListener("blur",b);});}});})();</script>
 </body>
 </html>
