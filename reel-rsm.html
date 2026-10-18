@@ -4103,6 +4103,8 @@ if(e.key!=='Escape')return;setTimeout(function(){if(e.defaultPrevented)return;tr
   }
   /* one footnote for the whole carousel: it stays put while screens change, easing up or down to sit 8px under the visible caption */
   var fn=document.createElement('p'); fn.className='dg-fn rl-fn'; fn.textContent='* Screens updated for this portfolio. Names and data are not real.'; rl.appendChild(fn); addEventListener('load',function(){ placeFn(); });
+  /* screens settle late (charts draw, fonts load), so keep the note honest without waiting for a resize */
+  var fnLast=''; setInterval(function(){ if(document.hidden) return; var t=fn.style.transform; placeFn(); if(fn.style.transform!==fnLast){ fnLast=fn.style.transform; } }, 500);
   function placeFn(){ var s=slides[idx], c=s&&s.querySelector('figcaption.x-cap'), R=rl.getBoundingClientRect(), y=(c?c.getBoundingClientRect().bottom:track.getBoundingClientRect().bottom-34)-R.top; fn.style.transform='translateY('+Math.round(y)+'px)'; }
   function mark(){ slides.forEach(function(s,k){ s.classList.toggle('off', k!==idx); }); placeFn(); }
   track.addEventListener('scroll', function(){
