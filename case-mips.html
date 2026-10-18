@@ -1615,6 +1615,7 @@ html.reel-mode figcaption .x-replay{margin:0!important;display:inline-flex!impor
 html:root body.dg-work .case-main .article-section > :is(p:not(.x-kick):not(.x-lead):not(.cl-after),.x-one,.x-finds,.cl-quote,.cl-learn,.x-cta,blockquote,ul,ol){display:none!important}html:root body.dg-work .case-main .article-section:not(:has(> .x-lead)) > p:not(.x-kick):first-of-type{display:block!important}html:root body.dg-work .case-main .dx-item > p:not(.dx-k){display:none!important}.dg-text-toggle{font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:transparent}.dg-text-toggle svg{width:15px;height:15px;flex:none}.dg-text-toggle .tt-on{display:none}html:root body:not(.dg-work) .dg-text-toggle .tt-on{display:inline}html:root body:not(.dg-work) .dg-text-toggle .tt-off{display:none}html:root body:not(.dg-work) .dg-text-toggle{color:var(--accent)!important;border-color:rgba(98,125,224,.38)!important}.dg-text-toggle .tt-l{transition:transform .35s cubic-bezier(.19,1,.22,1)}.dg-text-toggle:hover .tt-l2{transform:translateX(-2px)}.dg-text-toggle:hover .tt-l3{transform:translateX(2px)}</style>
 <style id="dg-fn">/* data footnote: 10px, #6E6E6E (passes 4.5:1 on the page color), 8px under the caption */
 html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans,'Funnel Sans',system-ui)!important;letter-spacing:.01em!important;font-style:normal!important;text-transform:none!important;color:#6E6E6E!important;margin:8px 0 0!important;opacity:1!important}html:root body.dark .dg-fn,html:root body.dark .dg-fn:not(#x),html.dark body .dg-fn{color:#8F96A8!important}</style>
+<style id="dg-cap-below">/* the stage caption gets its own line under the screens instead of sitting on them */html:root body .sc[data-type] .sc-stage > .sc-cap{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;transform:none!important;margin:12px 0 0!important;max-width:100%!important;align-self:flex-start;transition:opacity .4s ease!important}html:root body .sc[data-type] .sc-stage > .sc-cap.away{opacity:0;transform:none!important}</style>
 </head>
 <body>
 <script>try{if(localStorage.getItem("dg-case-text")!=="1")document.body.classList.add("dg-work")}catch(e){document.body.classList.add("dg-work")}</script>
@@ -1858,6 +1859,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
 
 </div>
 
+<script id="dg-cap-below-js">(function(){document.querySelectorAll(".sc .sc-view .sc-cap").forEach(function(c){var v=c.closest(".sc-view");if(v&&v.parentNode)v.parentNode.insertBefore(c,v.nextSibling);});})();</script>
 <script>
 (function(){
   var btn = document.getElementById('themeToggle'); if(!btn) return;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261018i";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
+<script>var DG_V="?v=20261018j";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -1739,6 +1739,7 @@ html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chi
   html body .ask2 .a2-fine span{display:none}
 }
 </style>
+<style id="dg-fixes-1018">/* logo pill: when the nav is in its scrolled state the name must still show while the pill is open */html:root body nav.scrolled .nav-logo.nl-open .logo-full,html:root body nav .nav-logo.nl-open .logo-full{width:auto!important;max-width:none!important;overflow:visible!important;opacity:1!important;transform:none!important}/* nav pills read as solid surfaces, so page text never shows through them */html:root body nav .nav-links,html:root body nav .nav-logo,html:root body nav .theme-fab{background-color:rgba(252,251,249,.97)!important;-webkit-backdrop-filter:blur(16px) saturate(160%)!important;backdrop-filter:blur(16px) saturate(160%)!important}html:root body.nav-dark nav .nav-links,html:root body.hero-night nav .nav-links,html:root body.dark nav .nav-links,html:root body.nav-dark nav .nav-logo,html:root body.hero-night nav .nav-logo,html:root body.dark nav .nav-logo,html:root body.nav-dark nav .theme-fab,html:root body.hero-night nav .theme-fab,html:root body.dark nav .theme-fab{background-color:rgba(12,18,44,.96)!important}/* dark hero: a soft night backdrop behind the headline and intro keeps the bright weave out of the text */#home header.hero{position:relative}body.dark #home header.hero > :is(.hero-h1,.hero-sub,.hero-avail),body.hero-night #home header.hero > :is(.hero-h1,.hero-sub,.hero-avail){position:relative;z-index:4}body.dark #home header.hero > .hero-sub::before,body.hero-night #home header.hero > .hero-sub::before{content:"";position:absolute;inset:-40px -70px -70px -60px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(9,13,34,.88) 62%,rgba(9,13,34,0))}body.dark #home header.hero > .hero-h1::before,body.hero-night #home header.hero > .hero-h1::before{content:"";position:absolute;inset:-30px -90px -30px -60px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(9,13,34,.82) 58%,rgba(9,13,34,0))}/* narrow desktop windows: the bottom bar is nearly solid */@media (max-width:760px){html body .mbar{background:rgba(252,251,249,.97)!important}html body.dark .mbar,html body.hero-night .mbar{background:rgba(12,18,44,.97)!important}}</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -3273,7 +3274,8 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
   // on load: open briefly, then settle into the D.
   var phone=matchMedia('(max-width:760px)').matches;
   /* start once the page has settled so the opening is actually seen, then hold about 2.5s */
-  function intro0(){ open(); setTimeout(function(){ intro=false; if(!logo.matches(':hover')&&document.activeElement!==logo) logo.classList.remove('nl-open'); },2800); }
+  function settle(){ if(!intro) return; intro=false; if(!logo.matches(':hover')&&document.activeElement!==logo) logo.classList.remove('nl-open'); }
+  function intro0(){ if(scrollY>40){ intro=false; return; } open(); setTimeout(settle,2800); addEventListener('scroll',function onS(){ if(scrollY>40){ settle(); removeEventListener('scroll',onS); } },{passive:true}); }
   if(!phone){ if(document.readyState==='complete') setTimeout(intro0,300); else addEventListener('load',function(){ setTimeout(intro0,300); }); } else { intro=false; }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(logo.classList.contains('nl-open')) measure(); });
 })();
