@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261018f";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
+<script>var DG_V="?v=20261018g";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -1490,11 +1490,92 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
 <style id="dg-wk-note">.wk-note{margin:12px 0 0;font:400 12px/1.45 var(--sans);letter-spacing:.01em;color:var(--muted);opacity:.85}body.dark .wk-note,.panel-hero.night ~ * .dl-note{color:rgba(224,230,247,.6)}#demo .dl-note,.dl-note{color:rgba(224,230,247,.55)}</style>
 <style id="dg-meta">/* metadata reads as plain text under each title: body font, sentence case */
 html:root body .dg-meta{font:400 15px/1.5 var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--muted)!important;margin:10px 0 0!important}html:root body .hero-meta{margin:22px 0 0!important;font-size:16px!important}html:root body.dark .dg-meta,html:root body.hero-night .hero-meta,html:root body .panel-hero.night .hero-meta{color:rgba(224,230,247,.7)!important}html:root body .wk-meta2{margin:12px 0 20px!important}.about-anchor{height:0;scroll-margin-top:90px}</style>
-<style id="dg-logo-face">/* hovering the mark turns it into a photo: the D. drops away as the face rises in */
-html:root body nav .nav-logo{position:relative!important;overflow:hidden!important;isolation:isolate}nav .nav-logo .logo-face{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;opacity:0;transform:scale(1.18);transition:opacity .35s ease,transform .7s cubic-bezier(.19,1,.22,1);pointer-events:none;z-index:2}nav .nav-logo .logo-mono{transition:opacity .25s ease,transform .5s cubic-bezier(.19,1,.22,1)!important}@media (hover:hover){nav .nav-logo:hover .logo-face,nav .nav-logo:focus-visible .logo-face{opacity:1;transform:none}html:root body nav .nav-logo:hover .logo-mono,html:root body nav .nav-logo:focus-visible .logo-mono{opacity:0!important;transform:translateY(-6px)!important}}@media (prefers-reduced-motion:reduce){nav .nav-logo .logo-face{transition:opacity .2s ease;transform:none}}</style>
-<style id="dg-resume">.foot-resume{margin:18px 0 0;font:400 15px/1.5 var(--sans);color:var(--muted)}.foot-resume a{color:var(--ink);text-decoration:none;font-weight:500;padding-bottom:2px;background-image:linear-gradient(90deg,var(--dash,rgba(91,111,228,.55)) 0 4px,transparent 4px 7px);background-size:7px 1.5px;background-repeat:repeat-x;background-position:0 100%;transition:color .2s}.foot-resume a:hover,.foot-resume a:focus-visible{color:var(--peri);background-image:linear-gradient(currentColor,currentColor);background-size:100% 1.5px}body.dark .foot-resume a{color:#EEF1FA}body.dark .foot-resume a:hover{color:#9BAEFF}</style>
 <style id="dg-fn">/* data footnote: 10px, #6E6E6E (passes 4.5:1 on the page color), 8px under the caption */
 html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans,'Funnel Sans',system-ui)!important;letter-spacing:.01em!important;font-style:normal!important;text-transform:none!important;color:#6E6E6E!important;margin:8px 0 0!important;opacity:1!important}html:root body.dark .dg-fn,html:root body.dark .dg-fn:not(#x),html.dark body .dg-fn{color:#8F96A8!important}html:root body .wk-note.dg-fn,html:root body .wk-note.dg-fn:not(#x){margin-top:-26px!important;position:relative;z-index:1}</style>
+<style id="dg-hero-hint">/* hero: a hint of shipped work beside the headline (mock26) */
+/* a taste of the work: one hint at a time, recognizable outline, a readable caption that opens the case */
+.fb-amb{--amb-ink:#3446D6;--amb-cap:#3A3F4E;--veil:rgba(251,250,248,.94);--veil0:rgba(251,250,248,0);position:absolute;left:var(--amb-l,860px);top:var(--amb-top,320px);width:var(--amb-w,456px);z-index:3}
+body.dark .fb-amb,body.hero-night .fb-amb{--amb-ink:#B7C0FF;--amb-cap:#D5DAEC;--veil:rgba(9,13,34,.95);--veil0:rgba(9,13,34,0)}
+.amb-stage{position:relative}
+.fb-amb{opacity:0;transform:translateY(12px);transition:opacity 1.6s ease,transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.fb-amb.ready{opacity:1;transform:none}
+.amb-t{position:absolute;inset:0 auto auto 0;width:100%;margin:0;opacity:0;visibility:hidden;transition:opacity .8s ease,visibility 0s linear .8s}
+.amb-t.on{opacity:1;visibility:visible;transition:opacity .8s ease .25s,visibility 0s}
+.amb-pic{transform:translateY(8px);transition:transform 2s cubic-bezier(.2,.7,.2,1)}
+.amb-t.on .amb-pic{transform:none;transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .25s}
+.amb-t::before{content:"";position:absolute;inset:-34% -22% -40% -9%;z-index:-1;pointer-events:none;background-image:radial-gradient(closest-side,var(--veil) 68%,var(--veil0))!important}
+.amb-pic{display:block;pointer-events:auto}
+.amb-ink{display:block;width:100%;aspect-ratio:3/2;background:var(--amb-ink)!important;opacity:.7;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;transition:opacity .3s}
+.amb-pic:hover .amb-ink{opacity:.9}
+.amb-capbox{padding-top:var(--cap-gap,14px);white-space:nowrap}
+.amb-cap{pointer-events:auto;display:inline;font-size:14px;line-height:1.5;color:var(--amb-cap);text-decoration:none;text-underline-offset:4px;text-decoration-thickness:1px}
+.amb-cap:hover,.amb-cap:focus-visible{text-decoration:underline;text-decoration-color:rgba(91,111,228,.6)}
+.amb-cap b{font-weight:600}.amb-cap span{opacity:.85}
+.amb-cap i{font-style:normal;display:inline-block;margin-left:2px;color:#5B6FE4;transition:transform .25s}
+.amb-cap:hover i,.amb-cap:focus-visible i{transform:translateX(3px)}
+.amb-dots{position:absolute;left:0;top:calc(var(--dt,380px) + 12px);transition:top .4s ease;display:flex;gap:8px;pointer-events:auto}
+.amb-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:var(--amb-cap);opacity:.22;cursor:pointer;transition:opacity .3s,width .3s}
+.amb-dots button[aria-current="true"]{opacity:.7;width:18px;border-radius:4px}
+.amb-dots button:focus-visible{outline:2px solid #5B6FE4;outline-offset:3px}
+/* the next section peeks above the fold */
+@media (min-width:1181px){
+  #home header.hero{display:grid!important;grid-template-columns:max-content minmax(0,1fr);column-gap:clamp(48px,4.8vw,80px);align-items:start}
+  #home header.hero > .hero-h1{grid-column:1;grid-row:1;position:relative;z-index:4}
+  #home header.hero > .hero-sub{grid-column:1;grid-row:2}
+  #home header.hero > .hero-avail{grid-column:1;grid-row:3;justify-self:start}
+  #home header.hero > .fb-amb{position:relative;left:auto;top:auto;grid-column:2;grid-row:1 / span 3;align-self:stretch;justify-self:end;width:100%;max-width:520px;min-width:0;display:flex;flex-direction:column;padding-top:.6vw}
+  .fb-amb .amb-stage{flex:1 1 auto;height:auto!important}
+  .fb-amb .amb-t{position:absolute;inset:0;height:100%;display:flex;flex-direction:column}
+  .fb-amb .amb-pic{flex:0 1 auto;min-height:0}
+  .fb-amb .amb-capbox{margin-top:auto;padding-top:10px;line-height:20px}
+  .fb-amb .amb-dots{top:calc(100% + 12px)}
+}
+@media (min-width:761px){#home.panel-hero{min-height:calc(100svh - 56px)!important;height:calc(100svh - 56px)!important}}
+@media (max-width:1180px) and (min-width:761px){#home .fb-amb{display:none}}
+@media (max-width:760px){
+  .fb-amb{position:relative;left:auto;top:auto;width:100%;margin:34px 0 8px;z-index:3}
+  .amb-capbox{display:block}
+  .fb-amb .amb-stage{display:grid}
+  .fb-amb .amb-t{position:relative;grid-area:1/1;width:100%;min-width:0}
+  .fb-amb .amb-pic{display:block;width:100%}
+  .fb-amb .amb-dots{position:static;margin-top:12px}
+  .amb-cap{display:inline;font-size:14px;line-height:1.6}
+  .amb-ink{opacity:.6}
+  #home.panel-hero{height:auto!important;min-height:0!important;padding-top:100px!important;padding-bottom:56px!important}
+  #home header.hero{padding-top:0!important}
+}
+@media (prefers-reduced-motion:reduce){.fb-amb,.amb-pic{transform:none!important}}
+.wk-count:empty{visibility:hidden}</style>
+<style id="dg-nav-card">/* the D. opens to photo, name and title (mock26) */
+/* the D. tile opens to photo + name + title on load, hover, focus or tap */
+html:root body nav .nav-logo{transition:width .55s cubic-bezier(.65,0,.35,1),padding .55s cubic-bezier(.65,0,.35,1),transform .25s ease,box-shadow .25s ease!important}
+html:root body nav .nav-logo.nl-open{width:var(--nl-w,320px)!important;padding:0 18px 0 9px!important;justify-items:start!important}
+html:root body nav .nav-logo.nl-open .logo-full{display:flex!important;align-items:center;gap:10px;opacity:1;font:500 15px/1 'Funnel Sans',system-ui,sans-serif;letter-spacing:.01em;transition:opacity .3s ease .15s!important}
+html:root body nav .nav-logo .logo-full{opacity:0}
+html:root body nav .nav-logo.nl-open .logo-mono{opacity:0!important;transition:opacity .2s ease!important}
+.nl-photo{width:30px;height:30px;border-radius:50%;overflow:hidden;flex:0 0 auto;box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+.nl-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.nl-role{color:#6A7082}
+body.dark .nl-role,body.hero-night .nl-role{color:#A5ADC4}
+@media (max-width:760px){
+  html:root body nav .nav-logo.nl-open{width:48px!important;padding:0!important;justify-items:center!important;overflow:visible!important}
+  html:root body nav .nav-logo.nl-open .logo-mono{opacity:1!important}
+  html:root body nav .nav-logo.nl-open .logo-full{position:absolute;left:0;top:calc(100% + 10px);padding:9px 16px 9px 9px;border-radius:16px;background:rgba(252,251,249,.96);box-shadow:0 12px 30px rgba(40,52,120,.18);border:1px solid rgba(30,32,41,.08);color:#1E2029;white-space:nowrap;display:grid!important;grid-template-columns:34px auto;column-gap:10px;row-gap:3px;font-size:14px!important}
+  html:root body nav .nav-logo.nl-open .nl-photo{grid-row:1 / span 2;width:34px;height:34px}
+  html:root body nav .nav-logo.nl-open .nl-role{font-size:13px}
+  .nl-dot{display:none}
+  body.dark nav .nav-logo.nl-open .logo-full,body.hero-night nav .nav-logo.nl-open .logo-full{background:rgba(14,20,42,.96);border-color:rgba(255,255,255,.14);color:#F4F6FF}
+}
+@media (prefers-reduced-motion:reduce){html:root body nav .nav-logo{transition:none!important}}
+</style>
+<style id="dg-resume-req">
+.fb-resume-note{margin:0;max-width:34ch;font-size:15px;line-height:1.5;color:var(--muted)}
+.fb-note-link{all:unset;cursor:pointer;color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(98,125,224,.55)}
+.fb-note-link:hover{color:var(--accent)}
+.fb-note-link:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+body.dark .fb-resume-note{color:#A5ADC4}
+body.dark .fb-note-link{color:#EEF1FA}
+</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -1509,7 +1590,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
 
 <nav>
   <div class="wrap nav-inner">
-  <a href="index.html" class="nav-logo" aria-label="Diana Gordon, home"><img class="logo-face" src="assets/img/face-144.webp?v=5" alt="" width="48" height="48" decoding="async"><span class="logo-full">Diana Gordon</span><span class="logo-mono" aria-hidden="true"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></span></a>
+  <a href="index.html" class="nav-logo" aria-label="Diana Gordon, product designer and builder. Back to the top"><span class="logo-full"><span class="nl-photo" aria-hidden="true"><img src="assets/img/face-144.webp?v=5" alt="" width="30" height="30" decoding="async"></span><span class="nl-name">Diana Gordon</span><span class="nl-role"><span class="nl-dot">&middot;&ensp;</span>product designer and builder</span></span><span class="logo-mono" aria-hidden="true"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></span></a>
   <div class="nav-right"><div class="nav-links">
     <a href="#demo" class="navlink" data-target="demo" data-glyph="droplet">Demo</a>
     <a href="#work-panel" class="navlink" data-target="work" data-glyph="droplet">Work</a>
@@ -1550,9 +1631,9 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
       <span class="line l2"><span>control layer of agentic</span></span>
       <span class="line l3"><span>AI in <em class="shimmer">clinical software.</em></span></span>
     </h1>
-    <p class="dg-meta hero-meta rise-in d1">Diana Gordon, product designer and builder</p>
     <p class="hero-sub rise-in d2">Nine years in clinical software at <span class="co" data-co="mayo" tabindex="0">Mayo Clinic</span>, <span class="co" data-co="verana" tabindex="0">Verana Health</span> and <span class="co" data-co="modmed" tabindex="0">Modernizing Medicine</span>. Trained in <span class="co" data-co="bentley" tabindex="0">human factors</span>. I prototype in code so leadership sees the idea run first. See <a href="shipped.html" class="dg-sheet-open hero-shipped">what I shipped</a>.</p>
     <span class="hero-avail rise-in d3"><span class="dot"></span> Open to new opportunities · Remote, US Eastern time</span>
+    <div class="fb-amb" role="region" aria-label="Work I shipped"><div class="amb-stage"><div class="amb-t" style="--ar:1000/667"><a class="amb-pic js-open-case" href="#case-rsm" data-case="rsm" tabindex="-1" aria-hidden="true"><span class="amb-ink" style="-webkit-mask-image:url(assets/img/hint-rsm.webp);mask-image:url(assets/img/hint-rsm.webp)"></span></a><div class="amb-capbox"><a class="amb-cap js-open-case" href="#case-rsm" data-case="rsm"><b>Clinical trial startup</b> <span>&middot; agent drafts, a person confirms</span> <i aria-hidden="true">&rarr;</i></a></div></div><div class="amb-t" style="--ar:1000/667"><a class="amb-pic js-open-case" href="#case-adcm" data-case="adcm" tabindex="-1" aria-hidden="true"><span class="amb-ink" style="-webkit-mask-image:url(assets/img/hint-adcm.webp);mask-image:url(assets/img/hint-adcm.webp)"></span></a><div class="amb-capbox"><a class="amb-cap js-open-case" href="#case-adcm" data-case="adcm"><b>Research data catalog</b> <span>&middot; nothing reaches it without validation</span> <i aria-hidden="true">&rarr;</i></a></div></div><div class="amb-t" style="--ar:840/560"><a class="amb-pic js-open-case" href="#case-mips" data-case="mips" tabindex="-1" aria-hidden="true"><span class="amb-ink" style="-webkit-mask-image:url(assets/img/hint-mips.webp);mask-image:url(assets/img/hint-mips.webp)"></span></a><div class="amb-capbox"><a class="amb-cap js-open-case" href="#case-mips" data-case="mips"><b>Medicare quality reporting</b> <span>&middot; the rule next to the decision</span> <i aria-hidden="true">&rarr;</i></a></div></div></div><div class="amb-dots"><button type="button" aria-label="Show work 1 of 3"></button><button type="button" aria-label="Show work 2 of 3"></button><button type="button" aria-label="Show work 3 of 3"></button></div></div>
   </header>
   </div>
   <button class="scroll-cue" id="scrollCue" aria-label="Scroll to the live demo">Scroll<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -1608,7 +1689,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
         <div class="wk-nav" aria-label="Animated screens">
           <button type="button" class="wk-prev" aria-label="Previous screen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
           <span class="wk-prog" aria-hidden="true"><i></i></span>
-          <span class="wk-count" aria-live="polite">1 / &middot;</span>
+          <span class="wk-count" aria-live="polite"></span>
           <button type="button" class="wk-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -1626,7 +1707,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
         <div class="wk-nav" aria-label="Animated screens">
           <button type="button" class="wk-prev" aria-label="Previous screen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
           <span class="wk-prog" aria-hidden="true"><i></i></span>
-          <span class="wk-count" aria-live="polite">1 / &middot;</span>
+          <span class="wk-count" aria-live="polite"></span>
           <button type="button" class="wk-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -1644,7 +1725,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
         <div class="wk-nav" aria-label="Animated screens">
           <button type="button" class="wk-prev" aria-label="Previous screen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
           <span class="wk-prog" aria-hidden="true"><i></i></span>
-          <span class="wk-count" aria-live="polite">1 / &middot;</span>
+          <span class="wk-count" aria-live="polite"></span>
           <button type="button" class="wk-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -1662,7 +1743,7 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
         <div class="wk-nav" aria-label="Animated screens">
           <button type="button" class="wk-prev" aria-label="Previous screen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6"/></svg></button>
           <span class="wk-prog" aria-hidden="true"><i></i></span>
-          <span class="wk-count" aria-live="polite">1 / &middot;</span>
+          <span class="wk-count" aria-live="polite"></span>
           <button type="button" class="wk-next" aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 6 6 6-6 6"/></svg></button>
         </div>
       </div>
@@ -1801,9 +1882,9 @@ html:root body .dg-fn,html:root body .dg-fn:not(#x){font:400 10px/1.4 var(--sans
       
       <div class="foot-actions">
         <button type="button" class="wk-cta dg-contact-open" id="footMessage">Send a message <span aria-hidden="true">&rarr;</span></button>
+        <p class="fb-resume-note">I tailor my resume to each role. <button type="button" class="dg-contact-open fb-note-link fb-resume-req">Request my resume</button> with the job description and I&rsquo;ll send one written for it.</p>
         <a href="https://linkedin.com/in/dianagdesign" target="_blank" rel="noopener" class="ext-link">linkedin.com/in/dianagdesign<svg class="ext" viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7"/></svg><span class="sr">(opens in a new tab)</span></a>
       </div>
-      <p class="foot-resume">Need a resume? <a href="#message" class="dg-contact-open" data-prefill="Hi Diana, could you send me your resume?">Request my resume</a> and I&rsquo;ll send it to you.</p>
       <p class="foot-colophon">Set in Funnel Display, Funnel Sans and Geist Mono. Built in code.</p>
     </div>
   </div>
@@ -2989,5 +3070,88 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
 })();</script>
 <style id="dg-no-ring">html:root body .no-ring:focus-visible,html:root body .no-ring:focus{outline:none!important;box-shadow:none!important}</style>
 <script id="dg-no-ring-js">(function(){/* focus that lands in the menu without a Tab press (for example, returning from a case study) gets no ring */var tab=false;addEventListener("keydown",function(e){tab=e.key==="Tab";},true);addEventListener("pointerdown",function(){tab=false;},true);document.addEventListener("focusin",function(e){var t=e.target;if(!t.closest||!t.closest("nav,.nav-links,.navlink"))return;if(!tab){t.classList.add("no-ring");t.addEventListener("blur",function b(){t.classList.remove("no-ring");t.removeEventListener("blur",b);});}});})();</script>
+<script id="dg-hero-hint-js">
+(function(){
+  var box=document.querySelector('.fb-amb'); if(!box) return;
+  var t=[].slice.call(box.querySelectorAll('.amb-t'));
+  var dots=[].slice.call(box.querySelectorAll('.amb-dots button'));
+  var phone=matchMedia('(max-width:760px)').matches;
+  var n=0,timer=null,paused=false,EVERY=5500;
+  function show(i){ n=i; t.forEach(function(el,j){ el.classList.toggle('on',j===i); var a=el.querySelector('.amb-cap'); if(a) a.tabIndex=(j===i)?0:-1; }); dots.forEach(function(d,j){ d.setAttribute('aria-current',j===i?'true':'false'); }); }
+  show(0); setTimeout(function(){ box.classList.add('ready'); },1700);
+  dots.forEach(function(d,j){ d.addEventListener('click',function(){ show(j); }); });
+  function step(){ if(paused) return; show((n+1)%t.length); }
+  function start(){ if(!timer) timer=setInterval(step,EVERY); }
+  function stop(){ clearInterval(timer); timer=null; }
+  box.addEventListener('mouseenter',function(){paused=true;}); box.addEventListener('mouseleave',function(){paused=false;});
+  box.addEventListener('focusin',function(){paused=true;}); box.addEventListener('focusout',function(){paused=false;});
+  start();
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(e){ e[0].isIntersecting?start():stop(); }).observe(box); }
+  document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
+})();
+</script>
+<script id="dg-nav-card-js">
+(function(){
+  var b=document.body, logo=document.querySelector('nav .nav-logo'), full=logo&&logo.querySelector('.logo-full');
+  if(!logo||!full) return;
+  var hold=null, intro=true;
+  function measure(){ var was=logo.classList.contains('nl-open'); if(!was) logo.classList.add('nl-open'); var w=Math.ceil(full.scrollWidth)+30; if(!was) logo.classList.remove('nl-open'); logo.style.setProperty('--nl-w',w+'px'); }
+  function open(){ measure(); logo.classList.add('nl-open'); }
+  function close(){ if(intro) return; logo.classList.remove('nl-open'); }
+  var touch=matchMedia('(hover: none)').matches;
+  if(!touch){
+    logo.addEventListener('mouseenter',function(){ clearTimeout(hold); open(); });
+    logo.addEventListener('mouseleave',function(){ clearTimeout(hold); hold=setTimeout(close,250); });
+    logo.addEventListener('focus',open); logo.addEventListener('blur',close);
+  }
+  // touch: first tap opens, a second tap goes home
+  var wasOpen=false;
+  logo.addEventListener('pointerdown',function(e){ wasOpen=logo.classList.contains('nl-open'); });
+  logo.addEventListener('pointerup',function(e){ if(e.pointerType==='mouse') return; if(!wasOpen){ open(); clearTimeout(hold); hold=setTimeout(function(){ logo.classList.remove('nl-open'); },4000); } });
+  logo.addEventListener('click',function(e){ if(matchMedia('(hover: none)').matches&&!wasOpen){ e.preventDefault(); } });
+  // on load: open briefly, then settle into the D.
+  var phone=matchMedia('(max-width:760px)').matches;
+  /* start once the page has settled so the opening is actually seen, then hold about 2.5s */
+  function intro0(){ open(); setTimeout(function(){ intro=false; if(!logo.matches(':hover')&&document.activeElement!==logo) logo.classList.remove('nl-open'); },2800); }
+  if(!phone){ if(document.readyState==='complete') setTimeout(intro0,300); else addEventListener('load',function(){ setTimeout(intro0,300); }); } else { intro=false; }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(logo.classList.contains('nl-open')) measure(); });
+})();
+</script>
+<script id="dg-logo-top-js">(function(){var l=document.querySelector('.nav-logo');if(!l)return;
+l.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+ try{history.replaceState(null,'',location.pathname+location.search);}catch(_){}
+ var h=document.querySelector('.hero-h1');if(h){h.setAttribute('tabindex','-1');setTimeout(function(){h.focus({preventScroll:true});},reduce?0:600);}
+},true);})();</script>
+<script id="dg-resume-req-js">(function(){
+  /* resume request: the contact form, set up for a job description */
+  var dlg=document.getElementById('dgContact');
+  var q=function(id){return document.getElementById(id);};
+  var D=null;
+  function snap(){ if(D) return; D={t:q('dgcTitle').innerHTML,e:dlg.querySelector('.dgc-eyebrow').textContent,lbl:dlg.querySelector('label[for=dgcBody]').firstChild.textContent,ph:q('dgcBody').placeholder,max:q('dgcBody').maxLength,send:dlg.querySelector('#dgcSend .label').textContent,msg:q('dgcBodyMsg').textContent}; }
+  function mode(resume){
+    if(!dlg) return; snap();
+    var b=q('dgcBody'), f=q('dgcForm'), hid=f.querySelector('input[name=request]');
+    if(resume){
+      dlg.querySelector('.dgc-eyebrow').textContent='Resume request';
+      q('dgcTitle').innerHTML='Request my resume, <em>written for your role.</em>';
+      dlg.querySelector('label[for=dgcBody]').firstChild.textContent='Job description ';
+      b.placeholder='Paste the job description, or a link to the posting.';
+      b.maxLength=6000; q('dgcBodyMsg').textContent='Paste the posting or a link to it.';
+      dlg.querySelector('#dgcSend .label').textContent='Request resume';
+      if(!hid){hid=document.createElement('input');hid.type='hidden';hid.name='request';f.appendChild(hid);} hid.value='resume';
+    } else {
+      dlg.querySelector('.dgc-eyebrow').textContent=D.e; q('dgcTitle').innerHTML=D.t;
+      dlg.querySelector('label[for=dgcBody]').firstChild.textContent=D.lbl;
+      b.placeholder=D.ph; b.maxLength=D.max; q('dgcBodyMsg').textContent=D.msg;
+      dlg.querySelector('#dgcSend .label').textContent=D.send; if(hid) hid.remove();
+    }
+    var c=q('dgcCount'); if(c) c.textContent=b.value.length+' / '+b.maxLength;
+    setTimeout(function(){ var c2=q('dgcCount'); if(c2) c2.textContent=b.value.length+' / '+b.maxLength; },60);
+  }
+  document.addEventListener('click',function(e){var o=e.target.closest('.dg-contact-open'); if(o) mode(!!o.closest('.fb-resume-req')||o.classList.contains('fb-resume-req'));},true);
+  var body=q('dgcBody'); if(body) body.addEventListener('input',function(){setTimeout(function(){var c=q('dgcCount'); if(c) c.textContent=body.value.length+' / '+body.maxLength;},0);});
+})();</script>
 </body>
 </html>
