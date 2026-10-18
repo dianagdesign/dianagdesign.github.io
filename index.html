@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261016h";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
+<script>var DG_V="?v=20261018a";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -179,7 +179,6 @@
   .card::after {
     content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0;
     background:
-      radial-gradient(circle at var(--mx, 50%) var(--my, 28%), rgba(98,125,224,0.18), transparent 40%),
       linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0));
     transition: opacity .45s var(--ease-card); pointer-events: none;
   }
@@ -1413,7 +1412,7 @@ html:root body.dark .card{background:radial-gradient(circle at 22% 18%,rgba(98,1
 html:root body.dark .card:hover,html:root body.dark .card:focus-visible{border-color:rgba(142,162,255,.5)!important}
 html:root body.dark .tool-item[aria-label="GitHub"] .tool-icon svg{filter:invert(1) brightness(1.7)}
 html:root body.dark .card::before{background:linear-gradient(180deg,rgba(255,255,255,.07),transparent 40%)!important}
-html:root body.dark .card::after{background:radial-gradient(circle at var(--mx,50%) var(--my,28%),rgba(98,125,224,.22),transparent 40%)!important}
+html:root body.dark .card::after{background:none!important}
 html:root body h2.works-title:not(#a):not(#b){font:500 clamp(40px,5vw,76px)/1.02 var(--display)!important;letter-spacing:-.025em!important;max-width:none!important;white-space:nowrap!important}
 html:root body .panel-work .works-divider{margin-bottom:clamp(64px,8vw,128px)!important}
 @media (max-width:900px){html:root body h2.works-title:not(#a):not(#b){white-space:normal!important;font-size:clamp(38px,10vw,56px)!important}}
@@ -1489,6 +1488,11 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
 <style id="dg-cover">/* an open overlay covers the page: stop painting the home page underneath so the overlay animations run smoothly */body:has(.open[id$="Overlay"]) :is(main#main,footer#contact,.panel-hero canvas,#weave,#heroNight),body:has(.sb-overlay.on) :is(main#main,footer#contact){visibility:hidden!important;transition:visibility 0s linear .45s}</style>
 <style id="dg-tab-focus">.sc-steps button:focus:not(:focus-visible){outline:none!important;box-shadow:none!important}</style>
 <style id="dg-wk-note">.wk-note{margin:12px 0 0;font:400 12px/1.45 var(--sans);letter-spacing:.01em;color:var(--muted);opacity:.85}body.dark .wk-note,.panel-hero.night ~ * .dl-note{color:rgba(224,230,247,.6)}#demo .dl-note,.dl-note{color:rgba(224,230,247,.55)}</style>
+<style id="dg-meta">/* metadata reads as plain text under each title: body font, sentence case */
+html:root body .dg-meta{font:400 15px/1.5 var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--muted)!important;margin:10px 0 0!important}html:root body .hero-meta{margin:22px 0 0!important;font-size:16px!important}html:root body.dark .dg-meta,html:root body.hero-night .hero-meta,html:root body .panel-hero.night .hero-meta{color:rgba(224,230,247,.7)!important}html:root body .wk-meta2{margin:12px 0 20px!important}.about-anchor{height:0;scroll-margin-top:90px}</style>
+<style id="dg-logo-face">/* hovering the mark turns it into a photo: the D. drops away as the face rises in */
+html:root body nav .nav-logo{position:relative!important;overflow:hidden!important;isolation:isolate}nav .nav-logo .logo-face{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;opacity:0;transform:scale(1.18);transition:opacity .35s ease,transform .7s cubic-bezier(.19,1,.22,1);pointer-events:none;z-index:2}nav .nav-logo .logo-mono{transition:opacity .25s ease,transform .5s cubic-bezier(.19,1,.22,1)!important}@media (hover:hover){nav .nav-logo:hover .logo-face,nav .nav-logo:focus-visible .logo-face{opacity:1;transform:none}html:root body nav .nav-logo:hover .logo-mono,html:root body nav .nav-logo:focus-visible .logo-mono{opacity:0!important;transform:translateY(-6px)!important}}@media (prefers-reduced-motion:reduce){nav .nav-logo .logo-face{transition:opacity .2s ease;transform:none}}</style>
+<style id="dg-resume">.foot-resume{margin:18px 0 0;font:400 15px/1.5 var(--sans);color:var(--muted)}.foot-resume a{color:var(--ink);text-decoration:none;font-weight:500;padding-bottom:2px;background-image:linear-gradient(90deg,var(--dash,rgba(91,111,228,.55)) 0 4px,transparent 4px 7px);background-size:7px 1.5px;background-repeat:repeat-x;background-position:0 100%;transition:color .2s}.foot-resume a:hover,.foot-resume a:focus-visible{color:var(--peri);background-image:linear-gradient(currentColor,currentColor);background-size:100% 1.5px}body.dark .foot-resume a{color:#EEF1FA}body.dark .foot-resume a:hover{color:#9BAEFF}</style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem('dg-theme');if(t==='dark'||t==='light'){window.__dgExplicit=true;window.__dgTheme=t;if(t==='dark')document.body.classList.add('dark');}}catch(e){}})();</script>
@@ -1503,7 +1507,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
 
 <nav>
   <div class="wrap nav-inner">
-  <a href="index.html" class="nav-logo" aria-label="Diana Gordon, home"><span class="logo-full">Diana Gordon</span><span class="logo-mono" aria-hidden="true"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></span></a>
+  <a href="index.html" class="nav-logo" aria-label="Diana Gordon, home"><img class="logo-face" src="assets/img/face-144.webp" alt="" width="48" height="48" decoding="async"><span class="logo-full">Diana Gordon</span><span class="logo-mono" aria-hidden="true"><svg class="dg-mark" viewBox="10.8 -892.2 1126.4 986.4" aria-hidden="true" focusable="false"><path fill="currentColor" d="M93 0V-810H397Q529 -810 625.0 -761.5Q721 -713 772.5 -622.0Q824 -531 824 -405Q824 -280 772.0 -189.0Q720 -98 624.0 -49.0Q528 0 397 0ZM232 -118H397Q535 -118 609.5 -195.0Q684 -272 684 -405Q684 -539 610.0 -615.5Q536 -692 397 -692H232Z"/><path fill="var(--mark-dot,#5B6FE4)" transform="translate(827.0 0)" d="M139 12Q102 12 76.5 -14.0Q51 -40 51 -77Q51 -114 76.5 -140.0Q102 -166 139 -166Q176 -166 202.0 -140.0Q228 -114 228 -77Q228 -40 202.0 -14.0Q176 12 139 12Z"/></svg></span></a>
   <div class="nav-right"><div class="nav-links">
     <a href="#demo" class="navlink" data-target="demo" data-glyph="droplet">Demo</a>
     <a href="#work-panel" class="navlink" data-target="work" data-glyph="droplet">Work</a>
@@ -1539,12 +1543,12 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
       </div><div class="wrap">
 
   <header class="hero fade">
-    <p class="hero-eyebrow rise-in">Diana Gordon &middot; Product Designer &amp; Builder</p>
     <h1 class="hero-h1">
       <span class="line l1"><span>I design the human</span></span>
       <span class="line l2"><span>control layer of agentic</span></span>
       <span class="line l3"><span>AI in <em class="shimmer">clinical software.</em></span></span>
     </h1>
+    <p class="dg-meta hero-meta rise-in d1">Diana Gordon, product designer and builder</p>
     <p class="hero-sub rise-in d2">Nine years in clinical software at <span class="co" data-co="mayo" tabindex="0">Mayo Clinic</span>, <span class="co" data-co="verana" tabindex="0">Verana Health</span> and <span class="co" data-co="modmed" tabindex="0">Modernizing Medicine</span>. Trained in <span class="co" data-co="bentley" tabindex="0">human factors</span>. I prototype in code so leadership sees the idea run first. See <a href="shipped.html" class="dg-sheet-open hero-shipped">what I shipped</a>.</p>
     <span class="hero-avail rise-in d3"><span class="dot"></span> Open to new opportunities · Remote, US Eastern time</span>
   </header>
@@ -1557,7 +1561,6 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
     <div class="demo-band-inner">
       <div class="demo-head">
         <div class="sky-scrim">
-          <p class="dh-eyebrow">The control layer</p>
           <h2>Good agents know which calls <em>aren&rsquo;t theirs to make.</em></h2>
           <p>This agent read a study protocol and drafted an answer. It identified a call that is yours to make.</p>
         </div>
@@ -1582,7 +1585,6 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
           </div>
         </div>
       </div>
-      <p class="wk-note dl-note">Scripted simulation. Names and data are not real.</p>
     </div>
   </section>
   </div>
@@ -1595,8 +1597,8 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
   <div class="wk-list">
   <section class="wk-case" data-case="rsm" aria-labelledby="wk-t-rsm">
     <div class="wk-intro reveal">
-      <p class="wk-meta">2025 &ndash; Present &middot; Mayo Clinic &middot; Human oversight of AI</p>
       <h3 class="wk-title" id="wk-t-rsm">Let the agents do the work. Keep people in <em>charge.</em></h3>
+      <p class="dg-meta wk-meta2">Mayo Clinic &middot; Product designer &middot; 2025 to present</p>
       <p class="wk-lede">I ran the research, proposed how AI agents fit into study startup, and designed how coordinators direct and check their work. Leadership approved the direction, and it&rsquo;s now in build from my prototype.</p>
       <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Direction approved by&nbsp;leadership</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>In build from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span>4.8/5 concept score for the study overview, the top-rated among 11&nbsp;specialists</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span><span>Requirements written from my&nbsp;prototype</span></li></ul>
       <div class="wk-row">
@@ -1613,8 +1615,8 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
   </section>
   <section class="wk-case" data-case="adcm" aria-labelledby="wk-t-adcm">
     <div class="wk-intro reveal">
-      <p class="wk-meta">2026 &middot; Mayo Clinic &middot; Research data</p>
       <h3 class="wk-title" id="wk-t-adcm">Getting decades of research data back within <em>reach</em></h3>
+      <p class="dg-meta wk-meta2">Mayo Clinic &middot; Product designer &middot; 2026</p>
       <p class="wk-lede">I built a working prototype of the MVP. Leadership approved the build after seeing it run, and development is underway from my prototype.</p>
       <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Build approved after the prototype demo</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>In development from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>Conflict flow cut from four options to one&nbsp;question</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>Held the line: nothing reaches the catalog without&nbsp;validation</span></li></ul>
       <div class="wk-row">
@@ -1627,12 +1629,12 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
         </div>
       </div>
     </div>
-    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/adcm-01-51e849.webp" alt="" decoding="async"></div></div><p class="wk-note">Screens have been updated for this portfolio. Names and data are not real.</p>
+    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/adcm-01-51e849.webp" alt="" decoding="async"></div></div>
   </section>
   <section class="wk-case" data-case="mips" aria-labelledby="wk-t-mips">
     <div class="wk-intro reveal">
-      <p class="wk-meta">2022 – 2024 · Verana Health · Medicare quality</p>
       <h3 class="wk-title" id="wk-t-mips">A Medicare quality platform clinicians would <em>recommend</em></h3>
+      <p class="dg-meta wk-meta2">Verana Health &middot; Product designer &middot; 2022 to 2024</p>
       <p class="wk-lede">Reporting software that made a dense compliance workflow clear and trustworthy. Each rule sits next to the decision it affects, so clinicians stay in control of their own score.</p>
       <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span>NPS of 90 from about 200 users surveyed after&nbsp;launch</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>Used by nearly 3,000 clinicians across two specialty&nbsp;registries</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span>Shipped on time for a Medicare&nbsp;deadline</span></li></ul>
       <div class="wk-row">
@@ -1645,12 +1647,12 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
         </div>
       </div>
     </div>
-    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/mips-01-d7f765.webp" alt="" decoding="async"></div></div><p class="wk-note">Screens have been updated for this portfolio. Names and data are not real.</p>
+    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/mips-01-d7f765.webp" alt="" decoding="async"></div></div>
   </section>
   <section class="wk-case" data-case="qd" aria-labelledby="wk-t-qd">
     <div class="wk-intro reveal">
-      <p class="wk-meta">2022 &ndash; 2024 &middot; Verana Health &middot; Market analytics</p>
       <h3 class="wk-title" id="wk-t-qd">A crowded drug market, <em>readable at a glance</em></h3>
+      <p class="dg-meta wk-meta2">Verana Health &middot; Product designer &middot; 2022 to 2024</p>
       <p class="wk-lede">A 0-to-1 analytics product that shows pharmaceutical brand teams how retina drugs are being used, and how that is changing, month over month. Every number carries its comparison, so the people reading it make the call.</p>
       <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><span>A product sold at $1M+ per customer each&nbsp;year</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>2.7M+ patients and 7,300+ clinicians in the&nbsp;data</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></span><span>Designed 0 to 1, through alpha and&nbsp;beta</span></li></ul>
       <div class="wk-row">
@@ -1663,7 +1665,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
         </div>
       </div>
     </div>
-    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/qd-02-9b951b.webp" alt="" decoding="async"></div></div><p class="wk-note">Screens have been updated for this portfolio. Names and data are not real.</p>
+    <div class="wk-reel"><iframe class="wk-frame" title="Animated screens from this case study" loading="lazy" tabindex="-1"></iframe><div class="wk-ph" aria-hidden="true"><img src="assets/img/qd-02-9b951b.webp" alt="" decoding="async"></div></div>
   </section>
   </div>
   <div class="work-grid">
@@ -1674,7 +1676,6 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
     <a href="#sandbox" class="card reveal sandbox-card js-open-sandbox" aria-label="Open the Sandbox">
       <div class="sbc-mosaic" aria-hidden="true"><div><svg class="viz" data-viz="bars" viewBox="0 0 480 360" role="img" aria-label="Injections by drug" style="font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif"><rect width="480" height="360" fill="#fff"/><text x="28" y="40" font-size="17" font-weight="600" fill="#22262c">Injections by drug</text><text x="28" y="60" font-size="12" font-weight="500" fill="#8a94a1">Share of anti-VEGF injections, month over month</text><line x1="96.0" x2="96.0" y1="84" y2="292" stroke="#eef0f3"/><text x="96.0" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">0%</text><line x1="164.8" x2="164.8" y1="84" y2="292" stroke="#eef0f3"/><text x="164.8" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">10%</text><line x1="233.6" x2="233.6" y1="84" y2="292" stroke="#eef0f3"/><text x="233.6" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">20%</text><line x1="302.4" x2="302.4" y1="84" y2="292" stroke="#eef0f3"/><text x="302.4" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">30%</text><line x1="371.2" x2="371.2" y1="84" y2="292" stroke="#eef0f3"/><text x="371.2" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">40%</text><line x1="440.0" x2="440.0" y1="84" y2="292" stroke="#eef0f3"/><text x="440.0" y="310" font-size="11" fill="#a3acb8" text-anchor="middle">50%</text><text x="28" y="104" font-size="13" fill="#414a55" font-weight="500">Brand 1</text><rect class="vb" x="96" y="92" width="319.2" height="11" fill="#86cbdd" style="--d:0ms"/><rect class="vb" x="96" y="103" width="312.4" height="11" fill="#d7eef4" style="--d:40ms"/><text class="vl" x="421.2" y="102" font-size="11" font-weight="500" fill="#414a55" style="--d:600ms">+1.0 pp</text><text x="28" y="138" font-size="13" fill="#414a55" font-weight="500">Brand 2</text><rect class="vb" x="96" y="126" width="258.7" height="11" fill="#86cbdd" style="--d:90ms"/><rect class="vb" x="96" y="137" width="264.9" height="11" fill="#d7eef4" style="--d:130ms"/><text class="vl" x="366.9" y="136" font-size="11" font-weight="500" fill="#414a55" style="--d:690ms">-0.9 pp</text><text x="28" y="172" font-size="13" fill="#414a55" font-weight="500">Brand 3</text><rect class="vb" x="96" y="160" width="102.5" height="11" fill="#86cbdd" style="--d:180ms"/><rect class="vb" x="96" y="171" width="107.3" height="11" fill="#d7eef4" style="--d:220ms"/><text class="vl" x="209.3" y="170" font-size="11" font-weight="500" fill="#414a55" style="--d:780ms">-0.7 pp</text><text x="28" y="206" font-size="13" fill="#414a55" font-weight="500">Brand 4</text><rect class="vb" x="96" y="194" width="2.1" height="11" fill="#86cbdd" style="--d:270ms"/><rect class="vb" x="96" y="205" width="1.4" height="11" fill="#d7eef4" style="--d:310ms"/><text class="vl" x="104.1" y="204" font-size="11" font-weight="500" fill="#414a55" style="--d:870ms">+0.1 pp</text><text x="28" y="240" font-size="13" fill="#414a55" font-weight="500">Brand 5</text><rect class="vb" x="96" y="228" width="0.0" height="11" fill="#86cbdd" style="--d:360ms"/><rect class="vb" x="96" y="239" width="0.0" height="11" fill="#d7eef4" style="--d:400ms"/><text class="vl" x="102.0" y="238" font-size="11" font-weight="500" fill="#414a55" style="--d:960ms">0.0 pp</text><text x="28" y="274" font-size="13" fill="#414a55" font-weight="500">Brand 6</text><rect class="vb" x="96" y="262" width="0.0" height="11" fill="#86cbdd" style="--d:450ms"/><rect class="vb" x="96" y="273" width="0.0" height="11" fill="#d7eef4" style="--d:490ms"/><text class="vl" x="102.0" y="272" font-size="11" font-weight="500" fill="#414a55" style="--d:1050ms">0.0 pp</text><g font-size="11" font-weight="500" fill="#414a55"><circle cx="150" cy="340" r="4" fill="#86cbdd"/><text x="160" y="344">Jan 2024</text><circle cx="250" cy="340" r="4" fill="#d7eef4"/><text x="260" y="344">Dec 2023</text></g></svg></div><div><svg class="viz" data-viz="lines" viewBox="0 0 480 360" role="img" aria-label="Rolling market share" style="font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif"><rect width="480" height="360" fill="#fff"/><text x="28" y="40" font-size="17" font-weight="600" fill="#22262c">Rolling market share</text><text x="28" y="60" font-size="12" font-weight="500" fill="#8a94a1">Weekly share of injections, with the prior period dashed</text><line x1="64" x2="450" y1="296.0" y2="296.0" stroke="#eef0f3"/><text x="54" y="300.0" font-size="11" fill="#a3acb8" text-anchor="end">0%</text><line x1="64" x2="450" y1="254.0" y2="254.0" stroke="#eef0f3"/><text x="54" y="258.0" font-size="11" fill="#a3acb8" text-anchor="end">10%</text><line x1="64" x2="450" y1="212.0" y2="212.0" stroke="#eef0f3"/><text x="54" y="216.0" font-size="11" fill="#a3acb8" text-anchor="end">20%</text><line x1="64" x2="450" y1="170.0" y2="170.0" stroke="#eef0f3"/><text x="54" y="174.0" font-size="11" fill="#a3acb8" text-anchor="end">30%</text><line x1="64" x2="450" y1="128.0" y2="128.0" stroke="#eef0f3"/><text x="54" y="132.0" font-size="11" fill="#a3acb8" text-anchor="end">40%</text><line x1="64" x2="450" y1="86.0" y2="86.0" stroke="#eef0f3"/><text x="54" y="90.0" font-size="11" fill="#a3acb8" text-anchor="end">50%</text><text x="64.0" y="316" font-size="11" fill="#a3acb8" text-anchor="middle">Wk 1</text><text x="160.5" y="316" font-size="11" fill="#a3acb8" text-anchor="middle">Wk 2</text><text x="257.0" y="316" font-size="11" fill="#a3acb8" text-anchor="middle">Wk 3</text><text x="353.5" y="316" font-size="11" fill="#a3acb8" text-anchor="middle">Wk 4</text><text x="450.0" y="316" font-size="11" fill="#a3acb8" text-anchor="middle">Wk 5</text><polyline class="vp" points="64.0,121.7 160.5,115.4 257.0,110.8 353.5,107.8 450.0,102.8" fill="none" stroke="#ff8300" stroke-width="1.6" stroke-dasharray="5 4" opacity=".7"/><polyline class="vp" points="64.0,136.4 160.5,134.7 257.0,136.8 353.5,135.6 450.0,138.1" fill="none" stroke="#86cbdd" stroke-width="1.6" stroke-dasharray="5 4" opacity=".7"/><polyline class="vp" points="64.0,217.0 160.5,220.0 257.0,224.6 353.5,228.0 450.0,229.2" fill="none" stroke="#e9c247" stroke-width="1.6" stroke-dasharray="5 4" opacity=".7"/><polyline class="vp" points="64.0,295.6 160.5,295.2 257.0,294.7 353.5,294.3 450.0,293.9" fill="none" stroke="#b39be6" stroke-width="1.6" stroke-dasharray="5 4" opacity=".7"/><polyline class="vc" pathLength="1" points="64.0,110.4 160.5,99.0 257.0,99.0 353.5,92.7 450.0,86.4" fill="none" stroke="#ff8300" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" style="--d:0ms"/><polyline class="vc" pathLength="1" points="64.0,142.7 160.5,142.7 257.0,142.7 353.5,134.3 450.0,142.7" fill="none" stroke="#86cbdd" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" style="--d:150ms"/><polyline class="vc" pathLength="1" points="64.0,229.2 160.5,227.1 257.0,236.4 353.5,252.7 450.0,252.7" fill="none" stroke="#e9c247" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" style="--d:300ms"/><polyline class="vc" pathLength="1" points="64.0,293.9 160.5,285.9 257.0,277.1 353.5,269.1 450.0,256.9" fill="none" stroke="#b39be6" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" style="--d:450ms"/><circle class="vd" cx="450.0" cy="86.4" r="4" fill="#ff8300" stroke="#fff" stroke-width="1.5" style="--d:1300ms"/><circle class="vd" cx="450.0" cy="142.7" r="4" fill="#86cbdd" stroke="#fff" stroke-width="1.5" style="--d:1450ms"/><circle class="vd" cx="450.0" cy="252.7" r="4" fill="#e9c247" stroke="#fff" stroke-width="1.5" style="--d:1600ms"/><circle class="vd" cx="450.0" cy="256.9" r="4" fill="#b39be6" stroke="#fff" stroke-width="1.5" style="--d:1750ms"/><g font-size="11" font-weight="500" fill="#414a55"><circle cx="40" cy="340" r="4" fill="#ff8300"/><text x="50" y="344">Brand 1</text><circle cx="132" cy="340" r="4" fill="#86cbdd"/><text x="142" y="344">Brand 2</text><circle cx="224" cy="340" r="4" fill="#e9c247"/><text x="234" y="344">Brand 3</text><circle cx="316" cy="340" r="4" fill="#b39be6"/><text x="326" y="344">Brand 6</text><line class="vp" x1="400" x2="418" y1="340" y2="340" stroke="#97a2af" stroke-width="1.6" stroke-dasharray="4 3"/><text class="vp" x="423" y="344">Prior</text></g></svg></div><div><svg class="viz" data-viz="donut" viewBox="0 0 480 360" role="img" aria-label="Patient journey" style="font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif"><rect width="480" height="360" fill="#fff"/><text x="28" y="40" font-size="17" font-weight="600" fill="#22262c">Patient journey</text><text x="28" y="60" font-size="12" font-weight="500" fill="#8a94a1">Where one brand&rsquo;s patients came from this month</text><circle cx="240" cy="188" r="78" fill="none" stroke="#f0f2f5" stroke-width="24"/><circle class="ds" cx="240" cy="188" r="78" fill="none" stroke="#677a99" stroke-width="24" pathLength="100" stroke-dasharray="65.35 34.65" stroke-dashoffset="0" transform="rotate(-90 240 188)" data-s="0" data-v="65"/><circle class="ds" cx="240" cy="188" r="78" fill="none" stroke="#4a9ab0" stroke-width="24" pathLength="100" stroke-dasharray="20.35 79.65" stroke-dashoffset="-65" transform="rotate(-90 240 188)" data-s="65" data-v="20"/><circle class="ds" cx="240" cy="188" r="78" fill="none" stroke="#ff8300" stroke-width="24" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-85" transform="rotate(-90 240 188)" data-s="85" data-v="15"/><g class="dl"><path d="M320.2 228.9L334.4 236.1L354.4 236.1" fill="none" stroke="#97a2af"/><text x="359.4" y="240.1" font-size="14" font-weight="500" fill="#414a55" text-anchor="start">65%</text><path d="M150.0 188.0L134.0 188.0L114.0 188.0" fill="none" stroke="#97a2af"/><text x="109.0" y="192.0" font-size="14" font-weight="500" fill="#414a55" text-anchor="end">20%</text><path d="M199.1 107.8L191.9 93.6L171.9 93.6" fill="none" stroke="#97a2af"/><text x="166.9" y="97.6" font-size="14" font-weight="500" fill="#414a55" text-anchor="end">15%</text></g><g font-size="11" font-weight="500" fill="#414a55"><circle cx="150" cy="340" r="4" fill="#677a99"/><text x="160" y="344">Continuing</text><circle cx="230" cy="340" r="4" fill="#4a9ab0"/><text x="240" y="344">Switch</text><circle cx="310" cy="340" r="4" fill="#ff8300"/><text x="320" y="344">New</text></g></svg></div><div><svg class="viz" data-viz="rings" viewBox="0 0 480 360" role="img" aria-label="Measure performance" style="font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif"><rect width="480" height="360" fill="#fff"/><text x="28" y="40" font-size="17" font-weight="600" fill="#22262c">Measure performance</text><text x="28" y="60" font-size="12" font-weight="500" fill="#8a94a1">Performance rate for each quality measure</text><circle cx="100" cy="196" r="46" fill="none" stroke="#e8eaee" stroke-width="3.5"/><circle class="ra" cx="100" cy="196" r="46" fill="none" stroke="#e65353" stroke-width="3.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="84.0" transform="rotate(-90 100 196)" data-v="16.0" style="--d:0ms"/><text class="rn" x="100" y="203" font-size="20" font-weight="600" fill="#22262c" text-anchor="middle" data-v="16.0">16.00</text><text x="100" y="270" font-size="13" font-weight="500" fill="#596573" text-anchor="middle">QCDR 55</text><circle cx="240" cy="196" r="46" fill="none" stroke="#e8eaee" stroke-width="3.5"/><circle class="ra" cx="240" cy="196" r="46" fill="none" stroke="#86cbdd" stroke-width="3.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="45.0" transform="rotate(-90 240 196)" data-v="55.0" style="--d:150ms"/><text class="rn" x="240" y="203" font-size="20" font-weight="600" fill="#22262c" text-anchor="middle" data-v="55.0">55.00</text><text x="240" y="270" font-size="13" font-weight="500" fill="#596573" text-anchor="middle">QCDR 397</text><circle cx="380" cy="196" r="46" fill="none" stroke="#e8eaee" stroke-width="3.5"/><circle class="ra" cx="380" cy="196" r="46" fill="none" stroke="#60b262" stroke-width="3.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="20.0" transform="rotate(-90 380 196)" data-v="80.0" style="--d:300ms"/><text class="rn" x="380" y="203" font-size="20" font-weight="600" fill="#22262c" text-anchor="middle" data-v="80.0">80.00</text><text x="380" y="270" font-size="13" font-weight="500" fill="#596573" text-anchor="middle">117</text></svg></div></div>
       <div class="card-body">
-        <div class="card-eyebrow">Sandbox</div>
         <h3>Chart and motion studies</h3>
         <p>The data visualizations from my dashboards, pulled out and animated on their own.</p>
         <div class="card-foot"><span class="card-status" style="color:var(--accent);">See the sandbox</span></div>
@@ -1683,15 +1684,14 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
     <a href="#article" class="card reveal article-card js-open-article" data-glyph="flask">
       <div class="card-body wr">
         <div class="wr-lead">
-          <div class="card-eyebrow">Writing</div>
           <h3>Control That Means Something</h3>
           <p>A framework for human oversight of AI that acts on its own.</p>
           <div class="card-foot"><span class="card-status" style="color:var(--accent);">Read the article &rarr;</span><span class="wr-more" role="link" tabindex="0" data-href="writing.html">More writing, 2016 to 2026 &rarr;</span></div>
         </div>
         <ol class="wr-tri">
-          <li><i>01</i><b>Boundary</b><span>Where the AI must stop and a person must act.</span></li>
-          <li><i>02</i><b>Control</b><span>What a person can do about it: confirm, edit, pause, override.</span></li>
-          <li><i>03</i><b>Legibility</b><span>Making the AI&rsquo;s reasoning something a person can check.</span></li>
+          <li><b>Boundary</b><span>Where the AI must stop and a person must act.</span></li>
+          <li><b>Control</b><span>What a person can do about it: confirm, edit, pause, override.</span></li>
+          <li><b>Legibility</b><span>Making the AI&rsquo;s reasoning something a person can check.</span></li>
         </ol>
       </div>
     </a>
@@ -1774,7 +1774,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
 </section>
 
 <section class="panel panel-about" data-panel data-nav="about"><div class="wrap">
-  <div id="about" class="section-label about-label">About</div>
+  <div id="about" class="about-anchor" aria-hidden="true"></div>
   <section class="about">
     <div class="about-photo reveal">
       <img class="portrait" src="assets/img/home-02-8b310e.jpg" alt="Diana Gordon">
@@ -1783,7 +1783,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
       <h2>Trained in human factors. Working in design and code.</h2>
       <p>I&rsquo;m a product designer with nine years in regulated healthcare. At Mayo Clinic I design AI tools for clinical research, deciding what the AI does on its own and what stays with a person.</p>
       <p>Before that I designed Medicare quality reporting, market analytics and trial recruitment tools at Verana Health, and EHR workflows at Modernizing Medicine, where I co-led the alerts and notification taskforce with the Director of UX and the Director of Patient Safety. It set the notification hierarchy used across every application. I prototype in code and test with the people who use the tools.</p>
-      <p class="about-note">MS, Human Factors in Information Design, Bentley University. Based in Florida, working remotely on US Eastern time.</p>
+      <p class="about-note">MS, Human Factors in Information Design, Bentley University. Working remotely on US Eastern time.</p>
       <p class="about-note">I contributed research, design critique and mockups to Modernizing Medicine teams that won two 2020 SaaS Awards (Best Healthcare SaaS, Best UX/UI) and the 2017 UX Awards People’s Choice.</p>
     </div>
   </section>
@@ -1801,6 +1801,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
         <button type="button" class="wk-cta dg-contact-open" id="footMessage">Send a message <span aria-hidden="true">&rarr;</span></button>
         <a href="https://linkedin.com/in/dianagdesign" target="_blank" rel="noopener" class="ext-link">linkedin.com/in/dianagdesign<svg class="ext" viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7"/></svg><span class="sr">(opens in a new tab)</span></a>
       </div>
+      <p class="foot-resume">Need a resume? <a href="#message" class="dg-contact-open" data-prefill="Hi Diana, could you send me your resume?">Request my resume</a> and I&rsquo;ll send it to you.</p>
       <p class="foot-colophon">Set in Funnel Display, Funnel Sans and Geist Mono. Built in code.</p>
     </div>
   </div>
@@ -2546,7 +2547,7 @@ body.dark .dg-s-bar{border-color:rgba(255,255,255,.12)}body.dark .dg-s-bar b,bod
       for(var i=0;i<stars.length;i++){ var s=stars[i];
         var tw=.5+.5*Math.sin(t*s.sp*.6+s.ph); var a=s.base*(.55+.45*tw);
         if(s.flick && Math.sin(t*s.sp*2.2+s.ph*2)>.985) a=Math.min(1,a+.25);
-        var dx=s.x-mx, dy=s.y-my, d=Math.sqrt(dx*dx+dy*dy), near=d<110?(1-d/110):0; near*=near;
+        var dx=s.x-mx, dy=s.y-my, d=Math.sqrt(dx*dx+dy*dy), near=0; near*=near;
         a=Math.min(1,a+near*.3); var r=s.r*(1+near*.3);
         x.fillStyle=s.warm?'rgba(255,224,190,'+a+')':'rgba(206,218,255,'+a+')';
         x.beginPath(); x.arc(s.x,s.y,r,0,6.283); x.fill();
@@ -2910,7 +2911,7 @@ body.dark .dgc-f input,body.dark .dgc-f textarea{background:rgba(255,255,255,.04
     if(!fromPop && location.hash==='#message') history.back();
   }
   document.addEventListener('click',function(e){
-    if(e.target.closest('.dg-contact-open')){ e.preventDefault(); open(); return; }
+    var opn=e.target.closest('.dg-contact-open'); if(opn){ e.preventDefault(); open(); var pf=opn.getAttribute('data-prefill'), tb=document.getElementById('dgcBody'); if(pf&&tb&&!tb.value.trim()){ tb.value=pf; } return; }
     if(e.target.closest('[data-close]') && root.contains(e.target)) close(false);
   });
   window.addEventListener('popstate',function(){ if(location.hash!=='#message') close(true); else if(!root.classList.contains('on')) open(); });
