@@ -136,6 +136,130 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
 <style id="dg-meta">.dg-meta{font:400 14px/1.5 var(--sans);color:var(--muted);margin:8px 0 14px}.tri li{grid-template-columns:1fr!important}</style>
 <style id="m-resume">.resume{margin:0 0 18px;font:400 15px/1.5 var(--sans);color:var(--muted)}.resume a{color:var(--ink);font-weight:500;text-decoration:none;padding-bottom:2px;background-image:linear-gradient(90deg,rgba(91,111,228,.55) 0 4px,transparent 4px 7px);background-size:7px 1.5px;background-repeat:repeat-x;background-position:0 100%}html.dark .resume a{color:#EEF1FA}</style>
 <style id="m-mock26">.tile{position:relative;overflow:visible}.tcard{position:absolute;left:0;top:calc(100% + 10px);display:grid;grid-template-columns:34px auto;column-gap:10px;row-gap:3px;align-items:center;padding:9px 16px 9px 9px;border-radius:16px;background:rgba(252,251,249,.97);border:1px solid rgba(30,32,41,.08);box-shadow:0 12px 30px rgba(40,52,120,.18);white-space:nowrap;font:400 13px/1.2 var(--sans);font-style:normal;color:#5D6272;text-align:left;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1)}.tcard b{font:500 14px/1.2 var(--sans);color:#1E2029;align-self:end}.tcard>span:last-child{align-self:start}.tc-ph{grid-row:1 / span 2;width:34px;height:34px;border-radius:50%;overflow:hidden}.tc-ph img{width:100%;height:100%;object-fit:cover;display:block}.tile.open .tcard{opacity:1;transform:none;pointer-events:auto}html.dark .tcard{background:rgba(14,20,42,.97);border-color:rgba(255,255,255,.14);color:#A5ADC4}html.dark .tcard b{color:#F4F6FF}.hint{--ink:#3446D6;margin:34px 0 8px}html.dark .hint{--ink:#B7C0FF}.h-stage{display:grid}.h-t{grid-area:1/1;min-width:0;opacity:0;visibility:hidden;transition:opacity .8s ease,visibility 0s linear .8s}.h-t.on{opacity:1;visibility:visible;transition:opacity .8s ease .25s,visibility 0s}.h-pic{display:block}.h-ink{display:block;width:100%;background:var(--ink);opacity:.6;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}.h-cap{display:inline-block;margin-top:12px;font-size:14px;line-height:1.6;color:var(--ink2,#3A3F4E);text-decoration:none}.h-cap b{font-weight:600}.h-cap span{opacity:.85}.h-cap i{font-style:normal;color:#5B6FE4;margin-left:2px}html.dark .h-cap{color:#D5DAEC}.h-dots{display:flex;gap:8px;margin-top:12px}.h-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:currentColor;opacity:.22;transition:opacity .3s,width .3s}.h-dots button[aria-current="true"]{opacity:.7;width:18px;border-radius:4px}@media (prefers-reduced-motion:reduce){.h-t,.tcard{transition:none}}</style>
+<style id="ask2-css">
+/* entry points and handoff, kept from the first version */
+.nav-links a.ask-nav{display:inline-flex;align-items:center;gap:7px}
+.wk-ctas{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.wk-ask{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:border-color .2s ease}
+.wk-ask:hover{border-color:var(--peri)}
+html.ask-lock,html.ask-lock body{overflow:hidden}
+.dgc-from{display:none;margin:0 0 14px;padding:10px 14px;border-radius:12px;background:var(--tint,#EEF1FB);font-size:13px;line-height:1.5}
+.dgc-from.on{display:block}
+.ask-orb{display:inline-block;flex:0 0 auto;vertical-align:middle}.ask-orb canvas{width:100%;height:100%;display:block}
+.ask-hl{border-radius:14px;animation:askHl 3s ease both;outline:none!important}
+@keyframes askHl{0%{box-shadow:0 0 0 0 rgba(91,111,228,0);background-color:rgba(91,111,228,0)}12%,70%{box-shadow:0 0 0 14px rgba(91,111,228,.10);background-color:rgba(91,111,228,.10)}100%{box-shadow:0 0 0 14px rgba(91,111,228,0);background-color:rgba(91,111,228,0)}}
+
+/* ---------- the panel: a light sheet beside the page ---------- */
+.ask2{--a-paper:#FBFAF8;--a-ink:#1E2029;--a-mute:#5D6272;--a-line:rgba(30,32,41,.10);--a-peri:#5B6FE4;--a-tint:#EEF0FC;--a-chip:#F3F3F7;
+  position:fixed;top:12px;right:12px;bottom:12px;width:min(460px,calc(100vw - 24px));z-index:10061;display:none;flex-direction:column;
+  background:var(--a-paper);color:var(--a-ink);border:1px solid var(--a-line);border-radius:22px;box-shadow:0 30px 80px -30px rgba(40,52,120,.35),0 2px 8px rgba(40,52,120,.06);
+  font-family:'Funnel Sans',system-ui,sans-serif;overflow:hidden;transform:translateX(calc(100% + 24px));transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+html.dark body .ask2,body.hero-night .ask2{--a-paper:#10162F;--a-ink:#EEF1FA;--a-mute:#A5ADC4;--a-line:rgba(255,255,255,.12);--a-peri:#8C9BFF;--a-tint:rgba(140,155,255,.16);--a-chip:rgba(255,255,255,.06);box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+.ask2.on{display:flex}.ask2.in{transform:none}
+.a2-scrim{position:fixed;inset:0;z-index:10060;display:none;background:rgba(30,40,90,.06);opacity:0;transition:opacity .4s ease}
+.a2-scrim.on{display:block}.a2-scrim.in{opacity:1}
+.a2-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.a2-x{position:absolute;top:14px;right:14px;z-index:3;width:34px;height:34px;border-radius:50%;border:1px solid var(--a-line);background:var(--a-paper);color:var(--a-mute);display:grid;place-items:center;cursor:pointer;transition:color .2s,border-color .2s}
+.a2-x:hover{color:var(--a-ink);border-color:var(--a-peri)}
+.a2-scroll{flex:1 1 auto;overflow-y:auto;padding:28px 26px 12px;scroll-behavior:smooth}
+
+/* intro: one line of title, one sentence, three starter questions */
+.a2-intro{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding-right:0;transition:opacity .3s}
+.ask2 [hidden]{display:none!important}
+html body .ask2 .a2-intro h2{margin:6px 0 0!important;font:600 18px/1.3 'Funnel Sans',system-ui,sans-serif!important;color:var(--a-ink)!important;letter-spacing:0!important;max-width:none!important}
+.ask2 .a2-intro h2:focus,.ask2 .a2-intro h2:focus-visible{outline:none!important;box-shadow:none!important}
+html:root body .ask2 #askTitle:focus,html:root body .ask2 #askTitle:focus-visible,html:root body .ask2 h3[tabindex]:focus{outline:none!important;box-shadow:none!important}
+.a2-intro > p{margin:0;font-size:15px;line-height:1.55;color:var(--a-mute)}
+.a2-from{display:inline-flex;align-items:center;gap:6px;padding:4px 6px 4px 12px;border-radius:999px;background:var(--a-tint);font-size:13px;color:var(--a-ink)}
+.a2-from button{border:0;background:none;color:var(--a-mute);font-size:16px;line-height:1;cursor:pointer;padding:2px 6px}
+.a2-chips{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.a2-chip{font:inherit;font-size:14.5px;line-height:1.35;text-align:left;color:var(--a-ink);background:var(--a-chip);border:1px solid transparent;border-radius:14px;padding:9px 14px;cursor:pointer;transition:border-color .2s,background .2s}
+.a2-chip:hover,.a2-chip:focus-visible{border-color:var(--a-peri);background:transparent;outline:none}
+.a2-chip.used{color:var(--a-mute)}
+.a2-chips.sm .a2-chip{font-size:13.5px;padding:7px 12px;border-radius:12px;background:transparent;border-color:var(--a-line)}
+.a2-chips.sm .a2-chip:hover{border-color:var(--a-peri)}
+.a2-link{font:inherit;font-size:13.5px;color:var(--a-peri);background:none;border:0;padding:4px 0;cursor:pointer;text-underline-offset:3px}
+.a2-link:hover{text-decoration:underline}
+.a2-all{width:100%;margin-top:4px}
+.a2-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.a2-filter button{font:inherit;font-size:12.5px;color:var(--a-mute);background:none;border:1px solid var(--a-line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.a2-filter button[aria-pressed="true"]{color:var(--a-ink);border-color:var(--a-peri);background:var(--a-tint)}
+.a2-list{list-style:none;margin:0;padding:0}
+.a2-list button{display:block;width:100%;text-align:left;font:inherit;font-size:14px;line-height:1.4;color:var(--a-ink);background:none;border:0;border-top:1px solid var(--a-line);padding:10px 2px;cursor:pointer}
+.a2-list button:hover{color:var(--a-peri)}
+.a2-list button.used{color:var(--a-mute)}
+/* once a question is asked, the intro steps back to a single line */
+.ask2.talking .a2-intro > p,.ask2.talking .a2-intro .a2-chips,.ask2.talking .a2-intro .a2-from{display:none}
+.ask2.talking .a2-intro{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px;padding-bottom:6px}
+html body .ask2.talking .a2-intro h2{margin:0!important;font-size:15px!important}
+.ask2.talking .a2-intro .ask-orb{width:22px!important;height:22px!important}
+.ask2.talking #askAllBtn{margin-left:auto}
+
+/* thread: small question bubble, plain answer, one meta line, two related questions */
+.a2-thread{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.a2-me{align-self:flex-end;max-width:85%;margin-top:14px;padding:9px 14px;border-radius:16px 16px 4px 16px;background:var(--a-tint);color:var(--a-ink);font-size:14.5px;line-height:1.45}
+.a2-wait{display:flex;padding:4px 0}
+.a2-turn{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.a2-note{margin:0;font-size:13px;color:var(--a-mute)}
+.a2-note b{font-weight:500;color:var(--a-ink)}
+.a2-ans p{margin:0 0 10px;font-size:15.5px;line-height:1.65;color:var(--a-ink)}
+.a2-status{font-size:13px!important;color:var(--a-mute)!important}
+.a2-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px;color:var(--a-mute)}
+.a2-meta .a2-dot{opacity:.6}
+.a2-src{font:inherit;font-size:13px;color:var(--a-peri);background:none;border:0;padding:0;cursor:pointer}
+.a2-src:hover{text-decoration:underline;text-underline-offset:3px}
+.a2-btn{font:inherit;font-size:14px;font-weight:500;color:var(--a-peri);background:var(--a-tint);border:1px solid transparent;border-radius:999px;padding:8px 16px;cursor:pointer;margin:2px 0 10px}
+.a2-btn:hover{border-color:var(--a-peri)}
+
+
+/* who's asking: a quiet choice before the questions */
+.a2-who{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:2px}
+.a2-who button:not(.a2-skip){font:inherit;font-size:14.5px;color:var(--a-ink);background:var(--a-chip);border:1px solid transparent;border-radius:999px;padding:9px 16px;cursor:pointer;transition:border-color .2s,background .2s}
+.a2-who button:not(.a2-skip):hover,.a2-who button:not(.a2-skip):focus-visible{border-color:var(--a-peri);background:transparent;outline:none}
+.a2-who .a2-skip{margin-left:4px;color:var(--a-mute)}
+.a2-picked{display:flex;align-items:baseline;gap:10px;font-size:13px;color:var(--a-mute);margin-top:2px}
+.a2-picked .a2-link{font-size:13px;padding:0}
+.ask2.talking .a2-intro .a2-who,.ask2.talking .a2-intro .a2-picked{display:none}
+
+.a2-more{font:inherit;font-size:14px;color:var(--a-peri);background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
+.a2-more:hover{text-decoration:underline;text-underline-offset:3px}
+/* 3) the close button gets its own strip, so nothing scrolls under it */
+.a2-top{flex:0 0 52px;position:relative;background:var(--a-paper)}
+.a2-scroll{padding-top:4px!important}
+.a2-x{top:12px!important;right:12px!important}
+/* the standing Browse link is hidden; the full list opens only from the no-answer reply */
+html body .ask2 #askAllBtn{display:none!important}
+
+/* the title lives in the top strip with the close button */
+html body .ask2 .a2-top{flex:0 0 60px;display:flex;align-items:center;gap:10px;padding:0 64px 0 24px;border-bottom:1px solid var(--a-line)}
+html body .ask2 .a2-top h2{margin:0!important;font:600 15px/1.3 'Funnel Sans',system-ui,sans-serif!important;color:var(--a-ink)!important;letter-spacing:0!important;max-width:none!important}
+html body .ask2 .a2-top h2:focus{outline:none!important}
+html body .ask2 .a2-x{top:13px!important}
+html body .ask2 .a2-scroll{padding-top:20px!important}
+html body .ask2.talking .a2-intro{display:none}
+/* footer: type-ahead list rises above the input */
+.a2-foot{position:relative;flex:0 0 auto;padding:10px 18px 14px;border-top:1px solid var(--a-line);background:var(--a-paper)}
+.a2-ahead{position:absolute;left:18px;right:18px;bottom:calc(100% - 4px);margin:0;padding:6px;list-style:none;background:var(--a-paper);border:1px solid var(--a-line);border-radius:16px;box-shadow:0 -12px 30px -14px rgba(40,52,120,.25)}
+.a2-ahead li{padding:9px 12px;border-radius:10px;font-size:14px;line-height:1.35;color:var(--a-ink);cursor:pointer}
+.a2-ahead li.on,.a2-ahead li:hover{background:var(--a-tint)}
+.a2-ahead li.a2-anyway{color:var(--a-mute);border-top:1px solid var(--a-line);border-radius:0 0 10px 10px;margin-top:4px}
+.a2-form{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 16px;border:1px solid var(--a-line);border-radius:999px;background:var(--a-paper);transition:border-color .2s}
+.a2-form:focus-within{border-color:var(--a-peri)}
+.a2-form input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:15px;color:var(--a-ink);outline:none;padding:6px 0}
+.a2-form input::placeholder{color:var(--a-mute)}
+.a2-send{width:34px;height:34px;flex:0 0 auto;border-radius:50%;border:0;background:var(--a-peri);color:#fff;display:grid;place-items:center;cursor:pointer}
+.a2-fine{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;padding:0 4px;font-size:12px;color:var(--a-mute)}
+.a2-fine .a2-link{font-size:12.5px;padding:0;white-space:nowrap}
+@media (max-width:760px){
+  .ask2{top:auto;left:8px;right:8px;bottom:8px;width:auto;height:min(86vh,720px);border-radius:22px;transform:translateY(calc(100% + 24px))}
+  .a2-scroll{padding:4px 20px 10px}
+  .a2-fine span{display:none}
+  .ask2.talking #askAllBtn{margin-left:0;flex-basis:100%;text-align:left}
+}
+@media (max-width:760px){.nav-links a.ask-nav .ask-orb{display:none}}
+@media (prefers-reduced-motion:reduce){.ask2,.a2-scrim{transition:none}}
+</style>
+<style id="ask-phone">/* the menu is nearly solid so section text never shows through, and stays tappable above the chat tint */.mnav{z-index:10070!important;background:rgba(251,250,248,.94)!important;-webkit-backdrop-filter:blur(28px) saturate(180%)!important;backdrop-filter:blur(28px) saturate(180%)!important}html.dark .mnav{background:rgba(6,13,34,.94)!important}.mnav .ask-orb{display:block}.mnav a.m-ask.ask-on{color:var(--ink)}.mnav a.m-ask.ask-on::after{transform:translateX(-50%) scale(1)}.mnav.ask-open a.active:not(.m-ask){color:var(--muted)}.mnav.ask-open a.active:not(.m-ask)::after{transform:translateX(-50%) scale(0)}/* the chat is a sheet right above the menu, sized to its content */html body .ask2{top:auto!important;bottom:calc(86px + env(safe-area-inset-bottom,0px))!important;left:8px!important;right:8px!important;width:auto!important;height:auto!important;max-height:calc(100vh - 84px - 86px - env(safe-area-inset-bottom,0px));max-height:calc(100dvh - 84px - 86px - env(safe-area-inset-bottom,0px));transform:translateY(24px);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s!important}html body .ask2.in{transform:none;opacity:1}html body .ask2 .a2-scroll{flex:1 1 auto;min-height:0}html body .ask2 .a2-fine{display:flex!important;justify-content:flex-end}html body .ask2 .a2-fine span{display:none}html body .ask2 .a2-chips.sm .a2-chip{background:var(--a-chip);border-color:transparent;font-size:14px;padding:8px 13px;border-radius:14px}html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chip:focus-visible{background:transparent;border-color:var(--a-peri)}#mFrom{margin:0 0 14px}html.dark #mFrom{background:rgba(155,174,255,.12);color:#EEF1FA}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -246,6 +370,7 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
   <a href="#demo" data-target="demo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z"/></svg><span>Demo</span></a>
   <a href="#work" data-target="work"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span>Work</span></a>
   <a href="#about" data-target="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.9-3.7 3.8-5.6 7.5-5.6s6.6 1.9 7.5 5.6"/></svg><span>About</span></a>
+  <a href="#ask" data-target="ask" class="m-ask"><span class="ask-orb" aria-hidden="true" style="width:22px;height:22px"><canvas data-size="22"></canvas></span><span>Ask</span></a>
   <a href="#contact" data-target="contact"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7.5 12 13.5l8.5-6"/></svg><span>Contact</span></a>
 </nav>
 
@@ -285,5 +410,563 @@ html.dark .mnav{box-shadow:0 12px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,25
 <script id="wr-more-js">document.addEventListener('click',function(e){var m=e.target.closest('.wr-more');if(!m)return;e.preventDefault();e.stopPropagation();location.href=m.getAttribute('data-href');},true);document.addEventListener('keydown',function(e){var m=e.target.closest&&e.target.closest('.wr-more');if(m&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopPropagation();location.href=m.getAttribute('data-href');}},true);</script>
 <script id="m-resume-js">(function(){var a=document.getElementById("mResume");if(!a)return;a.addEventListener("click",function(e){e.preventDefault();var f=document.getElementById("mForm"),t=f.querySelector("textarea[name=message]"),l=document.getElementById("mMsgLbl");if(l)l.textContent="Job description";t.placeholder="Paste the job description, or a link to the posting.";t.maxLength=6000;var h=f.querySelector("input[name=request]");if(!h){h=document.createElement("input");h.type="hidden";h.name="request";f.appendChild(h);}h.value="resume";var s=document.getElementById("mSend");if(s)s.textContent="Request resume";f.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){var n=f.querySelector("input[name=name]");if(n)n.focus({preventScroll:true});},400);});})();</script>
 <script id="m-mock26-js">(function(){var t=document.querySelector(".tile");if(t){var hold=null;t.addEventListener("click",function(e){if(!t.classList.contains("open")){e.preventDefault();t.classList.add("open");clearTimeout(hold);hold=setTimeout(function(){t.classList.remove("open");},4000);}else{t.classList.remove("open");}});document.addEventListener("click",function(e){if(!e.target.closest(".tile"))t.classList.remove("open");});addEventListener("scroll",function(){t.classList.remove("open");},{passive:true});}var box=document.querySelector(".hint");if(!box)return;var ts=[].slice.call(box.querySelectorAll(".h-t")),ds=[].slice.call(box.querySelectorAll(".h-dots button")),n=0,timer=null,paused=false;function show(i){n=i;ts.forEach(function(el,j){el.classList.toggle("on",j===i);el.querySelector(".h-cap").tabIndex=j===i?0:-1;});ds.forEach(function(d,j){d.setAttribute("aria-current",j===i?"true":"false");});}show(0);ds.forEach(function(d,j){d.addEventListener("click",function(){show(j);});});function start(){if(!timer)timer=setInterval(function(){if(!paused)show((n+1)%ts.length);},5500);}function stop(){clearInterval(timer);timer=null;}box.addEventListener("focusin",function(){paused=true;});box.addEventListener("focusout",function(){paused=false;});box.addEventListener("touchstart",function(){paused=true;},{passive:true});box.addEventListener("touchend",function(){setTimeout(function(){paused=false;},4000);},{passive:true});if(!matchMedia("(prefers-reduced-motion: reduce)").matches){start();if("IntersectionObserver" in window)new IntersectionObserver(function(e){e[0].isIntersecting?start():stop();}).observe(box);document.addEventListener("visibilitychange",function(){document.hidden?stop():start();});}})();</script>
+<script id="ask-answers">/* Every answer below was written by Diana. The page only picks one. */
+window.DG_ANSWERS = [
+/* ---------- Recruiters ---------- */
+{id:"r1",role:"r",q:"What kind of role is Diana looking for?",
+ a:"A permanent individual contributor role in product design, on AI products where people need to stay in control, especially in healthcare and other high-stakes software. The work itself matters more to her than the title. She prefers fully remote and works on US Eastern time.",
+ link:{label:"About",to:"about"}, kw:"role looking job position seeking next type kind open individual contributor senior permanent fit"},
+{id:"r2",role:"r",q:"Where is she based? Is she open to remote work?",
+ a:"She works remotely on US Eastern time. She prefers fully remote and is open to hybrid in Palm Beach County. She's authorized to work in the US without sponsorship.",
+ link:{label:"About",to:"about"}, kw:"based location where live remote hybrid onsite office relocate relocation timezone time zone eastern florida visa sponsorship authorized citizen work authorization"},
+{id:"r3",role:"r",q:"Quick summary of her background?",
+ a:"Nine years designing healthcare software at Mayo Clinic, Verana Health and Modernizing Medicine, with training in human factors. She prototypes in code with AI coding tools, so teams can see ideas run before they're built. Her focus now is AI that acts on its own: what it can do by itself, and when a person decides.",
+ link:{label:"About",to:"about"}, kw:"summary background experience overview tell about who resume career history years quick bio short"},
+{id:"r4",role:"r",q:"What industries and domains has she worked in?",
+ a:"Healthcare throughout: clinical research at Mayo Clinic, Medicare quality reporting and pharmaceutical market analytics at Verana Health, and electronic health records and e-prescribing at Modernizing Medicine.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"industry industries domain domains healthcare health clinical pharma pharmaceutical ehr emr electronic records sector fields"},
+{id:"r5",role:"r",q:"What is she working on now?",
+ a:"At Mayo Clinic she designs AI tools for clinical research, deciding what an AI agent does on its own and what stays with a person. Two AI products are being built from her prototypes, three tools she designed are in use, and she has shipped many smaller features across her department's research applications.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"working now current currently today job present mayo doing"},
+{id:"r6",role:"r",q:"Why is she looking now?",
+ a:"She wants a role where designing how people work with AI is central to the product, which is where her recent work has been heading.",
+ link:{label:"About",to:"about"}, kw:"why looking now leave leaving change reason move searching mayo"},
+{id:"r7",role:"r",q:"Does she have AI product experience?",
+ a:"Yes. At Mayo Clinic she designed how coordinators direct and check the AI agents planned for clinical study startup, based on research with more than 45 staff. Leadership approved the direction, and developers are building from her prototype. She also designed AI-suggested data mapping for a research catalog. Her home page has a working demo of an agent that stops for a person at the decision that can't be undone.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"ai artificial intelligence agent agents agentic llm machine learning ml products automation"},
+{id:"r8",role:"r",q:"Does she code?",
+ a:"She prototypes in code, working with AI coding tools such as Claude Code, and developers on her current team build from those prototypes. She's a designer, not a developer: she makes the design decisions, and she's learning more of the engineering side as she goes.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"code coding developer engineer engineering programming html css javascript react technical build builder front end frontend"},
+{id:"r9",role:"r",q:"What tools does she use?",
+ a:"Figma, Magic Patterns, Claude, Claude Code, ChatGPT, GitHub, Storybook and Azure DevOps, with React, Angular and PrimeNG on the build side.",
+ link:{label:"Tools",to:"tools"}, kw:"tools software figma stack toolkit programs apps sketch"},
+{id:"r10",role:"r",q:"Does she have mobile experience?",
+ a:"Yes. At Modernizing Medicine she designed primarily for the native iPad app, and later for iOS and Android phones. At Verana Health she designed responsive web products.",
+ link:{label:"About",to:"about"}, kw:"mobile ios android ipad tablet phone native responsive app apps"},
+{id:"r11",role:"r",q:"Has she worked with design systems?",
+ a:"Yes. She builds pattern libraries on her organization's design tokens and keeps them in code, with written rules developers follow. On a research pharmacy platform, those documented patterns became the development team's default after user testing proved them out. She has also completed Brad Frost's and Dan Mall's design systems courses.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"design system systems component components library tokens pattern patterns storybook"},
+{id:"r12",role:"r",q:"What results has her work produced?",
+ a:"A Medicare quality platform with an NPS of 90 from about 200 users, used by nearly 3,000 clinicians. A 0-to-1 analytics product sold at over $1M per customer each year. A research pharmacy platform that shipped two months early and is used by all 34 pharmacy staff.",
+ link:{label:"Medicare quality case study",to:"case:mips"}, kw:"results impact outcomes metrics numbers achievements accomplishments success data roi revenue nps"},
+{id:"r13",role:"r",q:"Has her work actually shipped?",
+ a:"Yes. At Verana Health and Modernizing Medicine her products are live, including an integrations marketplace with over $2M in annual revenue. At Mayo Clinic three tools she designed are in use, she has shipped many smaller features across her department's research applications, and two larger AI products are being built from her prototypes.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"shipped ship launched live released production real users delivered"},
+{id:"r14",role:"r",q:"Can I see her resume, or how do I reach her?",
+ a:"Her resume isn't published here, but she's happy to share one written for your role. You can send her a note, or reach her on LinkedIn.",
+ action:"contact", link:{label:"LinkedIn",to:"linkedin"}, kw:"resume cv reach contact email linkedin get in touch phone call schedule talk"},
+{id:"r15",role:"r",q:"What are her salary expectations? When can she start?",
+ a:"She's happy to cover compensation and timing on a first call. Send her a note and she'll reply within a couple of days.",
+ action:"contact", kw:"salary earn money make compensation pay rate expectations range money start date available availability notice when begin"},
+/* ---------- Hiring managers ---------- */
+{id:"hm1",role:"hm",q:"How does Diana approach a new problem?",
+ a:"She starts by finding where the work actually breaks. On clinical study startup at Mayo Clinic, a status tracker she had shipped earlier showed that delays began at intake. She set up standing research panels with the three roles that carry a study to launch and worked with them for six months. Then she scoped the design to the stretch where status gets lost, from documents ready to enrollment, and made the case to build for one coordinator role first, accepting that other study types would wait.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"approach process problem start begin method new problems framing discovery"},
+{id:"hm2",role:"hm",q:"How does she decide what an AI agent does on its own?",
+ a:"She puts the person's decision at the level of the plan, and the hard stop at whatever can't be undone. In the study startup design at Mayo Clinic, AI agents are planned to handle paperwork across many systems. The agents propose a plan, and nothing runs until a coordinator approves it. Coordinators can pull an agent in or leave one out, but every override needs a reason that stays with the plan, and pause, stop and rerun sit on each agent's row. Bulk approval by confidence level is deliberately held back until testing shows people review first. Once the agents run, she plans to track override rates and time per confirmation to catch rubber-stamping.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"oversight validate effective rubber stamping decide ai agent agents own autonomy autonomous human loop oversight control person stays automate automation approve approval override"},
+{id:"hm3",role:"hm",q:"Tell me about a hard trade-off she made.",
+ a:"On a research data catalog at Mayo Clinic, she held the line that nothing reaches the catalog without validation. She also cut a conflict-resolution flow from four options down to one question, trading flexibility for a decision people could make quickly and correctly.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"trade tradeoff tradeoffs trade-off hard decision compromise difficult choice"},
+{id:"hm4",role:"hm",q:"How does she work with engineers?",
+ a:"Closely, and from the same source. At Mayo Clinic she created a versioned design repository, with tokens, components and written rules, that developers build from directly, alongside working prototypes she makes with AI coding tools. On the Medicare quality platform at Verana Health, she ran design a sprint ahead and held onboarding sessions with developers for each feature, which helped cut development cycles from four weeks to two.",
+ link:{label:"Medicare quality case study",to:"case:mips"}, kw:"engineers engineering developers dev devs collaborate collaboration work with handoff partner"},
+{id:"hm5",role:"hm",q:"How does she get buy-in from leadership?",
+ a:"She shows rather than tells. At Mayo Clinic, leadership approved a research data catalog build after seeing her working prototype run, and research labs signed on after seeing one she built for them. For clinical study startup, leadership approved the direction, and requirements are written directly from her prototype.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"buy buyin buy-in leadership stakeholders stakeholder executives execs exec present presenting presentation convince influence persuade alignment sell"},
+{id:"hm6",role:"hm",q:"How does she measure whether her work succeeded?",
+ a:"With measures that fit the product. The Medicare quality platform earned an NPS of 90 from about 200 users after launch. The research pharmacy platform scored 92.4 on the System Usability Scale with six subject matter experts, and all 34 pharmacy staff use it. Early concepts get tested too: her study overview scored 4.8 out of 5, the top-rated concept among 11 specialists.",
+ link:{label:"Medicare quality case study",to:"case:mips"}, kw:"measure measuring success succeeded metrics kpi kpis evaluate validate sus nps"},
+{id:"hm7",role:"hm",q:"A project that didn't go as planned?",
+ a:"On a research data catalog at Mayo Clinic, she had designed the full workflow around what worked best for each type of user. Then leadership asked for a faster turnaround, and the engineering lead asked her what could be scaled down. She ranked every feature from essential to later, the lead developer estimated the essentials, and she wrote the split into two releases. She took the smaller release back to the people who would use it, to confirm it still supported the workflows they depend on. The research labs' intake and the AI column mapping were deferred, so the first users map columns by hand. The one line she held: nothing reaches the catalog without validation. What she took from it: a full vision is what lets a team accept a smaller first release, but it should be held loosely, because what people learn from that first release will reshape it.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"didn't go planned plan wrong failure fail failed mistake setback challenge went wrong lesson learned scope deadline"},
+{id:"hm8",role:"hm",q:"How does she handle disagreement?",
+ a:"With evidence kept in view. On a research pharmacy platform, some of her patterns were new to the development team. Rather than argue each decision, she kept research-backed documentation visible. User acceptance testing validated the patterns, they became the team's default, and the platform shipped two months early.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"disagreement disagree conflict pushback push back opposition argue debate"},
+{id:"hm9",role:"hm",q:"How does she design for regulated, high-stakes environments?",
+ a:"She puts the rule where the decision happens. On the Medicare quality platform, each compliance rule sits next to the decision it affects, so clinicians stay in control of their score, and it shipped on time for a Medicare deadline. At Modernizing Medicine she co-led an alerts and notifications taskforce with the Director of UX and the Director of Patient Safety, which set the notification hierarchy across every application.",
+ link:{label:"Medicare quality case study",to:"case:mips"}, kw:"regulated regulation compliance high stakes safety safe risk patient patients clinical clinician hipaa fda critical samd ai"},
+{id:"hm10",role:"hm",q:"What's the invisible part of her work?",
+ a:"The research and alignment behind each screen: standing panels with clinical research staff across three roles, concept tests with specialists, and documentation that keeps developers and stakeholders working from the same rules. Much of her impact shows up as decisions teams didn't have to relitigate.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"invisible behind scenes hidden unseen alignment documentation"},
+{id:"hm11",role:"hm",q:"How does she use research?",
+ a:"Continuously, not as a phase. At Mayo Clinic she set up research panels with more than 45 clinical research staff across three roles and returns to them as the design evolves. She tests concepts before they're built and measures usability after.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"research user research interviews usability testing users panels study studies insights"},
+{id:"hm12",role:"hm",q:"How does she handle ambiguity or 0-to-1 work?",
+ a:"By narrowing to the people and the decision that matters most. She designed a market analytics product from 0 to 1 through alpha and beta at Verana Health, and led research and design for an integrations marketplace from 0 to 1 at Modernizing Medicine, now over $2M in annual revenue. At Mayo Clinic she restarted a long-stalled study status tracker by reframing it around the people using it, and launched it in three months.",
+ link:{label:"Market analytics case study",to:"case:qd"}, kw:"ambiguity ambiguous zero one 0 1 0-to-1 new product greenfield startup unclear undefined"},
+{id:"hm13",role:"hm",q:"How does she design data-heavy interfaces?",
+ a:"Every number carries its comparison, so the reader makes the call. In the market analytics product, each total shows its previous value and change, and charts sit beside the prior period. Her chart and motion studies show the same thinking pulled out on their own.",
+ link:{label:"Market analytics case study",to:"case:qd"}, kw:"data heavy dense dashboard dashboards visualization visualisation charts tables analytics"},
+{id:"hm14",role:"hm",q:"How does she explain AI to non-technical people?",
+ a:"With working examples. She builds prototypes people can click through, like the screening demo on her home page, so stakeholders see what the AI does and where a person steps in. At Mayo Clinic she also co-created and taught a course on UX and product design for the business analysts in her department.",
+ link:{label:"The demo",to:"demo"}, kw:"explain non technical nontechnical communicate stakeholders teach teaching translate"},
+{id:"hm15",role:"hm",q:"Has anything she designed at Mayo Clinic shipped?",
+ a:"Yes. Three tools she designed are in use: a research pharmacy platform used by all 34 pharmacy staff, a research support tool that went from idea to daily use in a month, and a study status tracker launched in three months. She has also shipped many smaller features across her department's research applications. Her two larger AI products are being built from her prototypes.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"mayo shipped clinic released use launched"},
+{id:"hm16",role:"hm",q:"How does she work with the teams building the agents?",
+ a:"By giving everyone one set of rules to build against. On the study startup work at Mayo Clinic, an outside partner joined partway through to build the agents, and their output arrived with its own screens and navigation. She mapped each of their screens to a place in the product, turned their output into packages the in-house developers could build from, and kept her control model as the rules both sides build to. When leadership reviewed the end-to-end flow, they chose her version as the source of truth.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"teams building agents ml machine learning data scientists partner vendor model team ai team builders"},
+{id:"hm17",role:"hm",draft:true,q:"What happens when the agent is wrong and nobody notices?",
+ a:"That's the failure she designs against most. When automation handles most of the work, people stop looking closely, so approval turns into a reflex. Her answer is to make confirmation something you earn by looking: in her screening demo, Confirm unlocks only after the person has seen the evidence, and every fact links back to the sentence it came from. In the study startup design, people approve the agent's plan before anything runs, and every override needs a reason that stays on the record. Once the agents run, she plans to watch override rates and time per confirmation, because approvals that are too fast and too uniform are the signal that people have stopped checking.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Article: Control That Means Something",to:"article"}, kw:"wrong error errors mistake mistakes fail failure fails notice notices unnoticed undetected miss missed catch caught automation bias complacency rubber stamping stamp out loop oversight trust"},
+/* ---------- Designers ---------- */
+{id:"d1",role:"d",q:"What are Boundary, Control and Legibility?",
+ a:"The three parts of Diana's approach to overseeing AI that acts on its own. Boundary is what the agent can touch, what it can't, and where an irreversible action has to stop. Control is real authority at the right level: approving the plan, not a stream of approvals that turns into rubber-stamping. Legibility is enough evidence on screen that a person knows when to trust, question or step in, such as every fact linked back to the sentence it came from. What she adds to older human factors work: irreversibility sets the boundary, and confirmation has to be earned by looking.",
+ link:{label:"Article: Control That Means Something",to:"article"}, kw:"boundary control legibility framework model principles three"},
+{id:"d2",role:"d",q:"Why approve the agent's plan instead of every step?",
+ a:"When people are asked to approve every small action, approval turns into a reflex and stops catching problems. Asking a person to approve the plan, and stopping the agent at the decisions that can't be undone, keeps their attention where it counts. The study her article cites, of coding agents with paid professional testers, found that people rejected only 3 percent of single steps but 39 percent of whole plans. People were far more willing to push back on a plan than on a step, so that's where she puts the decision. Whether the same holds for clinical staff is still an open question.",
+ link:{label:"Article: Control That Means Something",to:"article"}, kw:"plan approve approval every step steps rubber stamping stamp prompts permission level"},
+{id:"d3",role:"d",q:"How does human factors training shape her work?",
+ a:"Her master's is in human factors, and her article builds on that work: levels of automation (Sheridan and Verplank; Parasuraman, Sheridan and Wickens) and Bainbridge's ironies of automation. One example of how it shapes a design: Bainbridge showed that automation leaves people only the hard calls, with the least context. In her screening demo, the person watches the agent read, every fact links to its source, and Confirm unlocks only after they've looked.",
+ link:{label:"The demo",to:"demo"}, kw:"human factors training masters degree education bentley ergonomics automation levels bainbridge sheridan"},
+{id:"d4",role:"d",q:"How does she use AI in her own design process?",
+ a:"She prototypes in code with AI coding tools such as Claude Code, so a design becomes something people can click and test. She's a designer, not a developer, and the decisions stay with her. The tools get things wrong in ways she has learned to watch for: asked for a small spacing fix, one added background colors and a whole status color palette she hadn't designed, so she took it back to the change she'd asked for. She checks every change on screen, the way she'd review any design, before anyone else sees it.",
+ link:{label:"Tools",to:"tools"}, kw:"ai process workflow design process claude cursor copilot tools use own vibe coding"},
+{id:"d5",role:"d",q:"How was the screening demo built?",
+ a:"Diana designed it and built it in code with AI coding tools. It uses synthetic data and a scripted agent, so no live model runs. The design choices are the point: every fact the agent pulls out is linked to the sentence it came from, reversible facts go into the record on their own, and the one irreversible call stops no matter how confident the agent is. Confirm unlocks only after the person has looked, while Edit and Override are always available, so a person's judgment is never blocked.",
+ link:{label:"The demo",to:"demo"}, kw:"demo screening built build made prototype simulation"},
+{id:"d6",role:"d",q:"How does she show uncertainty in an AI's output?",
+ a:"In plain language a person can act on. For a research data catalog she designed AI-suggested data mapping with clear confidence labels, then held the AI feature back so people could do the mapping by hand first.",
+ status:"Mayo Clinic work, described at a high level.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"uncertainty confidence probability score labels unsure wrong hallucination"},
+{id:"d7",role:"d",q:"How does she test AI features with people?",
+ a:"Before they're built. She tested each step of the control model with coordinators through a concept demo, and brings concepts to specialists for scoring. Her study overview concept scored 4.8 out of 5 with 11 specialists.",
+ link:{label:"Study startup case study",to:"case:rsm"}, kw:"test testing usability evaluate validate ai features users concept"},
+{id:"d8",role:"d",q:"How does she hand off to developers?",
+ a:"She makes handoff a smaller step. Her prototypes, built in code with AI coding tools, sit alongside tokens, components and written rules in one repository, and developers build from them directly. Before a build starts, she reviews each story with the engineering lead, so what developers plan from matches the prototype.",
+ link:{label:"Research data case study",to:"case:adcm"}, kw:"handoff hand off handover specs developers redlines"},
+{id:"d9",role:"d",q:"How does she approach design systems?",
+ a:"As written rules as much as components. She builds pattern libraries on her organization's design tokens and documents why each pattern exists, so teams can follow the reasoning, not just copy the look. She has studied design systems through Brad Frost's design systems course and Dan Mall's Design Systems 101.",
+ link:{label:"What I shipped",to:"shipped"}, kw:"design systems system approach tokens components documentation brad frost dan mall"},
+{id:"d10",role:"d",q:"How did she make a dense compliance workflow readable?",
+ a:"By putting each rule next to the decision it affects. On the Medicare quality platform, people used to leave the page to look up rules. She placed the rule where the number is entered, so clinicians could stay in control of their own score.",
+ link:{label:"Medicare quality case study",to:"case:mips"}, kw:"dense compliance workflow readable mips medicare quality complex"},
+{id:"d11",role:"d",q:"Why does every number show its comparison?",
+ a:"Because a number alone invites the wrong conclusion. In the market analytics product, each total shows its previous value and change, and charts sit beside the prior period, so the people reading it make the call.",
+ link:{label:"Market analytics case study",to:"case:qd"}, kw:"number numbers comparison compare previous change charts"},
+{id:"d12",role:"d",q:"What tools does she design and build with?",
+ a:"Figma and Magic Patterns for design, Claude and Claude Code for building prototypes, GitHub for versioning, and Storybook and Azure DevOps with development teams. Product teams she works with build in React, Angular and PrimeNG.",
+ link:{label:"Tools",to:"tools"}, kw:"tools design build stack figma github"},
+{id:"d13",role:"d",q:"How was this portfolio built?",
+ a:"Diana designed it and built it in code with AI coding tools. She's a designer, not a developer, and the site is one of the places she keeps learning the engineering side.",
+ link:{label:"About",to:"about"}, kw:"portfolio site website built made this"},
+{id:"d14",role:"d",q:"How was this chat built?",
+ a:"As a small experiment in the idea her work is about: deciding what software should do on its own and what stays with a person. Every answer was written by Diana, so the chat never improvises about a real person. For now, your question is matched by keywords in your browser, and nothing is stored. That's a deliberate first step: predictable and easy to inspect. Each answer shows the words it matched on and where on her site it comes from. An AI picker comes next, and it will only choose among her answers, never write one. She's learning as she builds it.",
+ link:{label:"Every question she has answered",to:"index"}, kw:"chat chatbot bot assistant this built work works how made ai answers keyword keywords matching"},
+{id:"d15",role:"d",q:"What has she written?",
+ a:"Her current article, \"Control That Means Something,\" covers human oversight of AI that acts on its own. Her writing collects pieces from 2016 to 2026, including design articles that were translated into Japanese.",
+ link:{label:"Article: Control That Means Something",to:"article"}, kw:"written writing articles article publications blog posts published essays"},
+/* ---------- Shared ---------- */
+{id:"inperson",role:"shared",q:"Questions for Diana in person",
+ a:"That's a good one to ask Diana directly. This chat covers her work and what she's experimenting with, and questions like this are better in conversation.",
+ action:"contact", kw:""}
+];
+
+/* Starters per role, and per case (from the end of a case). */
+window.DG_STARTERS = {
+  none:["r3","hm2","r13"],
+  r:["r3","r7","r12"],
+  hm:["hm2","hm7","hm16"],
+  d:["d2","d5","d14"],
+  "case:rsm":["hm2","hm17","hm16"],
+  "case:adcm":["hm7","d6","hm3"],
+  "case:mips":["d10","hm4","hm9"],
+  "case:qd":["d11","hm12","hm13"]
+};
+window.DG_CASE_NAMES = {rsm:"Study startup",adcm:"Research data",mips:"Medicare quality",qd:"Market analytics"};
+
+/* Topics that go to Diana in person (whole words only). */
+window.DG_INPERSON = ["level","title","titles","manage","manager","management","mentor","mentoring","mentored","lead","leadership role","contract","contractor","hire","w2","c2c","1099","team size","report","reports","direct reports","would she","what would","how would","handle if","scenario","hypothetical","references","reference","weakness","weaknesses","strengths","personality","culture","fired","laid","layoff"];
+</script>
+<script id="ask2-js">/* The home page ribbon, closed into a ring. Same wave math, same palette. */
+window.dgRing = (function(){
+  function draw(cv, t, opts){
+    opts = opts || {};
+    var size = +cv.getAttribute('data-size') || 64, dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (cv.width !== Math.round(size*dpr)){ cv.width = Math.round(size*dpr); cv.height = Math.round(size*dpr); }
+    var ctx = cv.getContext('2d'), W = cv.width, c = W/2, dark = opts.dark;
+    ctx.clearRect(0,0,W,W);
+    ctx.globalCompositeOperation = dark ? 'lighter' : 'source-over';
+    /* density scales with size so small rings stay crisp, not muddy */
+    var cols = Math.round(Math.min(260, Math.max(70, size*3.2))), rows = Math.round(Math.min(26, Math.max(6, size/3.2)));
+    var R0 = W*.34, bw = W*.075;                       /* ring radius and band half-width */
+    var spin = t*.35, m = .5 + .5*Math.sin(t*.15), m2 = .75 + .25*Math.sin(t*.11 + 1.3), pit = .5, cp = Math.cos(pit), sp = Math.sin(pit);
+    var tilt = .12*Math.sin(t*.21), ct = Math.cos(tilt), st = Math.sin(tilt);
+    var dot = Math.max(.75*dpr, W/ (size > 40 ? 150 : 70)); /* keep dots the same visual size on high-density screens */
+    for (var i = 0; i < cols; i++){
+      var th = i/cols*Math.PI*2;
+      var env = .75 + .45*Math.sin(2*th - t*.25 + .7) + .3*Math.sin(3*th - t*.18 + 2.1);
+      env = Math.max(.1, Math.min(1.6, env));
+      for (var j = 0; j < rows; j++){
+        var v = rows === 1 ? 0 : (j/(rows-1) - .5)*2;
+        /* the ribbon's wave: two interfering ripples that travel around the loop */
+        /* the shape slowly morphs between three and four lobes while it turns */
+        var h = (Math.sin(3*th - t*.5)*Math.cos(v*1.2 + t*.3)*(1 - m) + Math.sin(4*th - t*.45 + 1)*Math.cos(v*1.4 - t*.2)*m)*m2 + .44*Math.sin(5*th - v*2.2 - t*.7)*.9;
+        h *= .95*env;
+        var rr = R0 + v*bw*(.75 + .35*env) + h*W*.012;
+        var a = th + spin;
+        var x = rr*Math.cos(a), y = rr*Math.sin(a), z = h*W*.075;
+        /* tip the ring back so it reads as a band in space, with a slow wobble */
+        var y1 = y*cp - z*sp, z1 = y*sp + z*cp;
+        var x2 = x*ct - z1*st, z2 = x*st + z1*ct;
+        var per = 1/(1.25 - z2/(W*.9)), sx = c + x2*per, sy = c + y1*per;
+        var d = Math.max(0, Math.min(1, .5 + z2/(W*.6)));
+        var slope = Math.min(1, Math.abs(h)/.7);
+        var al = (.22 + d*.62)*(.5 + slope*.6);
+        if (al < .03) continue;
+        if (dark){
+          var glow = Math.max(0, Math.cos(a - 2.4))*.9, crest = Math.max(0, h)/.9;
+          var r = 96 + glow*170 + crest*30, g = 112 + glow*84 + crest*60, b = 178 - glow*70 + crest*77;
+          ctx.fillStyle = 'rgba(' + Math.min(255,r|0) + ',' + Math.min(255,g|0) + ',' + Math.min(255,b|0) + ',' + Math.min(.9, al*1.1).toFixed(2) + ')';
+        } else {
+          var hh = 233 - 52*55/100*slope, lt = 38 + slope*14;
+          ctx.fillStyle = 'hsla(' + hh.toFixed(0) + ',65%,' + lt.toFixed(0) + '%,' + Math.min(.9, al).toFixed(2) + ')';
+        }
+        var z = dot*per; ctx.fillRect(sx - z/2, sy - z/2, z, z);
+      }
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  return { draw: draw };
+})();
+
+
+/* ===== Ask, second pass: a light sheet, a quiet thread, Diana's questions as you type ===== */
+(function(){
+  var A = window.DG_ANSWERS, BY = {}; A.forEach(function(x){ BY[x.id] = x; });
+  var STARTERS = window.DG_STARTERS, CASES = window.DG_CASE_NAMES;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- the ring: the home page ribbon, closed into a loop ---------- */
+  function isDark(){ return document.documentElement.classList.contains('dark'); }
+  function orbHTML(size, live){ return '<span class="ask-orb" style="width:'+size+'px;height:'+size+'px" aria-hidden="true"><canvas data-size="'+size+'"'+(live?' data-fast="1"':'')+'></canvas></span>'; }
+  function paint(c, t){ window.dgRing.draw(c, t, { dark:isDark() }); }
+  function paintStill(root){ (root||document).querySelectorAll('.ask-orb canvas').forEach(function(c){ paint(c, 2.2); }); }
+  /* gentle spin at 30fps, only for rings on screen; faster while finding an answer; still with reduced motion */
+  var T0 = performance.now(), lastF = 0, onScreen = new Set();
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) onScreen.add(e.target); else onScreen.delete(e.target); }); }) : null;
+  function watch(root){ (root||document).querySelectorAll('.ask-orb canvas').forEach(function(c){ if (!c.__w){ c.__w = 1; if (io) io.observe(c); else onScreen.add(c); } }); }
+  function loop(now){
+    requestAnimationFrame(loop);
+    if (reduce || document.hidden || now - lastF < 33 || !onScreen.size) return; lastF = now;
+    var t = (now - T0)/1000;
+    onScreen.forEach(function(c){ if (!c.isConnected){ onScreen.delete(c); return; } if (c.offsetParent) paint(c, 2.2 + t*(c.hasAttribute('data-fast') ? 2.2 : .55)); });
+  }
+  requestAnimationFrame(loop);
+  var wasDark = isDark();
+  new MutationObserver(function(){ var d = isDark(); if (d !== wasDark){ wasDark = d; paintStill(); } }).observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+
+  /* ---------- entry points ---------- */
+  function addEntries(){
+    var nav = document.querySelector('.nav-links');
+    if (nav && !nav.querySelector('.ask-nav')){
+      var a = document.createElement('a'); a.href = '#ask'; a.className = 'navlink ask-nav'; a.innerHTML = orbHTML(16) + 'Ask';
+      nav.insertBefore(a, document.getElementById('navContact'));
+    }
+    document.querySelectorAll('.wk-row .js-open-case').forEach(function(c){
+      if (c.parentNode.querySelector('.wk-ask') || c.closest('.wk-ctas')) return;
+      var id = c.getAttribute('data-case'), b = document.createElement('button');
+      b.type = 'button'; b.className = 'wk-ask'; b.innerHTML = 'Ask about this project <span aria-hidden="true">&rarr;</span>';
+      b.addEventListener('click', function(){ openAsk({from:id}); });
+      var w = document.createElement('span'); w.className = 'wk-ctas'; c.parentNode.insertBefore(w, c); w.appendChild(c); w.appendChild(b);
+    });
+    paintStill(); watch();
+  }
+
+  /* ---------- the panel ---------- */
+  var root = document.createElement('section');
+  root.className = 'ask2'; root.id = 'dgAsk';
+  root.setAttribute('role','dialog'); root.setAttribute('aria-modal','true'); root.setAttribute('aria-labelledby','askTitle'); root.setAttribute('aria-hidden','true');
+  root.innerHTML =
+    '<div class="a2-top">' + orbHTML(22) + '<h2 id="askTitle" tabindex="-1">Ask about Diana&rsquo;s work</h2><button type="button" class="a2-x" id="askClose" aria-label="Close"><svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>' +
+    '<div class="a2-scroll" id="askScroll">' +
+      '<div class="a2-intro" id="askIntro">' +
+        '<p id="askLead">Diana wrote every answer here. Who&rsquo;s asking?</p>' +
+        '<div class="a2-who" id="askWho" role="group" aria-label="Who are you?"><button type="button" data-who="r">Recruiter</button><button type="button" data-who="hm">Hiring manager</button><button type="button" data-who="d">Designer</button><button type="button" class="a2-link a2-skip" data-who="none">Skip</button></div>' +
+        '<div class="a2-picked" id="askPicked" hidden><span id="askPickedName"></span><button type="button" class="a2-link" id="askChange">Change</button></div>' +
+        '<div class="a2-from" id="askFrom" hidden><span>About <b id="askFromName"></b></span><button type="button" id="askFromX" aria-label="Show questions about all her work">&times;</button></div>' +
+        '<ul class="a2-chips" id="askStarters" aria-label="Suggested questions"></ul>' +
+        '<button type="button" class="a2-link" id="askAllBtn" aria-expanded="false" aria-controls="askAll">Browse all ' + (A.length-1) + ' questions</button>' +
+        '<div class="a2-all" id="askAll" hidden>' +
+          '<div class="a2-filter" role="group" aria-label="Filter questions"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="r" aria-pressed="false">Recruiters</button><button type="button" data-f="hm" aria-pressed="false">Hiring managers</button><button type="button" data-f="d" aria-pressed="false">Designers</button></div>' +
+          '<ul class="a2-list" id="askAllList"></ul>' +
+        '</div>' +
+      '</div>' +
+      '<div class="a2-thread" id="askThread" aria-live="off"></div>' +
+    '</div>' +
+    '<div class="a2-foot">' +
+      '<ul class="a2-ahead" id="askAhead" role="listbox" aria-label="Matching questions" hidden></ul>' +
+      '<form class="a2-form" id="askForm" autocomplete="off"><label for="askInput" class="a2-sr">Ask a question</label>' +
+        '<input id="askInput" type="text" maxlength="300" placeholder="Ask about her work or process" role="combobox" aria-expanded="false" aria-controls="askAhead" aria-autocomplete="list">' +
+        '<button class="a2-send" type="submit" aria-label="Ask"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></form>' +
+      '<div class="a2-fine"><span>Diana wrote every answer. Nothing is stored.</span><button type="button" class="a2-link a2-write-l" data-write="1">Write to Diana</button></div>' +
+    '</div>' +
+    '<div class="a2-sr" role="status" id="askLive"></div>';
+  document.body.appendChild(root);
+  var scrim = document.createElement('div'); scrim.className = 'a2-scrim'; scrim.setAttribute('aria-hidden','true'); document.body.insertBefore(scrim, root);
+  scrim.addEventListener('click', function(){ closeAsk(false); });
+
+  var $ = function(id){ return document.getElementById(id); };
+  var thread = $('askThread'), scroller = $('askScroll'), input = $('askInput'), ahead = $('askAhead'), live = $('askLive');
+  var state = { role:null, who:null, from:null, asked:[], typed:[], filter:'all', busy:false }, lastFocus = null, aheadIdx = -1;
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function say(t){ live.textContent = ''; setTimeout(function(){ live.textContent = t; }, 40); }
+  function ctxKey(){ return state.from ? 'case:'+state.from : (state.role || 'none'); }
+  function chip(id, cls){ var x = BY[id]; return '<li><button type="button" class="a2-chip'+(cls?' '+cls:'')+(state.asked.indexOf(id)>=0?' used':'')+'" data-id="'+id+'">'+esc(x.q)+'</button></li>'; }
+
+  var WHO = { r:'Top questions from recruiters', hm:'Top questions from hiring managers', d:'Top questions from designers', none:'Top questions' };
+  function renderWho(){
+    var chosen = state.from || state.who;
+    $('askWho').hidden = !!chosen; $('askStarters').hidden = !chosen;
+    $('askPicked').hidden = !(state.who && !state.from);
+    if (state.who) $('askPickedName').textContent = WHO[state.who];
+    $('askLead').textContent = chosen ? 'Diana wrote every answer here. Pick a question or type your own.' : 'Diana wrote every answer here. Who\u2019s asking?';
+  }
+  function renderStarters(){
+    renderWho();
+    var ids = (STARTERS[ctxKey()] || STARTERS.none);
+    $('askStarters').innerHTML = ids.map(function(id){ return chip(id); }).join('');
+  }
+  function renderAll(){
+    var f = state.filter;
+    var items = A.filter(function(x){ return x.role !== 'shared' && (f === 'all' || x.role === f); });
+    $('askAllList').innerHTML = items.map(function(x){ return '<li><button type="button" data-id="'+x.id+'" class="'+(state.asked.indexOf(x.id)>=0?'used':'')+'">'+esc(x.q)+'</button></li>'; }).join('');
+  }
+
+  /* ---------- type-ahead: Diana's questions that match what is being typed ---------- */
+  function renderAhead(){
+    var v = input.value.trim();
+    if (v.length < 2){ ahead.hidden = true; input.setAttribute('aria-expanded','false'); aheadIdx = -1; return; }
+    var r = score(toks(v).map(fix)).filter(function(x){ return x.s > 0; }).slice(0,4);
+    var html = r.map(function(x, i){ return '<li role="option" id="ah'+i+'" data-id="'+x.id+'" class="'+(i===aheadIdx?'on':'')+'">'+esc(BY[x.id].q)+'</li>'; }).join('');
+    html += '<li role="option" id="ah'+r.length+'" class="a2-anyway'+(aheadIdx===r.length?' on':'')+'" data-anyway="1">Ask &ldquo;'+esc(v.length > 48 ? v.slice(0,46)+'&hellip;' : v)+'&rdquo;</li>';
+    ahead.innerHTML = html; ahead.hidden = false; input.setAttribute('aria-expanded','true');
+    input.setAttribute('aria-activedescendant', aheadIdx >= 0 ? 'ah'+aheadIdx : '');
+  }
+  function closeAhead(){ ahead.hidden = true; aheadIdx = -1; input.setAttribute('aria-expanded','false'); input.removeAttribute('aria-activedescendant'); }
+
+  /* ---------- the thread ---------- */
+  function startThread(){ if (!root.classList.contains('talking')){ root.classList.add('talking'); } }
+  function scrollToEl(el){ var top = el.offsetTop - 20; scroller.scrollTo({ top:top, behavior: reduce ? 'auto' : 'smooth' }); }
+  function me(text){ var d = document.createElement('div'); d.className = 'a2-me'; d.textContent = text; return d; }
+  function source(l){
+    if (!l) return '';
+    if (l.to === 'index') return '<button type="button" class="a2-src" data-all="1">'+esc(l.label)+' <span aria-hidden="true">&rarr;</span></button>';
+    return '<button type="button" class="a2-src" data-to="'+esc(l.to)+'">'+esc(l.label)+' <span aria-hidden="true">&rarr;</span></button>';
+  }
+  function related(id){
+    var x = BY[id];
+    var pool = (STARTERS[ctxKey()] || []).concat(A.filter(function(y){ return y.role === (state.role || x.role); }).map(function(y){ return y.id; }));
+    var out = []; pool.forEach(function(p){ if (out.length < 2 && p !== id && BY[p] && BY[p].role !== 'shared' && state.asked.indexOf(p) < 0 && out.indexOf(p) < 0) out.push(p); });
+    return out.length ? '<ul class="a2-chips sm" aria-label="Related questions">' + out.map(function(p){ return chip(p,'sm'); }).join('') + '</ul>' : '';
+  }
+  /* answers over ~70 words show their first sentences, with the rest one tap away */
+  function body(a, st){
+    var stHTML = st ? '<p class="a2-status">'+esc(st)+'</p>' : '';
+    var words = a.split(/\s+/); if (words.length <= 70) return '<p>'+esc(a)+'</p>' + stHTML;
+    var parts = a.match(/[^.!?]+[.!?]+(\s|$)/g) || [a], head = '', n = 0;
+    for (var i = 0; i < parts.length; i++){ var k = parts[i].split(/\s+/).filter(Boolean).length; if (n && n + k > 60) break; head += parts[i]; n += k; }
+    var rest = a.slice(head.length);
+    if (!rest.trim()) return '<p>'+esc(a)+'</p>' + stHTML;
+    return '<p>'+esc(head.trim())+' <button type="button" class="a2-more" aria-expanded="false">Read more</button></p>' + stHTML + '<p class="a2-rest" hidden>'+esc(rest.trim())+'</p>';
+  }
+  function answerTurn(id, note){
+    var x = BY[id], w = document.createElement('div'); w.className = 'a2-turn';
+    w.innerHTML = (note ? '<p class="a2-note">'+note+'</p>' : '') +
+      '<div class="a2-ans"><h3 class="a2-sr" tabindex="-1">'+esc(x.q)+'</h3>' + body(x.a, x.status) +
+      (x.action === 'contact' ? '<button type="button" class="a2-btn" data-write="1">Write to Diana <span aria-hidden="true">&rarr;</span></button>' : '') +
+      '<div class="a2-meta"><span>Written by Diana</span>' + (x.link ? '<span class="a2-dot" aria-hidden="true">&middot;</span>' + source(x.link) : '') + '</div></div>' +
+      related(id);
+    return w;
+  }
+  function personTurn(){
+    var w = document.createElement('div'); w.className = 'a2-turn';
+    w.innerHTML = '<div class="a2-ans"><h3 class="a2-sr" tabindex="-1">A question for Diana herself</h3><p>'+esc(BY.inperson.a)+'</p>' +
+      '<button type="button" class="a2-btn" data-write="1">Write to Diana <span aria-hidden="true">&rarr;</span></button></div>';
+    return w;
+  }
+  function noneTurn(near){
+    var w = document.createElement('div'); w.className = 'a2-turn';
+    w.innerHTML = '<div class="a2-ans"><h3 class="a2-sr" tabindex="-1">No written answer</h3><p>Diana hasn&rsquo;t written about that. You can browse every question she has answered, or ask her directly.</p>' +
+      '<div class="a2-meta"><button type="button" class="a2-src" data-all="1">Browse all questions <span aria-hidden="true">&rarr;</span></button><span class="a2-dot" aria-hidden="true">&middot;</span><button type="button" class="a2-src" data-write="1">Write to Diana <span aria-hidden="true">&rarr;</span></button></div></div>';
+    return w;
+  }
+  function post(q, turn, label){
+    startThread(); closeAhead();
+    var m = me(q); thread.appendChild(m);
+    var wait = document.createElement('div'); wait.className = 'a2-wait'; wait.innerHTML = orbHTML(18, true);
+    thread.appendChild(wait); paintStill(wait); watch(wait); scrollToEl(m);
+    state.busy = true;
+    setTimeout(function(){
+      wait.remove(); thread.appendChild(turn); paintStill(turn); state.busy = false;
+      renderStarters(); renderAll(); say(label);
+      setTimeout(function(){ scrollToEl(m); }, 30);
+    }, reduce ? 0 : 420);
+  }
+  function askById(id){
+    if (state.busy) return;
+    var x = BY[id]; if (!x) return;
+    if (state.asked.indexOf(id) < 0) state.asked.push(id);
+    post(x.q, id === 'inperson' ? personTurn() : answerTurn(id), 'Answer: ' + x.q);
+  }
+  function askText(text){
+    if (state.busy) return;
+    var p = pick(text);
+    if (p.kind === 'answer'){ if (state.asked.indexOf(p.id) < 0) state.asked.push(p.id); post(text, answerTurn(p.id, p.sure ? '' : 'Closest answer Diana wrote: <b>'+esc(BY[p.id].q)+'</b>'), 'Answer: ' + BY[p.id].q); }
+    else if (p.kind === 'person'){ state.typed.push(text); state.asked.push('inperson'); post(text, personTurn(), 'This one goes to Diana directly'); }
+    else { state.typed.push(text); post(text, noneTurn(p.near), 'No written answer yet. Closest questions listed'); }
+  }
+  /* ---------- matching (simulated; whole words only) ---------- */
+  var STOP = 'a an the is are was were be been do does did doing has have had her she he his him diana diana\'s about of to in on for with and or what whats how why when where who which can could would should will tell me you your i my it its this that any some there their them from as at by so if not just like more what design designed designing she\'d know much many really very please work works worked working experience good does'.split(' ');
+  function stem(w){ return w.replace(/'s$/,'').replace(/(ing|ed|es|s)$/,'').replace(/(.)\1$/,'$1').replace(/e$/,''); }
+  var SYN = { est:'eastern', et:'eastern', edt:'eastern', timezone:'eastern', llm:'ai', llms:'ai', genai:'ai', gpt:'ai', chatgpt:'ai', model:'ai', models:'ai', ml:'ai', agentic:'agent', bots:'agent', automation:'agent', engs:'engineers', devs:'developers', pm:'product', pms:'product', ux:'design', ui:'design', figma:'figma', wfh:'remote', hybrid:'remote', onsite:'remote', relocation:'relocate', comp:'salary', pay:'salary', mistake:'wrong', mistakes:'wrong', error:'wrong', errors:'wrong', unnoticed:'notice', undetected:'notice', complacency:'bias' };
+  function toks(s){ return (s.toLowerCase().match(/[a-z0-9']+/g) || []).map(function(w){ w = w.replace(/'s$/,''); return SYN[w] || w; }).filter(function(w){ return STOP.indexOf(w) < 0 && w.length > 1; }).map(stem); }
+  var IDX = A.filter(function(x){ return x.role !== 'shared'; }).map(function(x){ return { id:x.id, q:toks(x.q), k:toks(x.kw||'') }; });
+  /* typo tolerance: an unknown word snaps to a known word one or two letters away */
+  var VOCAB = {}; IDX.forEach(function(e){ e.q.concat(e.k).forEach(function(w){ VOCAB[w] = 1; }); }); VOCAB = Object.keys(VOCAB);
+  function dist(a, b){ if (Math.abs(a.length - b.length) > 2) return 9; var p = [], i, j; for (j = 0; j <= b.length; j++) p[j] = j;
+    for (i = 1; i <= a.length; i++){ var prev = p[0]; p[0] = i; for (j = 1; j <= b.length; j++){ var tmp = p[j]; p[j] = Math.min(p[j] + 1, p[j-1] + 1, prev + (a[i-1] === b[j-1] ? 0 : 1)); prev = tmp; } } return p[b.length]; }
+  function fix(w){ if (w.length < 4 || VOCAB.indexOf(w) >= 0) return w; var best = w, bd = w.length >= 7 ? 2 : 1;
+    VOCAB.forEach(function(v){ var d = dist(w, v); if (d <= bd){ bd = d - .5; best = v; } }); return best; }
+  function score(qt){
+    return IDX.map(function(e){
+      var s = 0, hits = []; qt.forEach(function(w){ if (e.q.indexOf(w) >= 0){ s += 2; hits.push(w); } else if (e.k.indexOf(w) >= 0){ s += 1.4; hits.push(w); } });
+      return { id:e.id, s: qt.length ? s/(qt.length*2) : 0, raw:s, hits:hits };
+    }).sort(function(a,b){ return b.s - a.s; });
+  }
+  var PERSON = ['level','title','mentor','mentoring','mentored','manage people','managed people','people manager','managed a team','manage a team','managed team','led a team','lead a team','managed designers','manage designers','team lead','management experience','direct reports','team size','contract','contractor','contract-to-hire','w2','c2c','1099','would she','what would','how would','what if','scenario','hypothetical','reference','references','weakness','weaknesses','greatest strength','laid off','layoff','fired'];
+  function personQ(s){ s = ' ' + s.toLowerCase().replace(/[^a-z0-9' -]/g,' ') + ' '; return /\b(lead|led|manage|managed|managing|run|ran)\b.{0,20}\b(team|teams|designers|people)\b/.test(s) || PERSON.some(function(p){ return s.indexOf(' '+p+' ') >= 0; }); }
+  function pick(text){
+    var r = score(toks(text).map(fix)), best = r[0], soft = /\b(would she|what would|how would|what if)\b/i.test(text);
+    if (personQ(text) && best.s < (soft ? .45 : .6)) return { kind:'person' };
+    /* a key concept the visitor named (AI, agents) must be in the answer for it to count as a match */
+    var qt = toks(text).map(fix), CON = ['ai','agent'], missing = CON.some(function(c){ return qt.indexOf(c) >= 0 && best.hits.indexOf(c) < 0; });
+    if (best.s >= .5 && !missing) return { kind:'answer', id:best.id, sure:true, hits:best.hits, alt:r[1] && r[1].s >= .3 ? r[1].id : null };
+    if (best.s >= .5) return { kind:'answer', id:best.id, sure:false, hits:best.hits, alt:r[1] && r[1].s > 0 ? r[1].id : null };
+    if (best.s >= .3 && best.raw >= 1.4) return { kind:'answer', id:best.id, sure:false, hits:best.hits, alt:r[1] && r[1].s > 0 ? r[1].id : null };
+    return { kind:'none', near:r.slice(0,3).filter(function(x){ return x.s > 0; }) };
+  }
+
+  /* ---------- contact handoff: the site's own form, pre-filled ---------- */
+  function writeToDiana(){
+    var read = state.asked.filter(function(id){ return id !== 'inperson' && BY[id]; }).map(function(id){ return '- ' + BY[id].q; });
+    var role = { r:'a recruiter', hm:'a hiring manager', d:'a designer' }[state.role];
+    var body = 'Hi Diana,\n\n' + (role ? 'I\u2019m ' + role + '. ' : '') + (read.length ? 'I read your answers on:\n' + read.join('\n') + '\n\n' : '') + (state.typed.length ? (read.length ? 'I also asked:\n' : 'I asked:\n') + state.typed.map(function(q){ return '- ' + q; }).join('\n') + '\n\n' : '');
+    closeAsk(true);
+    setTimeout(function(){
+      var f = document.getElementById('mForm'), t = f && f.querySelector('textarea[name="message"]'), n = document.getElementById('mFrom');
+      if (t) t.value = body;
+      if (n) n.classList.add('on');
+      var c = document.getElementById('contact'); if (c) c.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' });
+      setTimeout(function(){ var nm = f && f.querySelector('input[name="name"]'); if (nm) nm.focus({ preventScroll:true }); }, reduce ? 0 : 500);
+    }, 60);
+  }
+  var mform = document.getElementById('mForm');
+  if (mform && !document.getElementById('mFrom')){
+    var note = document.createElement('p'); note.className = 'dgc-from'; note.id = 'mFrom';
+    note.innerHTML = '<b>From the chat:</b> your questions are in the message below. Edit anything. Nothing is sent until you press Send.';
+    mform.parentNode.insertBefore(note, mform);
+  }
+
+  /* ---------- land on the passage an answer came from, and mark it briefly ---------- */
+  function land(el){
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'center' });
+    el.classList.remove('ask-hl'); void el.offsetWidth; el.classList.add('ask-hl');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex','-1');
+    setTimeout(function(){ el.focus({ preventScroll:true }); }, reduce ? 0 : 500);
+    setTimeout(function(){ el.classList.remove('ask-hl'); }, 3200);
+  }
+  /* ---------- go to a page on the site ---------- */
+  function go(to){
+    closeAsk(true);
+    setTimeout(function(){
+      var m = /^case:(\w+)$/.exec(to);
+      if (m){ location.href = m[1] + '.html'; return; }
+      if (to === 'article'){ location.href = 'article.html'; return; }
+      if (to === 'demo'){ location.href = 'demo.html'; return; }
+      if (to === 'linkedin'){ window.open('https://linkedin.com/in/dianagdesign', '_blank', 'noopener'); return; }
+      if (to === 'shipped' || to === 'tools' || to === 'work'){ return land(document.getElementById('work')); }
+      return land(document.getElementById('about'));
+    }, reduce ? 0 : 280);
+  }
+
+  /* ---------- open / close ---------- */
+  function setFrom(id){
+    state.from = id || null;
+    $('askFrom').hidden = !id; if (id) $('askFromName').textContent = CASES[id] + ' case';
+    renderStarters();
+  }
+  function openAsk(opts){
+    opts = opts || {};
+    if (!root.classList.contains('on')) lastFocus = document.activeElement;
+    if ('from' in opts) setFrom(opts.from); else if (!thread.children.length) setFrom(null);
+    root.classList.add('on'); scrim.classList.add('on'); root.setAttribute('aria-hidden','false'); document.documentElement.classList.add('ask-lock');
+    paintStill(root); watch(root); renderAll();
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.add('in'); scrim.classList.add('in'); }); });
+    setTimeout(function(){ (thread.children.length ? input : $('askTitle')).focus({ preventScroll:true }); }, reduce ? 0 : 260);
+    if (location.hash !== '#ask') history.pushState({ dgAsk:1 }, '', '#ask');
+  }
+  function hide(){ root.classList.remove('in'); scrim.classList.remove('in'); root.setAttribute('aria-hidden','true');
+    setTimeout(function(){ root.classList.remove('on'); scrim.classList.remove('on'); document.documentElement.classList.remove('ask-lock'); }, reduce ? 0 : 420); }
+  function closeAsk(quiet){
+    if (!root.classList.contains('on')) return;
+    hide(); if (!quiet && lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll:true });
+    if (history.state && history.state.dgAsk) history.back(); else if (location.hash === '#ask') history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.dgAsk = { open:openAsk, close:closeAsk, _pick:pick };
+  window.dgAskPause = function(){};
+  addEventListener('popstate', function(){ if (location.hash === '#ask'){ if (!root.classList.contains('on')) openAsk({}); } else if (root.classList.contains('on')){ hide(); if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll:true }); } });
+
+  /* ---------- events ---------- */
+  document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a.ask-nav'); if (!a) return; e.preventDefault(); openAsk({}); });
+  root.addEventListener('click', function(e){
+    var li = e.target.closest('#askAhead li');
+    if (li){ if (li.dataset.anyway){ var v = input.value.trim(); input.value = ''; closeAhead(); if (v) askText(v); } else { input.value = ''; closeAhead(); askById(li.dataset.id); } return; }
+    var t = e.target.closest('button'); if (!t) return;
+    if (t.id === 'askClose') return closeAsk(false);
+    if (t.classList.contains('a2-more')){ var r = t.closest('.a2-ans').querySelector('.a2-rest'); var open = r.hidden; r.hidden = !open; t.textContent = open ? 'Show less' : 'Read more'; t.setAttribute('aria-expanded', open); return; }
+    if (t.id === 'askFromX'){ setFrom(null); return; }
+    if (t.dataset.who){ state.who = t.dataset.who; state.role = t.dataset.who === 'none' ? null : t.dataset.who; state.filter = state.role || 'all';
+      root.querySelectorAll('.a2-filter button').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.f === state.filter); });
+      renderStarters(); renderAll(); var f = $('askStarters').querySelector('button'); if (f) f.focus({ preventScroll:true }); say(WHO[state.who]); return; }
+    if (t.id === 'askChange'){ state.who = null; state.role = null; renderStarters(); var w = $('askWho').querySelector('button'); if (w) w.focus({ preventScroll:true }); return; }
+    if (t.id === 'askAllBtn' || t.dataset.all){ var b = $('askAllBtn'), on = b.getAttribute('aria-expanded') !== 'true'; b.setAttribute('aria-expanded', on); $('askAll').hidden = !on; b.textContent = on ? 'Hide the full list' : 'Browse all ' + (A.length-1) + ' questions'; if (on){ root.classList.remove('talking'); scroller.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' }); } return; }
+    if (t.dataset.f){ state.filter = t.dataset.f; state.role = t.dataset.f === 'all' ? null : t.dataset.f; root.querySelectorAll('.a2-filter button').forEach(function(x){ x.setAttribute('aria-pressed', x === t); }); renderAll(); renderStarters(); return; }
+    if (t.dataset.id){ if (t.closest('#askAll')){ $('askAllBtn').click(); } askById(t.dataset.id); return; }
+    if (t.dataset.to) return go(t.dataset.to);
+    if (t.dataset.write) return writeToDiana();
+  });
+  input.addEventListener('input', function(){ aheadIdx = -1; renderAhead(); });
+  input.addEventListener('blur', function(){ setTimeout(closeAhead, 150); });
+  input.addEventListener('keydown', function(e){
+    if (ahead.hidden) return;
+    var n = ahead.children.length;
+    if (e.key === 'ArrowDown'){ e.preventDefault(); aheadIdx = (aheadIdx + 1) % n; renderAhead(); }
+    else if (e.key === 'ArrowUp'){ e.preventDefault(); aheadIdx = (aheadIdx - 1 + n) % n; renderAhead(); }
+    else if (e.key === 'Escape'){ e.stopPropagation(); closeAhead(); }
+    else if (e.key === 'Enter' && aheadIdx >= 0){ e.preventDefault(); var li = ahead.children[aheadIdx]; input.value = ''; closeAhead(); if (li.dataset.anyway) askText(li.textContent.replace(/^Ask “|”$/g,'')); else askById(li.dataset.id); }
+  });
+  $('askForm').addEventListener('submit', function(e){ e.preventDefault(); var v = input.value.trim(); if (!v) return; input.value = ''; closeAhead(); askText(v); });
+  root.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ e.preventDefault(); closeAsk(false); return; }
+    if (e.key !== 'Tab') return;
+    var f = [].filter.call(root.querySelectorAll('button,input,[href]'), function(el){ return !el.disabled && el.offsetParent !== null; });
+    if (!f.length) return; var a = f[0], z = f[f.length-1];
+    if (e.shiftKey && document.activeElement === a){ e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z){ e.preventDefault(); a.focus(); }
+  });
+
+  addEntries(); renderStarters(); renderAll();
+  if (location.hash === '#ask') setTimeout(function(){ openAsk({}); }, 300);
+})();
+</script>
+<script id="ask-menu-js">(function(){var nav=document.querySelector(".mnav"),a=nav&&nav.querySelector(".m-ask"),ask=document.getElementById("dgAsk");if(!a||!ask)return;var c=a.querySelector("canvas");function paint(){if(c&&window.dgRing)window.dgRing.draw(c,2.2,{dark:document.documentElement.classList.contains("dark")});}paint();new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["class"]});function sync(){var on=ask.classList.contains("on");a.classList.toggle("ask-on",on);nav.classList.toggle("ask-open",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current");}new MutationObserver(sync).observe(ask,{attributes:true,attributeFilter:["class"]});sync();nav.addEventListener("click",function(e){var l=e.target.closest("a");if(!l)return;var open=ask.classList.contains("on");if(l===a){e.preventDefault();if(!window.dgAsk)return;if(open)window.dgAsk.close();else window.dgAsk.open({});return;}if(open&&window.dgAsk)window.dgAsk.close(true);},true);})();</script>
 </body>
 </html>
