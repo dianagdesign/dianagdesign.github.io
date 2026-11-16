@@ -982,6 +982,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 <style id="dg-mark">.dg-mark{height:.82em;width:auto;display:inline-block;vertical-align:-.1em;overflow:visible}body.dark,html.dark,body.nav-dark{--mark-dot:#9BAEFF}.nav-logo .dg-mark,.case-home-mark .dg-mark{height:17px;vertical-align:0}</style>
 <style id="dg-tab-focus">.sc-steps button:focus:not(:focus-visible){outline:none!important;box-shadow:none!important}</style>
 <style id="m-solid-bars">/* bars read as solid surfaces once content scrolls under them */html body .mbar{background:rgba(251,250,248,.97)!important}html body.dark .mbar{background:rgba(6,13,34,.97)!important}:root body.case-scrolled:not(.dark) .case-topbar{background:rgba(251,250,248,.97)!important}:root body.dark.case-scrolled .case-topbar{background:rgba(3,11,32,.96)!important}</style>
+<style id="dg-plain">html:root body:not(#_) .fig span,html:root body:not(#_) .pane-label,html:root body:not(#_) .log-flag,html:root body:not(#_) .app-status{font-family:"Funnel Sans",system-ui,sans-serif!important;text-transform:none!important;letter-spacing:normal!important}html:root body:not(#_) .head-eyebrow,html:root body:not(#_) .n,html:root body:not(#_) .stage-n{display:none!important}</style>
 </head>
 <body>
 <script id="m-theme">(function(){function apply(){try{var t=localStorage.getItem('dg-theme');if(t==='dark')document.body.classList.add('dark');else if(t==='light')document.body.classList.remove('dark');}catch(e){}}
@@ -1009,7 +1010,7 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
     <p>Run the agent and watch it read the note. Every fact it pulls out is threaded back to the sentence it came from. Reversible facts cross into the record on their own. The one irreversible call gets caught, and everything waits for you.</p>
   </header>
 
-  <div class="fig sky-scrim dark-only"><b>Fig. 01</b><span>Screening review, scripted simulation &middot; synthetic data</span><div class="fig-actions"><div class="cta-row"><button class="runbtn skip" id="skipBtn" onclick="skip()">Skip to the decision</button><button class="runbtn" id="runBtn" onclick="run()"><span class="play">&#9654;</span>Run the screening agent</button></div><span class="hold-status" id="holdStatus" role="status" aria-live="polite">Held at boundary</span></div></div>
+  <div class="fig sky-scrim dark-only"><span>Screening review, scripted simulation &middot; synthetic data</span><div class="fig-actions"><div class="cta-row"><button class="runbtn skip" id="skipBtn" onclick="skip()">Skip to the decision</button><button class="runbtn" id="runBtn" onclick="run()"><span class="play">&#9654;</span>Run the screening agent</button></div><span class="hold-status" id="holdStatus" role="status" aria-live="polite">Held at boundary</span></div></div>
 
   <div class="specimen">
     <div class="app-bar">

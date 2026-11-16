@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>var DG_V="?v=20261116c";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
+<script>var DG_V="?v=20261116d";window.__dgCov=function(){return !!document.querySelector('.open[id$="Overlay"],.sb-overlay.on');};</script>
 <script>(function(){try{
   if(location.search.indexOf('desktop')>-1){sessionStorage.setItem('dg-desktop','1');return;}
   if(sessionStorage.getItem('dg-desktop'))return;
@@ -1840,7 +1840,7 @@ html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chi
 
 <section id="work-panel" class="panel panel-work" data-panel data-nav="work"><div class="wrap">
   <div class="works-divider">
-    <h2 class="works-title">Work where people stay <em>in charge</em></h2>
+    <h2 class="works-title">Selected work</h2>
   </div>
   <div class="wk-list">
   <section class="wk-case" data-case="rsm" aria-labelledby="wk-t-rsm">
@@ -1866,7 +1866,7 @@ html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chi
       <h3 class="wk-title" id="wk-t-adcm">Getting decades of research data back within <em>reach</em></h3>
       <p class="dg-meta wk-meta2">Mayo Clinic &middot; Product designer &middot; 2026</p>
       <p class="wk-lede">I built a working prototype of the MVP. Leadership approved the build after seeing it run, and development is underway from my prototype.</p>
-      <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Build approved after the prototype demo</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>In development from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>Conflict flow cut from four options to one&nbsp;question</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.2a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.8 2.2 3.1 4.7"/></svg></span><span>Held the line: nothing reaches the catalog without&nbsp;validation</span></li></ul>
+      <ul class="wk-out"><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Build approved after the prototype demo</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 7 4 12l4.5 5M15.5 7 20 12l-4.5 5M13.5 5l-3 14"/></svg></span><span>In development from my&nbsp;prototype</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg></span><span>Conflict flow cut from four options to one&nbsp;question</span></li><li><span class="wk-oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span>Held the line: nothing reaches the catalog without&nbsp;validation</span></li></ul>
       <div class="wk-row">
         <a href="#case-adcm" class="wk-cta js-open-case" data-case="adcm" data-glyph="pipette">Full case study <span aria-hidden="true">&rarr;</span></a>
         <div class="wk-nav" aria-label="Animated screens">
@@ -2268,9 +2268,11 @@ html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chi
   }
   async function animateClaim(i, token){
     var c=claims[i], chip=chipFor(i);
+    var r0=ws.querySelector('.dl-rest'); if(r0) r0.remove();
     ws.appendChild(chip);
     requestAnimationFrame(function(){ chip.classList.add('on'); });
-    await delay(reduce?0:380);
+    /* hold each claim long enough to read before it is logged */
+    await delay(reduce?0:(c.tier==='auto'?1100:380));
     if(token!==generation) return false;
 
     if(c.tier==='auto'){
@@ -2311,9 +2313,10 @@ html body .ask2 .a2-chips.sm .a2-chip:hover,html body .ask2 .a2-chips.sm .a2-chi
     if(completed){ clearStage(); await delay(80); }
     running=true; completed=false;
     var token=++generation;
-    ws.innerHTML=''; log.innerHTML=''; slot.innerHTML=''; mid.classList.remove('pulse');
+    /* keep the ready card and earlier log rows until the first claim arrives, so the panels are never empty */
+    slot.innerHTML=''; mid.classList.remove('pulse');
     setRunState('working');
-    await delay(reduce?0:420);
+    await delay(reduce?0:160);
     for(var i=0;i<claims.length;i++){
       if(token!==generation) return;
       var ok=await animateClaim(i,token);
